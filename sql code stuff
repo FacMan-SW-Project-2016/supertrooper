@@ -1,0 +1,1 @@
+CREATE TABLE `Report`.`Report` ( `Index` INT NOT NULL , `Titel` TEXT NOT NULL , `Kategorie` ENUM('Schaden','Verschmutzung','Technisch','') NOT NULL , `Beschreibung` TEXT NOT NULL , `UserCreate` TEXT NOT NULL , `UserFacMan` TEXT NOT NULL , `Status` ENUM('Aktiv','Bearbeitung','Abgeschlossen','') NOT NULL , `Daten` LONGBLOB NOT NULL , PRIMARY KEY (`Index`)) ENGINE = InnoDB; 
