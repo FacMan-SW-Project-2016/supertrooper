@@ -1,44 +1,26 @@
 <html>
 <head>
-	<title>FacMan Startseite</title>
-	<link rel="stylesheet" type="text/css" href="semantic_ui/semantic.min.css">
+<title>FacMan Startseite</title>
+<link rel="stylesheet" type="text/css"
+	href="semantic_ui/semantic.min.css">
 </head>
 <body bgcolor=white>
 
-	<button class="ui button">Hallo</button>
-
-	<form class="ui form">
-		<div class="field">
-			<label>First Name</label> <input type="text" name="first-name"
-				placeholder="First Name">
-		</div>
-		<div class="field">
-			<label>Last Name</label> <input type="text" name="last-name"
-				placeholder="Last Name">
-		</div>
-		<div class="field">
-			<div class="ui checkbox">
-				<input type="checkbox" name="termsAndConditions"> <label>I agree
-					to the terms and conditions</label>
-			</div>
-		</div>
-		<button class="ui button" type="submit">Submit</button>
-	</form>
-
-	<div class="ui horizontal divider">Or</div>
-
 	<form class="ui form segment">
-		<p>Tell Us About Yourself</p>
+		<p>Facility Management</p>
+		<h4 class="ui dividing header">Bitte beschreiben Sie Ihr Anliegen</h4>
 		<div class="two fields">
 			<div class="field">
-				<label>Name</label> <input placeholder="First Name" name="name"
-					type="text">
+				<label>Titel</label> <input
+					placeholder="Geben Sie Ihrem Anliegen einen Titel - Beispiel: Fenster kaputt"
+					name="title" type="text">
 			</div>
 			<div class="field">
-				<label>Gender</label> <select class="ui dropdown" name="gender">
-					<option value="">Gender</option>
-					<option value="male">Male</option>
-					<option value="female">Female</option>
+				<label>Geschlecht</label> <select class="ui dropdown" name="gender">
+					<option value="">Wählen Sie ihr Geschlecht</option>
+					<option value="male">Männlich</option>
+					<option value="female">Weiblich</option>
+					<option value="unentschlossen">Unentschlossen</option>
 				</select>
 			</div>
 		</div>
@@ -52,22 +34,28 @@
 			</div>
 		</div>
 		<div class="field">
-			<label>Skills</label> <select name="skills" multiple=""
+			<label>Kategorie</label> <select name="kategorie" multiple="false"
 				class="ui dropdown">
-				<option value="">Select Skills</option>
-				<option value="css">CSS</option>
-				<option value="html">HTML</option>
-				<option value="javascript">Javascript</option>
-				<option value="design">Graphic Design</option>
-				<option value="plumbing">Plumbing</option>
-				<option value="mech">Mechanical Engineering</option>
-				<option value="repair">Kitchen Repair</option>
+				<option value="">Wählen Sie eine Kategorie des Problems
+					aus.</option>
+				<option value="schaden">Schaden</option>
+				<option value="verschmutzung">Verschmutzung</option>
+				<option value="technisch">Technisch</option>
+				<option value="sonstiges">Sonstiges</option>
 			</select>
 		</div>
+		<div class="ui form">
+			<div class="field">
+				<label>Beschreibung</label>
+				<textarea></textarea>
+			</div>
+		</div>
+		<p></p> 
 		<div class="inline field">
 			<div class="ui checkbox">
-				<input type="checkbox" name="terms"> <label>I agree
-					to the terms and conditions</label>
+				<input type="checkbox" name="terms"> <label>Hiermit
+					bestätige Ich, dass alle angegebenen Information der Wahrheit
+					entsprechen.</label>
 			</div>
 		</div>
 		<div class="ui primary submit button">Submit</div>
@@ -97,7 +85,7 @@
 		<div class="ui tab" data-tab="summary">Other content</div>
 
 	</div>
-	
+
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src="semantic_ui/semantic.min.js"></script>
 	<script src="js/controller.js"></script>
