@@ -1,30 +1,93 @@
 <html>
-  <head>
-    <title>Sample "Hello, World" Application</title>
-  </head>
-  <link rel="stylesheet" type="text/css" href="semantic_ui/semantic.min.css">
-  <script src="semantic_ui/semantic.min.js"></script>
-  <body bgcolor=white>
+<head>
+<title>FacMan Startseite</title>
+<link rel="stylesheet" type="text/css"
+	href="semantic_ui/semantic.min.css">
+</head>
+<body bgcolor=white>
 
-    <table border="0" cellpadding="10">
-      <tr>
-        <td>
-          <img src="images/springsource.png">
-        </td>
-        <td>
-          <h1>Sample "Hello, World" Application</h1>
-        </td>
-      </tr>
-    </table>
-    
-    <button class="ui button">Hallo</button>
+	<form class="ui form segment">
+		<p>Facility Management</p>
+		<h4 class="ui dividing header">Bitte beschreiben Sie Ihr Anliegen</h4>
+		<div class="two fields">
+			<div class="field">
+				<label>Titel</label> <input
+					placeholder="Geben Sie Ihrem Anliegen einen Titel - Beispiel: Fenster kaputt"
+					name="title" type="text">
+			</div>
+			<div class="field">
+				<label>Geschlecht</label> <select class="ui dropdown" name="gender">
+					<option value="">Wählen Sie ihr Geschlecht</option>
+					<option value="male">Männlich</option>
+					<option value="female">Weiblich</option>
+					<option value="unentschlossen">Unentschlossen</option>
+				</select>
+			</div>
+		</div>
+		<div class="two fields">
+			<div class="field">
+				<label>Username</label> <input placeholder="Username"
+					name="username" type="text">
+			</div>
+			<div class="field">
+				<label>Password</label> <input type="password" name="password">
+			</div>
+		</div>
+		<div class="field">
+			<label>Kategorie</label> <select name="kategorie" multiple="false"
+				class="ui dropdown">
+				<option value="">Wählen Sie eine Kategorie des Problems
+					aus.</option>
+				<option value="schaden">Schaden</option>
+				<option value="verschmutzung">Verschmutzung</option>
+				<option value="technisch">Technisch</option>
+				<option value="sonstiges">Sonstiges</option>
+			</select>
+		</div>
+		<div class="ui form">
+			<div class="field">
+				<label>Beschreibung</label>
+				<textarea></textarea>
+			</div>
+		</div>
+		<p></p> 
+		<div class="inline field">
+			<div class="ui checkbox">
+				<input type="checkbox" name="terms"> <label>Hiermit
+					bestätige Ich, dass alle angegebenen Information der Wahrheit
+					entsprechen.</label>
+			</div>
+		</div>
+		<div class="ui primary submit button">Submit</div>
+		<div class="ui error message"></div>
+	</form>
 
-    <p>This is the home page for the HelloWorld Web application. </p>
-    <p>To prove that they work, you can execute either of the following links:
-    <ul>
-      <li>To a <a href="hello.jsp">JSP page</a>.
-      <li>To a <a href="hello">servlet</a>.
-    </ul>
+	<div class="ui horizontal divider">Or</div>
 
-  </body>
+	<div class="ui segment">
+		<div class="ui menu top">
+			<a class="active item" data-tab="edit"><i class="icon edit sign"></i>Edit</a>
+			<a class="item" data-tab="summary">Summary</a>
+		</div>
+
+		<div class="ui tab" data-tab="edit">
+			<div class="ui form">
+				<div class="two fields">
+					<div class="field">
+						<label>First Name</label><input type="text" />
+					</div>
+					<div class="field">
+						<label>Last Name</label><input type="text" />
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="ui tab" data-tab="summary">Other content</div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="semantic_ui/semantic.min.js"></script>
+	<script src="js/controller.js"></script>
+</body>
 </html>
