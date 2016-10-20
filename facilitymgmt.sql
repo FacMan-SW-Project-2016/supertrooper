@@ -1,11 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Oct 20, 2016 at 11:40 AM
--- Server version: 10.1.16-MariaDB
--- PHP Version: 5.6.24
+﻿
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -25,8 +18,9 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `category`
 --
-DROP DATABASE 'facilitymgmt';
-CREATE DATABASE IF NOT EXISTS 'facilitymgmt' DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci; USE 'facilitymgmt';
+DROP DATABASE IF EXISTS facilitymgmt;
+
+CREATE DATABASE IF NOT EXISTS facilitymgmt DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci; USE facilitymgmt;
 
 CREATE TABLE `category` (
   `ID` int(11) NOT NULL,
