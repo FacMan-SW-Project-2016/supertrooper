@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2016 at 10:27 AM
+-- Generation Time: Oct 20, 2016 at 11:40 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -25,8 +25,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `category`
 --
-CREATE DATABASE IF NOT EXISTS 'facilitymgmt'DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE 'facilitymgmt';
+DROP DATABASE 'facilitymgmt';
+CREATE DATABASE IF NOT EXISTS 'facilitymgmt' DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci; USE 'facilitymgmt';
 
 CREATE TABLE `category` (
   `ID` int(11) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE `report` (
   `room` int(11) NOT NULL,
   `category` int(11) NOT NULL,
   `status` int(11) NOT NULL,
-  `description` text NOT NULL,
+  `description` char(250) NOT NULL,
   `usercreate` char(20) NOT NULL,
   `userfacman` char(20) DEFAULT NULL,
   `data` blob,
@@ -67,9 +67,9 @@ CREATE TABLE `report` (
 --
 
 INSERT INTO `report` (`ID`, `title`, `room`, `category`, `status`, `description`, `usercreate`, `userfacman`, `data`, `moment`) VALUES
-(1, 'Beamer kaputt in Hörsaal 6', 1, 2, 1, 'Mit Beamer im hörsaal 6 kann keine verbindung aufgenommen werden  ', 'Felix Gillissen', NULL, NULL, '2016-10-19 18:38:58'),
-(2, 'Mülleimer übefüllt', 2, 1, 2, 'Mülleimer im Hörsaal 4 läuft über, der raum ist verdreckt ', 'Felix Gillissen', 'Thomas Hammer', NULL, '2016-10-19 18:38:58'),
-(3, 'Penis bild auf Tafel', 1, 4, 2, 'Bild eines Penis wurde auf die Tafel des Hörsaal 6 gemalt. ', 'Felix Gillissen', '', NULL, '2016-10-19 18:38:58');
+(1, 'Beamer kaputt in Hörsaal 6', 1, 2, 1, 'Mit Beamer im hörsaal 6 kann keine verbindung aufgenommen werden', 'Felix Gillissen', NULL, NULL, '2016-10-19 18:38:58'),
+(2, 'Mülleimer übefüllt', 2, 1, 2, 'Mülleimer im Hörsaal 4 läuft über, der raum ist verdreckt', 'Felix Gillissen', 'Thomas Hammer', NULL, '2016-10-19 18:38:58'),
+(3, 'Penis bild auf Tafel', 1, 4, 2, 'Bild eines Penis wurde auf die Tafel des Hörsaal 6 gemalt.', 'Felix Gillissen', '', NULL, '2016-10-19 18:38:58');
 
 -- --------------------------------------------------------
 
@@ -79,10 +79,10 @@ INSERT INTO `report` (`ID`, `title`, `room`, `category`, `status`, `description`
 
 CREATE TABLE `room` (
   `ID` int(11) NOT NULL,
-  `name` text NOT NULL,
+  `name` char(20) NOT NULL,
   `floor` int(11) NOT NULL,
-  `building` text NOT NULL,
-  `address` text NOT NULL
+  `building` char(20) NOT NULL,
+  `address` char(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -90,8 +90,8 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`ID`, `name`, `floor`, `building`, `address`) VALUES
-(1, 'Hörsaal 6', 1, 'Transatlantik Institut', 'Turmstrasse 8, 67059 Ludwigshafen-Rhein'),
-(2, 'Hörsaal 4', 1, 'Transatlantik-Institut', 'Turmstrasse 8, 67059 Ludwigshafen-Rhein');
+(1, 'Hörsaal 6', 1, 'Transatlantik Instit', 'Turmstrasse 8, 67059 Ludwigsha'),
+(2, 'Hörsaal 4', 1, 'Transatlantik-Instit', 'Turmstrasse 8, 67059 Ludwigsha');
 
 -- --------------------------------------------------------
 
