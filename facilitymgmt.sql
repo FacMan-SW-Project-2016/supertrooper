@@ -25,7 +25,8 @@ SET time_zone = "+00:00";
 --
 -- Table structure for table `category`
 --
-CREATE DATABASE facilitymgmt; USE facilitymgmt;
+CREATE DATABASE IF NOT EXISTS 'facilitymgmt'DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE 'facilitymgmt';
 
 CREATE TABLE `category` (
   `ID` int(11) NOT NULL,
