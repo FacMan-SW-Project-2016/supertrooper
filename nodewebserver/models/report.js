@@ -17,7 +17,8 @@ function Report() {
           con.release();
           if (err) {
         	  console.log("Error");
-            res.send({status: 1, message: 'Report creation failed'});
+            console.log(todo);
+            res.send({status: 404, message: 'Report creation failed'});
           } else {
         	  console.log("Success");
             res.send({status: 0, message: 'Report created successfully'});

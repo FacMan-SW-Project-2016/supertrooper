@@ -37,8 +37,8 @@ var rulesAndSettings = {
 			} ]
 		}
 	},
-	
-	// These are the settings for our report <form>	
+
+	// These are the settings for our report <form>
 	inline : true,
 	on : 'blur',
 	transition: 'fade down',
@@ -60,36 +60,19 @@ $form.form(rulesAndSettings);
 // This method will be called in order to post our form to the nodejs webservice
 // to save the data in our DB
 function submitForm() {
-	
-	var allFields = $('.ui.form').form('get values');
 
-	// we need something like this to create a FormData object from the
-	// allFields array<
-	 var data = new FormData();
-	 
-	 data.append('ID','20');
-	 
-	 for (var entry in allFields) {
-		    if (allFields.hasOwnProperty(entry)) {
-		    	if (entry != "terms"){
-		    		if (entry != "gender") {
-		    			data.append(entry, allFields[entry]);
-		    		}
-		    		
-		    	}
-		    	
-		    }
-		}
-	
+var values = $("#reportForm :input[name!='terms']").serialize();
+
 	// We use jQuery.ajax to post our data to the webservice via http
 	$.ajax({
 		url : 'http://localhost:8000/report/',
-		data : data,
+		data : values,
 		cache : false,
-		contentType : false,
+		contentType : 'application/x-www-form-urlencoded',
 		processData : false,
 		type : 'POST',
-		success : onFormSubmitted
+		success : onFormSubmitted,
+		async: false
 	});
 };
 
@@ -101,4 +84,13 @@ function failure() {
 // Handle the response of the http request
 function onFormSubmitted(response) {
 	alert("yaay it twerked");
-}
+};
+
+function autoComplete() {
+	$form.form('set values', {
+	    title     : 'Test Titel',
+	    category   : 'Schaden',
+	    description   : 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.',
+	    terms    : true
+	  })
+};

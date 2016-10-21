@@ -5,3 +5,10 @@ wieso nutzen wir nodejs webservices/java
 
 CORS in nodejs; wie vermeidet man cross origin calls?
 kann der webserver auf dem gleichen port laufen wie der webserver? angabe nur über /rooms/...
+
+
+prüfen ob values für kategorien den richtigen zahlenwerten/indices zugeordnet sind;
+
+ids auf auto increment setzen
+
+webservice; errors werden nicht korrekt reported an website
