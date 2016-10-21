@@ -93,6 +93,8 @@ function submitForm() {
 	});
 };
 
+
+
 // If something went wrong, dummy behaviour
 function failure() {
 	alert("failure");
@@ -101,4 +103,13 @@ function failure() {
 // Handle the response of the http request
 function onFormSubmitted(response) {
 	alert("yaay it twerked");
+}
+
+function autoComplete() {
+	$form.form('set values', {
+	    title     : 'Test Titel',
+	    category   : 'Schaden',
+	    description   : 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.',
+	    terms    : true
+	  })
 }

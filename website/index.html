@@ -1,34 +1,32 @@
 <html>
 <head>
-	<title>FacMan Startseite</title>
-	<link rel="stylesheet" type="text/css" href="semantic_ui/semantic.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>FacMan Startseite</title>
+<link rel="stylesheet" type="text/css"
+	href="semantic_ui/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
 </head>
 <body bgcolor=white>
 	<div class="ui container">
-		<form class="ui form segment" id="reportForm">
+		<form class="ui form piled segment" id="reportForm">
 			<p>Facility Management</p>
 			<h4 class="ui dividing header">Bitte beschreiben Sie Ihr
 				Anliegen</h4>
-			<div class="two fields">
-				<div class="required field">
-					<label>Titel</label> <input
-						placeholder="Geben Sie Ihrem Anliegen einen Titel - Beispiel: Fenster kaputt"
-						name="title" type="text">
-				</div>
-				<div class="field">
-					<label>Geschlecht</label> <select class="ui dropdown" name="gender">
-						<option value="">Wählen Sie ihr Geschlecht</option>
-						<option value="male">Männlich</option>
-						<option value="female">Weiblich</option>
-						<option value="unentschlossen">Unentschlossen</option>
-					</select>
-				</div>
+			<div class="required field">
+				<label>Titel</label> <input
+					placeholder="Geben Sie Ihrem Anliegen einen Titel - Beispiel: Fenster kaputt"
+					name="title" type="text">
+			</div>
+			<div class="field">
+				<label>Geschlecht</label> <select class="ui dropdown" name="gender">
+					<option value="">Wählen Sie ihr Geschlecht</option>
+					<option value="male">Männlich</option>
+					<option value="female">Weiblich</option>
+					<option value="unentschlossen">Unentschlossen</option>
+				</select>
 			</div>
 			<div class="required field">
-				<label>Kategorie</label> <select name="category"
-					class="ui dropdown">
+				<label>Kategorie</label> <select name="category" class="ui dropdown">
 					<option value="">Wählen Sie eine Kategorie des Problems
 						aus.</option>
 					<option value="schaden">Schaden</option>
@@ -51,6 +49,7 @@
 			</div>
 			<div class="ui blue submit button" id="submitButton">Submit</div>
 			<div class="ui reset button">Reset</div>
+			<div class="ui button" onClick="autoComplete()">Autom. Ausfüllen</div>
 			<div class="ui error message"></div>
 		</form>
 
