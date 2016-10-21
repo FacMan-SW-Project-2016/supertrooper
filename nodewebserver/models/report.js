@@ -16,8 +16,10 @@ function Report() {
         con.query('insert into report set ?', todo, function(err, result) {
           con.release();
           if (err) {
+        	  console.log("Error");
             res.send({status: 1, message: 'Report creation failed'});
           } else {
+        	  console.log("Success");
             res.send({status: 0, message: 'Report created successfully'});
           }
         });

@@ -2,11 +2,12 @@
 <head>
 	<title>FacMan Startseite</title>
 	<link rel="stylesheet" type="text/css" href="semantic_ui/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 </head>
 <body bgcolor=white>
 	<div class="ui container">
-		<form class="ui form segment">
+		<form class="ui form segment" id="reportForm">
 			<p>Facility Management</p>
 			<h4 class="ui dividing header">Bitte beschreiben Sie Ihr
 				Anliegen</h4>
@@ -14,7 +15,7 @@
 				<div class="required field">
 					<label>Titel</label> <input
 						placeholder="Geben Sie Ihrem Anliegen einen Titel - Beispiel: Fenster kaputt"
-						name="titel" type="text">
+						name="title" type="text">
 				</div>
 				<div class="field">
 					<label>Geschlecht</label> <select class="ui dropdown" name="gender">
@@ -25,17 +26,8 @@
 					</select>
 				</div>
 			</div>
-			<div class="two fields">
-				<div class="field">
-					<label>Username</label> <input placeholder="Username"
-						name="username" type="text">
-				</div>
-				<div class="field">
-					<label>Password</label> <input type="password" name="password">
-				</div>
-			</div>
 			<div class="required field">
-				<label>Kategorie</label> <select name="kategorie" multiple="false"
+				<label>Kategorie</label> <select name="category"
 					class="ui dropdown">
 					<option value="">Wählen Sie eine Kategorie des Problems
 						aus.</option>
@@ -45,47 +37,22 @@
 					<option value="sonstiges">Sonstiges</option>
 				</select>
 			</div>
-			<div class="ui form">
-				<div class="required field">
-					<label>Beschreibung</label>
-					<textarea name="beschreibung"></textarea>
-				</div>
+			<div class="required field">
+				<label>Beschreibung</label>
+				<textarea name="description"></textarea>
 			</div>
 			<p></p>
 			<div class="required inline field">
 				<div class="ui checkbox">
 					<input type="checkbox" name="terms"> <label>Hiermit
-						bestätige Ich, dass alle angegebenen Information der Wahrheit
+						bestätige Ich, dass alle angegebenen Informationen der Wahrheit
 						entsprechen.</label>
 				</div>
 			</div>
-			<div class="ui primary submit button">Submit</div>
+			<div class="ui blue submit button" id="submitButton">Submit</div>
+			<div class="ui reset button">Reset</div>
 			<div class="ui error message"></div>
 		</form>
-
-		<div class="ui horizontal divider">Or</div>
-
-		<div class="ui segment">
-			<div class="ui menu top">
-				<a class="active item" data-tab="edit"><i class="icon edit sign"></i>Edit</a>
-				<a class="item" data-tab="summary">Summary</a>
-			</div>
-
-			<div class="ui tab" data-tab="edit">
-				<div class="ui form">
-					<div class="two fields">
-						<div class="field">
-							<label>First Name</label><input type="text" />
-						</div>
-						<div class="field">
-							<label>Last Name</label><input type="text" />
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="ui tab" data-tab="summary">Other content</div>
-
-		</div>
 
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 		<script src="semantic_ui/semantic.min.js"></script>
