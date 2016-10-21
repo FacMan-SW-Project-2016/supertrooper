@@ -1,2 +1,7 @@
 wieso nutzen wir webservices
 wieso nutzen wir nodejs webservices/java
+
+
+
+CORS in nodejs; wie vermeidet man cross origin calls?
+kann der webserver auf dem gleichen port laufen wie der webserver? angabe nur über /rooms/...
