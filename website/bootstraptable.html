@@ -1,19 +1,31 @@
 <html>
-<body>
+<body bgcolor=white>
+<link rel="stylesheet" type="text/css" href="semantic_ui/semantic.min.css">
 
-<table id="table"></table>
-
-
-
+    
+<div class="ui container">
+<form class="ui form piled segment" id="reportForm">
+    <h4>Report Liste:</h4>
+    <p>W&auml;hlen sie eine Meldung aus um zur Detail Ansicht zu w&auml;chseln</p>
+<div class='ui center aligned container'>
+    <table id="table" class="ui selectable celled table">
+<!--    <button class="ui button">test</button>-->
+    </table>
+</div>
+<div class="ui right aligned container">
+    <p> </p>
+    <button onclick="history.go(-1);" class="ui secondary button">Zur&uumlck</button>
+    <button onclick="location.reload()" class="ui primary button">Refresh</button>
+</div>    
+</form>
+     </div>
+     
+     
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="semantic_ui/semantic.min.js"></script>
-
-<!-- Latest compiled and minified JavaScript -->
+    <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/bootstrap-table.js"></script>
 <script src="./bootstrap/bootstrap-table.min.js"></script>
-
-
 <script src="js/bootstraptable_controller.js"></script>
-
 </body>
 </html>
