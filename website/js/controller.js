@@ -41,7 +41,7 @@ var rulesAndSettings = {
 	// These are the settings for our report <form>
 	inline : true,
 	on : 'blur',
-	transition: 'fade down',
+	transition : 'fade down',
 	onSuccess : submitForm
 };
 
@@ -49,7 +49,7 @@ var rulesAndSettings = {
 var $form = $('#reportForm');
 console.log($form);
 
-//-------------------------------METHODS-------------------------------------
+// -------------------------------METHODS-------------------------------------
 
 // default methods for semantic-ui animations
 $('select.dropdown').dropdown();
@@ -61,7 +61,7 @@ $form.form(rulesAndSettings);
 // to save the data in our DB
 function submitForm() {
 
-var values = $("#reportForm :input[name!='terms']").serialize();
+	var values = $("#reportForm :input[name!='terms']").serialize();
 
 	// We use jQuery.ajax to post our data to the webservice via http
 	$.ajax({
@@ -72,7 +72,7 @@ var values = $("#reportForm :input[name!='terms']").serialize();
 		processData : false,
 		type : 'POST',
 		success : onFormSubmitted,
-		async: false
+		async : false
 	});
 };
 
@@ -87,10 +87,24 @@ function onFormSubmitted(response) {
 };
 
 function autoComplete() {
-	$form.form('set values', {
-	    title     : 'Test Titel',
-	    category   : 'Schaden',
-	    description   : 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.',
-	    terms    : true
-	  })
+	$form
+			.form(
+					'set values',
+					{
+						title : 'Test Titel',
+						category : 'Schaden',
+						description : 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.',
+						terms : true
+					})
 };
+
+$('#category').dropdown({
+	  apiSettings: {
+	    url: '//localhost:8000/category'
+	  },
+	  fields: {
+//	    remoteValues: 'results',
+	    title: 'type',
+	    value: 'ID'
+	  }
+});

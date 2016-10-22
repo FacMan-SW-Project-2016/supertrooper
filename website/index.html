@@ -18,14 +18,13 @@
 					name="title" type="text">
 			</div>
 			<div class="required field">
-				<label>Kategorie</label> <select name="category" class="ui dropdown">
-					<option value="">Wählen Sie eine Kategorie des Problems
-						aus.</option>
-					<option value="1">Schaden</option>
-					<option value="2">Verschmutzung</option>
-					<option value="3">Technisch</option>
-					<option value="4">Sonstiges</option>
-				</select>
+				<label>Kategorie</label>
+				<div class="ui search selection dropdown" id="category">
+					<input type="hidden"> <i class="dropdown icon"></i> <input
+						type="text" class="search">
+					<div class="default text">Wählen Sie eine Kategorie des
+						Problems aus.</div>
+				</div>
 			</div>
 			<div class="required field">
 				<label>Beschreibung</label>
