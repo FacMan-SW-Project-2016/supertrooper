@@ -98,19 +98,15 @@ function autoComplete() {
 					})
 };
 
-$('#category').dropdown({
+$('#categoryDropdown').dropdown({
 	  apiSettings: {
 	    url: '//localhost:8000/category',
 	    cache: false
 	  },
-	  debug : true,
 	  saveRemoteData: false,
 	  fields: {
 //	    remoteValues: 'results',
 		  value: 'ID',
-		  title: 'type',
-	      text: 'text'
+		  name: 'text'
 	  }
 });
-
-$('#category').dropdown('refresh'); 
