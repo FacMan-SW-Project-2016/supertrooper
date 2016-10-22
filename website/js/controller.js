@@ -8,6 +8,13 @@ var rulesAndSettings = {
 				prompt : 'Bitte geben Sie ihrem Anliegen einen Titel.'
 			} ]
 		},
+		room : {
+			identifier : 'room',
+			rules : [ {
+				type : 'minCount[1]',
+				prompt : 'Bitte wählen Sie den Raum aus, in dem das Problem aufgetreten ist.' 
+			} ]
+		},
 		category : {
 			identifier : 'category',
 			rules : [ {
@@ -92,6 +99,7 @@ function autoComplete() {
 					'set values',
 					{
 						title : 'Test Titel',
+						room : 1,
 						category : 1,
 						description : 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.',
 						terms : true
@@ -108,5 +116,18 @@ $('#categoryDropdown').dropdown({
 //	    remoteValues: 'results',
 		  value: 'ID',
 		  name: 'text'
+	  }
+});
+
+$('#roomDropdown').dropdown({
+	  apiSettings: {
+	    url: '//localhost:8000/room',
+	    cache: false
+	  },
+	  saveRemoteData: false,
+	  fields: {
+//	    remoteValues: 'results',
+		  value: 'ID',
+		  name: 'name'
 	  }
 });
