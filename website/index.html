@@ -13,13 +13,18 @@
 			<h4 class="ui dividing header">Bitte beschreiben Sie Ihr
 				Anliegen</h4>
 			<div class="required field">
+				<label>Titel</label> <input
+					placeholder="Geben Sie Ihrem Anliegen einen Titel - Beispiel: Fenster kaputt"
+					name="title" type="text">
+			</div>
+			<div class="required field">
 				<label>Kategorie</label> <select name="category" class="ui dropdown">
 					<option value="">Wählen Sie eine Kategorie des Problems
 						aus.</option>
-					<option value="schaden">Schaden</option>
-					<option value="verschmutzung">Verschmutzung</option>
-					<option value="technisch">Technisch</option>
-					<option value="sonstiges">Sonstiges</option>
+					<option value="1">Schaden</option>
+					<option value="2">Verschmutzung</option>
+					<option value="3">Technisch</option>
+					<option value="4">Sonstiges</option>
 				</select>
 			</div>
 			<div class="required field">
@@ -36,7 +41,8 @@
 			</div>
 			<div class="ui blue submit button" id="submitButton">Submit</div>
 			<div class="ui reset button">Reset</div>
-			<div class="ui button" onClick="autoComplete()">Autom. Ausfüllen</div>
+			<div class="ui button" onClick="autoComplete()">Autom.
+				Ausfüllen</div>
 			<div class="ui error message"></div>
 		</form>
 
