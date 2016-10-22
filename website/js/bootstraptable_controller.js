@@ -24,6 +24,7 @@ $('#table').bootstrapTable({
 });
 $('#table').on('click-row.bs.table', function (e, row, $element) {
         console.log('Event: click-row.bs.table ID:' + row.ID);
+    $('.ui.modal').modal('show');
     });
 
 
