@@ -100,12 +100,17 @@ function autoComplete() {
 
 $('#category').dropdown({
 	  apiSettings: {
-	    url: '//localhost:8000/category'
+	    url: '//localhost:8000/category',
+	    cache: false
 	  },
+	  debug : true,
+	  saveRemoteData: false,
 	  fields: {
 //	    remoteValues: 'results',
-	    title: 'type',
-	    value: 'ID',
-	    text: 'type'
+		  value: 'ID',
+		  title: 'type',
+	      text: 'text'
 	  }
 });
+
+$('#category').dropdown('refresh'); 
