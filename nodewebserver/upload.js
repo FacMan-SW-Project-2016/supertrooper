@@ -3,6 +3,7 @@ var bodyParser =    require("body-parser");
 var multer  =   require('multer');
 var app =   express();
 var cors = require('cors');
+var fs = require('fs');
 
 app.use(bodyParser.json());
 
@@ -17,9 +18,14 @@ var storage =   multer.diskStorage({
 });
 var upload = multer({ storage : storage }).array('userPhoto',2);
 
-app.get('/api/photo',function(req,res){
-      res.sendFile(__dirname + "/index.html");
-});
+
+
+    app.get('/api/download', function(req, res){
+        var file = './uploads/file.jpg';
+        res.download(file); // Set disposition and send it.
+    });
+
+
 
 app.post('/api/photo',function(req,res){
     upload(req,res,function(err) {
