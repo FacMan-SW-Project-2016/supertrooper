@@ -20,22 +20,33 @@ SET time_zone = "+00:00";
 --
 DROP DATABASE IF EXISTS facilitymgmt;
 
-CREATE DATABASE IF NOT EXISTS facilitymgmt DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci; USE facilitymgmt;
+CREATE DATABASE IF NOT EXISTS `facilitymgmt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `facilitymgmt`;
 
-CREATE TABLE `category` (
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+DROP TABLE IF EXISTS `category`;
+CREATE TABLE IF NOT EXISTS `category` (
   `ID` int(11) NOT NULL,
-  `type` char(15) NOT NULL
+  `type` char(15) NOT NULL,
+  `text` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`ID`, `type`) VALUES
-(1, 'waste'),
-(2, 'technical'),
-(3, 'defective'),
-(4, 'vandalism');
+INSERT INTO `category` (`ID`, `type`, `text`) VALUES
+(1, 'waste', 'Schmutz'),
+(2, 'technical', 'Technisch'),
+(3, 'defective', 'Defekt'),
+(4, 'vandalism', 'Vandalismus'),
+(5, 'other', 'Sonstiges');
 
 -- --------------------------------------------------------
 
@@ -43,18 +54,23 @@ INSERT INTO `category` (`ID`, `type`) VALUES
 -- Table structure for table `report`
 --
 
-CREATE TABLE `report` (
-  `ID` int(11) NOT NULL,
-  `title` char(30) NOT NULL,
-  `room` int(11) NOT NULL,
-  `category` int(11) NOT NULL,
-  `status` int(11) NOT NULL,
-  `description` char(250) NOT NULL,
-  `usercreate` char(20) NOT NULL,
+DROP TABLE IF EXISTS `report`;
+CREATE TABLE IF NOT EXISTS `report` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `title` char(30) DEFAULT NULL,
+  `room` int(11) DEFAULT NULL,
+  `category` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `description` char(250) DEFAULT NULL,
+  `usercreate` char(20) DEFAULT NULL,
   `userfacman` char(20) DEFAULT NULL,
   `data` blob,
-  `moment` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `moment` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`),
+  KEY `raum` (`room`),
+  KEY `kategorie_ID` (`category`),
+  KEY `status_id` (`status`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `report`
@@ -71,12 +87,14 @@ INSERT INTO `report` (`ID`, `title`, `room`, `category`, `status`, `description`
 -- Table structure for table `room`
 --
 
-CREATE TABLE `room` (
+DROP TABLE IF EXISTS `room`;
+CREATE TABLE IF NOT EXISTS `room` (
   `ID` int(11) NOT NULL,
   `name` char(20) NOT NULL,
   `floor` int(11) NOT NULL,
   `building` char(20) NOT NULL,
-  `address` char(30) NOT NULL
+  `address` char(30) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -93,9 +111,11 @@ INSERT INTO `room` (`ID`, `name`, `floor`, `building`, `address`) VALUES
 -- Table structure for table `status`
 --
 
-CREATE TABLE `status` (
+DROP TABLE IF EXISTS `status`;
+CREATE TABLE IF NOT EXISTS `status` (
   `ID` int(11) NOT NULL,
-  `type` char(15) NOT NULL
+  `type` char(15) NOT NULL,
+  PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -106,37 +126,6 @@ INSERT INTO `status` (`ID`, `type`) VALUES
 (1, 'active'),
 (2, 'processing'),
 (3, 'done');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `category`
---
-ALTER TABLE `category`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `report`
---
-ALTER TABLE `report`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `raum` (`room`),
-  ADD KEY `kategorie_ID` (`category`),
-  ADD KEY `status_id` (`status`);
-
---
--- Indexes for table `room`
---
-ALTER TABLE `room`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `status`
---
-ALTER TABLE `status`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Constraints for dumped tables
