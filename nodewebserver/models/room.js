@@ -5,8 +5,14 @@ function Room() {
   this.get = function(res) {
      connection.acquire(function(err, con) {
        con.query('select * from room', function(err, result) {
-         con.release();
-         res.send(result);
+    	   con.release();
+
+           var result_values = {};
+
+           result_values["success"] = true;
+           result_values["results"] = result;
+
+           res.send(result_values);
        });
      });
    };
