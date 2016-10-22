@@ -92,7 +92,7 @@ function autoComplete() {
 					'set values',
 					{
 						title : 'Test Titel',
-						category : 'Schaden',
+						category : 1,
 						description : 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.',
 						terms : true
 					})
@@ -105,6 +105,7 @@ $('#category').dropdown({
 	  fields: {
 //	    remoteValues: 'results',
 	    title: 'type',
-	    value: 'ID'
+	    value: 'ID',
+	    text: 'type'
 	  }
 });
