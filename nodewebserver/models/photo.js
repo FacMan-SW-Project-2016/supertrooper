@@ -19,14 +19,16 @@ this.upload = function(req, res) {
       callback(null, file.fieldname + '-' + id + '.jpg');
     }
   });
-  var upload = multer({ storage : storage }).array('userPhoto',2);
+  var upload = multer({ storage : storage }).array('userPhoto',1);
 
   upload(req,res,function(err) {
       //console.log(req.body);
       //console.log(req.files);
       if(err) {
+          console.log("Error");
           return res.end("Error uploading file.");
       }
+      console.log("Success");
       res.end("File is uploaded");
 
 var updateData = {};

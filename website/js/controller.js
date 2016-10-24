@@ -12,7 +12,7 @@ var rulesAndSettings = {
 			identifier : 'room',
 			rules : [ {
 				type : 'minCount[1]',
-				prompt : 'Bitte wählen Sie den Raum aus, in dem das Problem aufgetreten ist.' 
+				prompt : 'Bitte wählen Sie den Raum aus, in dem das Problem aufgetreten ist.'
 			} ]
 		},
 		category : {
@@ -69,8 +69,9 @@ $form.form(rulesAndSettings);
 function submitForm() {
 
 	var values = $("#reportForm :input[name!='terms']").serialize();
+	var formData = new FormData($(this)[0]);
 
-	// We use jQuery.ajax to post our data to the webservice via http
+//	We use jQuery.ajax to post our data to the webservice via http
 	$.ajax({
 		url : 'http://localhost:8000/report/',
 		data : values,
@@ -78,11 +79,39 @@ function submitForm() {
 		contentType : 'application/x-www-form-urlencoded',
 		processData : false,
 		type : 'POST',
-		success : onFormSubmitted,
+		success : function (data) {
+         uploadImage(data,formData);
+     },
 		async : false
 	});
+
 };
 
+
+function uploadImage (response, formData)
+{
+	if ($('#fileinputfield').val() != '')
+	{
+
+		var id = response.insertId;
+
+		 $.ajax({
+				 url : 'http://localhost:8000/photo/' + id,
+				 type: 'POST',
+				 data: formData,
+				 async: false,
+				 success: function (data) {
+						 alert('functioniert');
+				 },
+				 cache: false,
+				 contentType: false,
+				 processData: false
+		 });
+
+	 }else {
+	 		onFormSubmitted(response);
+	 }
+};
 // If something went wrong, dummy behaviour
 function failure() {
 	alert("failure");
