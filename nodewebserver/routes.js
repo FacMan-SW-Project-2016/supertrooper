@@ -4,6 +4,7 @@ var status = require('./models/status');
 var category = require('./models/category');
 var report = require('./models/report');
 var photo = require('./models/photo');
+var building = require('./models/building');
 
 module.exports = {
   configure: function(app) {
@@ -30,6 +31,16 @@ module.exports = {
     app.get('/room/', function(req, res) {
       room.get(res);
     });
+
+    //Room where building
+    app.get('/room_building/:buildingid', function(req, res) {
+      room.getWhereBuilding(req, res);
+    });
+    //Building table
+    app.get('/building/', function(req, res) {
+      building.get(res);
+    });
+
 
     //Report table
     //select

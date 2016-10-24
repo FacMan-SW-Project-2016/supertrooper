@@ -26,6 +26,35 @@ USE `facilitymgmt`;
 -- --------------------------------------------------------
 
 --
+-- Database: `facilitymgmt`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `building`
+--
+
+CREATE TABLE `building` (
+  `ID` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `address` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `building`
+--
+
+INSERT INTO `building` (`ID`, `name`, `address`) VALUES
+(0, 'Turmstrasse', 'Turmstrasse, Ludwigshafen'),
+(1, 'Hauptgebaeude A', 'Ernst-Boehe-Strasse, Ludwigsha'),
+(2, 'Hauptgebaeude B', 'Ernst-Boehe-Strasse, Ludwigsha'),
+(3, 'Maxstrasse', 'Max-Strasse, Ludwigshafen'),
+(4, 'Transatlantik', 'Trans-Strasse, Ludwigshafen');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `category`
 --
 
@@ -73,12 +102,8 @@ INSERT INTO `report` (`ID`, `title`, `room`, `category`, `status`, `description`
 (1, 'Beamer kaputt in Hörsaal 6', 1, 2, 1, 'Mit Beamer im hörsaal 6 kann keine verbindung aufgenommen werden', 'Felix Gillissen', NULL, NULL, '2016-10-19 18:38:58'),
 (2, 'Mülleimer übefüllt', 2, 1, 2, 'Mülleimer im Hörsaal 4 läuft über, der raum ist verdreckt', 'Felix Gillissen', 'Thomas Hammer', NULL, '2016-10-19 18:38:58'),
 (3, 'Penis bild auf Tafel', 1, 4, 2, 'Bild eines Penis wurde auf die Tafel des Hörsaal 6 gemalt.', 'Felix Gillissen', '', NULL, '2016-10-19 18:38:58'),
-(9, 'Test Titel', NULL, 1, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, NULL, '2016-10-22 15:55:02'),
-(10, 'hallo', 1, 2, 3, 'Test Beschreibung', 'Creator66', 'FacMaster', NULL, '2016-10-24 08:19:35'),
-(11, 'hallo', 1, 2, 3, 'Test Beschreibung', 'Creator66', 'FacMaster', NULL, '2016-10-24 08:20:39'),
-(12, 'hallo', 1, 2, 3, 'Test Beschreibung', 'Creator66', 'FacMaster', NULL, '2016-10-24 08:20:49'),
-(13, 'hallo', 1, 2, 3, 'Test Beschreibung', 'Creator66', 'FacMaster', 'userPhoto-13.jpg', '2016-10-24 08:49:29'),
-(14, 'hallo', 1, 2, 3, 'Test Beschreibung', 'Creator66', 'FacMaster', NULL, '2016-10-24 08:24:29');
+(43, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, 'userPhoto-43.jpg', '2016-10-24 17:28:12'),
+(44, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, NULL, '2016-10-24 17:29:06');
 
 -- --------------------------------------------------------
 
@@ -90,17 +115,17 @@ CREATE TABLE `room` (
   `ID` int(11) NOT NULL,
   `name` char(20) NOT NULL,
   `floor` int(11) NOT NULL,
-  `building` char(20) NOT NULL,
-  `address` char(30) NOT NULL
+  `building` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `room`
 --
 
-INSERT INTO `room` (`ID`, `name`, `floor`, `building`, `address`) VALUES
-(1, 'Hörsaal 6', 1, 'Transatlantik Instit', 'Turmstrasse 8, 67059 Ludwigsha'),
-(2, 'Hörsaal 4', 1, 'Transatlantik-Instit', 'Turmstrasse 8, 67059 Ludwigsha');
+INSERT INTO `room` (`ID`, `name`, `floor`, `building`) VALUES
+(1, 'Hörsaal 6', 1, 0),
+(2, 'Hörsaal 4', 1, 0),
+(3, 'Bibliothek', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -127,6 +152,12 @@ INSERT INTO `status` (`ID`, `type`) VALUES
 --
 
 --
+-- Indexes for table `building`
+--
+ALTER TABLE `building`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -145,7 +176,8 @@ ALTER TABLE `report`
 -- Indexes for table `room`
 --
 ALTER TABLE `room`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `building` (`building`);
 
 --
 -- Indexes for table `status`
@@ -161,7 +193,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- Constraints for dumped tables
 --
@@ -173,6 +205,12 @@ ALTER TABLE `report`
   ADD CONSTRAINT `kategorie_ID` FOREIGN KEY (`category`) REFERENCES `category` (`ID`),
   ADD CONSTRAINT `raum` FOREIGN KEY (`room`) REFERENCES `room` (`ID`),
   ADD CONSTRAINT `status_id` FOREIGN KEY (`status`) REFERENCES `status` (`ID`);
+
+--
+-- Constraints for table `room`
+--
+ALTER TABLE `room`
+  ADD CONSTRAINT `Foreign Key` FOREIGN KEY (`building`) REFERENCES `building` (`ID`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

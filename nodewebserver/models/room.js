@@ -17,6 +17,26 @@ function Room() {
      });
    };
 
+
+   this.getWhereBuilding = function(req, res) {
+
+
+     var id = req.params.buildingid;
+
+      connection.acquire(function(err, con) {
+        con.query('select * from room where building = ?',id , function(err, result) {
+     	   con.release();
+
+            var result_values = {};
+
+            result_values["success"] = true;
+            result_values["results"] = result;
+
+            res.send(result_values);
+        });
+      });
+    };
+
   //  this.create = function(todo, res) {
   //     connection.acquire(function(err, con) {
   //       con.query('insert into room set ?', todo, function(err, result) {
