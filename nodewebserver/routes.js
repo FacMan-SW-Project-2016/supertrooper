@@ -3,6 +3,7 @@ var room = require('./models/room');
 var status = require('./models/status');
 var category = require('./models/category');
 var report = require('./models/report');
+var photo = require('./models/photo');
 
 module.exports = {
   configure: function(app) {
@@ -32,8 +33,11 @@ module.exports = {
 
     //Report table
     //select
+    app.get('/report/:id', function(req, res) {
+      report.get(req, res);
+    });
     app.get('/report/', function(req, res) {
-      report.get(res);
+      report.get(req, res);
     });
 
     //insert
@@ -51,6 +55,18 @@ module.exports = {
     app.get('/category/', function(req, res) {
       category.get(res);
     });
+
+
+// photo up/download
+    app.get('/photo/download/:id', function(req, res){
+      photo.download(req, res);
+    });
+
+    app.post('/photo/:id',function(req,res){
+        photo.upload(req, res);
+    });
+
+// photo up/download
 
   }
 };
