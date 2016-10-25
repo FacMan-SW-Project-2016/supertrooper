@@ -8,6 +8,13 @@ var rulesAndSettings = {
 				prompt : 'Bitte geben Sie ihrem Anliegen einen Titel.'
 			} ]
 		},
+		building : {
+			identifier : 'building',
+			rules : [ {
+				type : 'minCount[1]',
+				prompt : 'Bitte wählen Sie das Gebäude aus, in dem das Problem aufgetreten ist.'
+			} ]
+		},
 		room : {
 			identifier : 'room',
 			rules : [ {
@@ -68,7 +75,7 @@ $form.form(rulesAndSettings);
 // to save the data in our DB
 function submitForm() {
 
-	var values = $("#reportForm :input[name!='terms']").serialize();
+	var values = $("#reportForm :input[name != 'terms'][name != 'building']").serialize();
 	var formData = new FormData($(this)[0]);
 
 //	We use jQuery.ajax to post our data to the webservice via http
@@ -128,6 +135,7 @@ function autoComplete() {
 					'set values',
 					{
 						title : 'Test Titel',
+						building : 1,
 						room : 1,
 						category : 1,
 						description : 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.',
@@ -151,6 +159,19 @@ $('#categoryDropdown').dropdown({
 $('#roomDropdown').dropdown({
 	  apiSettings: {
 	    url: '//localhost:8000/room',
+	    cache: false
+	  },
+	  saveRemoteData: false,
+	  fields: {
+//	    remoteValues: 'results',
+		  value: 'ID',
+		  name: 'name'
+	  }
+});
+
+$('#buildingDropdown').dropdown({
+	  apiSettings: {
+	    url: '//localhost:8000/building',
 	    cache: false
 	  },
 	  saveRemoteData: false,
