@@ -66,7 +66,7 @@ console.log($form);
 // -------------------------------METHODS-------------------------------------
 
 // default methods for semantic-ui animations
-$('select.dropdown').dropdown();
+//$('select.dropdown').dropdown();
 
 // Initialize the form using rules & settings
 $form.form(rulesAndSettings);
@@ -156,21 +156,25 @@ $('#categoryDropdown').dropdown({
 	  }
 });
 
-$('#roomDropdown').dropdown({
-	  apiSettings: {
-	    url: '//localhost:8000/room',
-	    cache: false
-	  },
-	  saveRemoteData: false,
-	  fields: {
-//	    remoteValues: 'results',
-		  value: 'ID',
-		  name: 'name'
-	  }
-});
+
 
 $('#buildingDropdown').dropdown({
-	  apiSettings: {
+	onChange : function(value)	{
+		$("#roomField").attr('class', 'required Field');
+		$('#roomDropdown').dropdown({
+			  apiSettings: {
+			    url: '//localhost:8000/room_building/' + value,
+			    cache: false
+			  },
+			  saveRemoteData: false,
+			  fields: {
+//			    remoteValues: 'results',
+				  value: 'ID',
+				  name: 'name'
+			  }
+		});
+	}  ,
+	apiSettings: {
 	    url: '//localhost:8000/building',
 	    cache: false
 	  },
