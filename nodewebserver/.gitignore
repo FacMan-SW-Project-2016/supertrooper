@@ -36,6 +36,8 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-
+# uploads
+uploads/*
+!uploads/dummy.txt
 
 .idea
