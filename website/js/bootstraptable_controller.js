@@ -27,8 +27,10 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
     var time = row.moment.substring(0,16);
     
     $('#popupTitle').text(row.title  + " - " + time);
+    $('#popupPic').attr('src', '');
     if(row.data!==null){
-    $('#popupPic').attr('src', 'http://localhost:8000/photo/download/' + row.ID);}
+    $('#popupPic').attr('src', 'http://localhost:8000/photo/download/' + row.ID);
+    }
     
     $('#popupID').text(row.ID);
     $('#popupRoom').text(row.room);
