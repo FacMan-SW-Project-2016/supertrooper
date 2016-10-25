@@ -14,6 +14,15 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 </head>
 <body bgcolor=white>
+
+  <div class="ui stackable menu">
+    <div class="item">
+      <img src="https://s3-eu-west-1.amazonaws.com/flinc-img/groupavatars/b26b6b9af5a65062686449c9a901a366/large.jpg?1444231765">
+    </div>
+    <a class="item" href="http://localhost/index.html">Meldung anlegen</a>
+    <a class="item" href="http://localhost/bootstraptable.html">Meldungen anzeigen</a>
+  </div>
+
 	<div class="ui container">
 		<form class="ui form piled segment" id="reportForm">
 			<p>Facility Management</p>
@@ -25,6 +34,14 @@
 					name="title" type="text">
 			</div>
 			<div class="required field">
+				<label>Gebäude</label>
+				<div class="ui search selection dropdown" id="buildingDropdown">
+					<input type="hidden" name="building"> <i class="dropdown icon"></i> <input
+						type="text" class="search">
+					<div class="default text">Wählen Sie das Gebäude, in dem das Problem aufgetreten ist.</div>
+				</div>
+			</div>
+			<div class="required disabled field" id="roomField">
 				<label>Raum</label>
 				<div class="ui search selection dropdown" id="roomDropdown">
 					<input type="hidden" name="room"> <i class="dropdown icon"></i> <input
@@ -48,7 +65,7 @@
 
       <div class="field">
         <label>Foto</label>
-			<input id="fileinputfield" type="file" name="userPhoto" accept="image/*"/>	
+			<input id="fileinputfield" type="file" name="userPhoto" accept="image/*"/>
     </div>
 			<p></p>
 			<div class="required inline field">
