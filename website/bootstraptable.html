@@ -43,24 +43,52 @@
         <div class="ui modal">
           <i class="close icon"></i>
           <div class="header">
-            Profile Picture
+            Detail Report
           </div>
           <div class="image content">
             <div class="ui medium image">
-              <img src="https://d4n5pyzr6ibrc.cloudfront.net/media/27FB7F0C-9885-42A6-9E0C19C35242B5AC/D968A2D0-35B8-41C6-A94A0C5C5FCA0725/thul-43c319fb-cc3a-56b5-afdc-f3544a682986.jpg?response-content-disposition=inline">
+              <img type="hidden" id="popupPic">
             </div>
             <div class="description">
-              <div class="ui header">We've auto-chosen a profile image for you.</div>
-              <p>We've grabbed the following image from the <a href="https://www.gravatar.com" target="_blank">gravatar</a> image associated with your registered e-mail address.</p>
-              <p>Is it okay to use this photo?</p>
+              <div class="ui header" id="popupTitle"></div>
+              
+                <table class="ui definition table">
+                <tbody>
+                    <tr>
+                        <td>ID</td>
+                        <td id="popupID"></td>
+                    </tr>
+                    <tr>
+                        <td>Raum</td>
+                        <td id="popupRoom"></td>
+                    </tr>
+                    <tr>
+                        <td>Kategorie</td>
+                        <td id="popupCat"></td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td id="popupStatus"></td>
+                    </tr>
+                    <tr>
+                        <td>Nutzer</td>
+                        <td id= "popupUser"></td>
+                    </tr>
+                    <tr>
+                        <td>Beschreibung</td>
+                        <td id="popupDesc"></td>
+                    </tr>
+                </tbody>
+<!--                <p>ID = </p><p id="popupID"></p>-->
+                </table>
             </div>
           </div>
           <div class="actions">
             <div class="ui black deny button">
-              Nope
+              Abbrechen
             </div>
             <div class="ui positive right labeled icon button">
-              Yep, that's me
+              Speichern
               <i class="checkmark icon"></i>
             </div>
           </div>
