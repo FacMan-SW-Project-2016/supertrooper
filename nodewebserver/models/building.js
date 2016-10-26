@@ -17,18 +17,31 @@ function Building() {
      });
    };
 
-  //  this.create = function(todo, res) {
-  //     connection.acquire(function(err, con) {
-  //       con.query('insert into room set ?', todo, function(err, result) {
-  //         con.release();
-  //         if (err) {
-  //           res.send({status: 1, message: 'Room creation failed'});
-  //         } else {
-  //           res.send({status: 0, message: 'Room created successfully'});
-  //         }
-  //       });
-  //     });
-  //   };
+   this.create = function(building, res) {
+      connection.acquire(function(err, con) {
+        con.query('insert into building set ?', building, function(err, result) {
+          con.release();
+          if (err) {
+            res.send({status: 1, message: 'Building creation failed'});
+          } else {
+            res.send({status: 0, message: 'Building created successfully'});
+          }
+        });
+      });
+    };
+
+    this.update = function(building, res) {
+        connection.acquire(function(err, con) {
+            con.query('update building set ? where ID = ?', [building, building.ID], function(err, result) {
+                con.release();
+                if (err) {
+                    res.send({status: 1, message: 'building update failed'});
+                } else {
+                    res.send({status: 0, message: 'building updated successfully'});
+                }
+            });
+        });
+    };
 
 
 }

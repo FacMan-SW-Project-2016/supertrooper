@@ -18,6 +18,19 @@ function Report() {
     });
   };
 
+    this.update = function(report, res) {
+        connection.acquire(function(err, con) {
+            con.query('update report set ? where ID = ?', [report, report.ID], function(err, result) {
+                con.release();
+                if (err) {
+                    res.send({status: 1, message: 'report update failed'});
+                } else {
+                    res.send({status: 0, message: 'report updated successfully'});
+                }
+            });
+        });
+    };
+
 
   this.get = function(req, res) {
      connection.acquire(function(err, con) {

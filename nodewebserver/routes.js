@@ -32,6 +32,18 @@ module.exports = {
       room.get(res);
     });
 
+    //insert
+    app.post('/room/', function(req, res) {
+      room.create(req.body, res);
+    });
+
+    //update report
+    app.put('/room/', function(req, res) {
+      room.update(req.body, res);
+    });
+
+
+
     //Room where building
     app.get('/room_building/:buildingid', function(req, res) {
       room.getWhereBuilding(req, res);
@@ -41,6 +53,15 @@ module.exports = {
       building.get(res);
     });
 
+    //insert
+    app.post('/building/', function(req, res) {
+      building.create(req.body, res);
+    });
+
+    //update report
+    app.put('/building/', function(req, res) {
+      building.update(req.body, res);
+    });
 
     //Report table
     //select
@@ -56,17 +77,43 @@ module.exports = {
       report.create(req.body, res);
     });
 
+    //update report
+      app.put('/report/', function(req, res) {
+      report.update(req.body, res);
+     });
+
 
     //Status table
     app.get('/status/', function(req, res) {
       status.get(res);
     });
 
+    //insert
+    app.post('/status/', function(req, res) {
+      status.create(req.body, res);
+    });
+
+    //update report
+    app.put('/status/', function(req, res) {
+      status.update(req.body, res);
+    });
+
+
     //category table
     app.get('/category/', function(req, res) {
       category.get(res);
     });
 
+    //insert
+    app.post('/category/', function(req, res) {
+      category.create(req.body, res);
+    });
+
+
+    //update report
+    app.put('/category/', function(req, res) {
+      category.update(req.body, res);
+    });
 
 // photo up/download
     app.get('/photo/download/:id', function(req, res){
