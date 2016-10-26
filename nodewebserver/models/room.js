@@ -2,6 +2,34 @@ var connection = require('../connection');
 
 function Room() {
 
+
+    this.create = function(room, res) {
+        connection.acquire(function(err, con) {
+            con.query('insert into room set ?', room, function(err, result) {
+                con.release();
+                if (err) {
+                    res.send({status: 1, message: 'room creation failed'});
+                } else {
+                    res.send({status: 0, message: 'room created successfully'});
+                }
+            });
+        });
+    };
+
+    this.update = function(room, res) {
+        connection.acquire(function(err, con) {
+            con.query('update room set ? where ID = ?', [room, room.ID], function(err, result) {
+                con.release();
+                if (err) {
+                    res.send({status: 1, message: 'room update failed'});
+                } else {
+                    res.send({status: 0, message: 'room updated successfully'});
+                }
+            });
+        });
+    };
+
+
   this.get = function(res) {
      connection.acquire(function(err, con) {
        con.query('select * from room', function(err, result) {

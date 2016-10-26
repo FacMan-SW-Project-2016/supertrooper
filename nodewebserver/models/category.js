@@ -17,5 +17,32 @@ function Category() {
      });
    };
 
+
+    this.create = function(category, res) {
+        connection.acquire(function(err, con) {
+            con.query('insert into category set ?', category, function(err, result) {
+                con.release();
+                if (err) {
+                    res.send({status: 1, message: 'category creation failed'});
+                } else {
+                    res.send({status: 0, message: 'category created successfully'});
+                }
+            });
+        });
+    };
+
+    this.update = function(category, res) {
+        connection.acquire(function(err, con) {
+            con.query('update category set ? where ID = ?', [category, category.ID], function(err, result) {
+                con.release();
+                if (err) {
+                    res.send({status: 1, message: 'category update failed'});
+                } else {
+                    res.send({status: 0, message: 'category updated successfully'});
+                }
+            });
+        });
+    };
+
 }
 module.exports = new Category();
