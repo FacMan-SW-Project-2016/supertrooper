@@ -186,3 +186,28 @@ $('#buildingDropdown').dropdown({
 		  name: 'name'
 	  }
 });
+
+
+// selector cache
+var     $menu                = $('#menu');
+
+
+// main sidebar
+$menu
+ .sidebar({
+   dimPage          : true,
+   transition       : 'overlay',
+   mobileTransition : 'uncover'
+ })
+;
+
+// launch buttons
+$menu
+ .sidebar('attach events', '.launch.button, .view-ui, .launch.item')
+;
+
+$('.ui.sticky')
+.sticky({
+  context: '#reportForm'
+})
+;

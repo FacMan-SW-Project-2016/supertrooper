@@ -2,10 +2,11 @@
 <head>
 
 
-	<!-- Standard Meta -->
-   <meta charset="utf-8" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<!-- Standard Meta -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <title>FacMan Startseite</title>
 <link rel="stylesheet" type="text/css"
@@ -15,76 +16,105 @@
 </head>
 <body bgcolor=white>
 
-  <div class="ui stackable menu">
-    <div class="item">
-      <img src="https://s3-eu-west-1.amazonaws.com/flinc-img/groupavatars/b26b6b9af5a65062686449c9a901a366/large.jpg?1444231765">
-    </div>
-    <a class="item" href="http://localhost/index.html">Meldung anlegen</a>
-    <a class="item" href="http://localhost/bootstraptable.html">Meldungen anzeigen</a>
-  </div>
+	<div class="ui vertical inverted sidebar menu" id="menu">
+		<div class="item">
+			<img
+				src="https://s3-eu-west-1.amazonaws.com/flinc-img/groupavatars/b26b6b9af5a65062686449c9a901a366/large.jpg?1444231765">
+		</div>
+		<a class="item" href="http://localhost/index.html">Meldung anlegen</a>
+		<a class="item" href="http://localhost/bootstraptable.html">Meldungen
+			anzeigen</a>
 
-	<div class="ui container">
-		<form class="ui form piled segment" id="reportForm">
-			<h4 class="ui dividing header">Bitte beschreiben Sie Ihr
-				Anliegen</h4>
-			<div class="required field">
-				<label>Titel</label> <input
-					placeholder="Geben Sie Ihrem Anliegen einen Titel - Beispiel: Fenster kaputt"
-					name="title" type="text">
-			</div>
-			<div class="required field">
-				<label>Gebäude</label>
-				<div class="ui search selection dropdown" id="buildingDropdown">
-					<input type="hidden" name="building"> <i class="dropdown icon"></i> <input
-						type="text" class="search">
-					<div class="default text">Wählen Sie das Gebäude, in dem das Problem aufgetreten ist.</div>
+
+	</div>
+	<div class="pusher">
+		<div class="full height">
+			<div class="following bar light fixed" style="background: white;">
+				<div class="ui container">
+					<div class="ui sticky secondary menu" style="background: white;">
+						<a class="view-ui item"> <i class="sidebar icon"></i> Menu</a>
+						<div class="right menu">
+							<div class="item">
+								<div class="ui logo shape">
+									<div class="sides">
+										<div class="active ui side">
+											<img class="ui image" src="/images/FHLU_logo_CMYK.jpg"
+												height="50">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="required disabled field" id="roomField">
-				<label>Raum</label>
-				<div class="ui search selection dropdown" id="roomDropdown">
-					<input type="hidden" name="room"> <i class="dropdown icon"></i> <input
-						type="text" class="search">
-					<div class="default text">Wählen Sie den Raum, in dem das Problem aufgetreten ist.</div>
-				</div>
-			</div>
-			<div class="required field">
-				<label>Kategorie</label>
-				<div class="ui search selection dropdown" id="categoryDropdown">
-					<input type="hidden" name="category"> <i class="dropdown icon"></i> <input
-						type="text" class="search">
-					<div class="default text">Wählen Sie eine Kategorie des
-						Problems aus.</div>
-				</div>
-			</div>
-			<div class="required field">
-				<label>Beschreibung</label>
-				<textarea name="description"></textarea>
-			</div>
 
-      <div class="field">
-        <label>Foto</label>
-			<input id="fileinputfield" type="file" name="userPhoto" accept="image/*"/>
-    </div>
-			<p></p>
-			<div class="required inline field">
-				<div class="ui checkbox">
-					<input type="checkbox" name="terms"> <label>Hiermit
-						bestätige Ich, dass alle angegebenen Informationen der Wahrheit
-						entsprechen.</label>
-				</div>
+			<div class="ui container">
+				<form class="ui form piled segment" id="reportForm">
+					<h4 class="ui dividing header">Bitte beschreiben Sie Ihr
+						Anliegen</h4>
+					<div class="required field">
+						<label>Titel</label> <input
+							placeholder="Geben Sie Ihrem Anliegen einen Titel - Beispiel: Fenster kaputt"
+							name="title" type="text">
+					</div>
+					<div class="required field">
+						<label>Gebäude</label>
+						<div class="ui search selection dropdown" id="buildingDropdown">
+							<input type="hidden" name="building"> <i
+								class="dropdown icon"></i> <input type="text" class="search">
+							<div class="default text">Wählen Sie das Gebäude, in dem
+								das Problem aufgetreten ist.</div>
+						</div>
+					</div>
+					<div class="required disabled field" id="roomField">
+						<label>Raum</label>
+						<div class="ui search selection dropdown" id="roomDropdown">
+							<input type="hidden" name="room"> <i
+								class="dropdown icon"></i> <input type="text" class="search">
+							<div class="default text">Wählen Sie den Raum, in dem das
+								Problem aufgetreten ist.</div>
+						</div>
+					</div>
+					<div class="required field">
+						<label>Kategorie</label>
+						<div class="ui search selection dropdown" id="categoryDropdown">
+							<input type="hidden" name="category"> <i
+								class="dropdown icon"></i> <input type="text" class="search">
+							<div class="default text">Wählen Sie eine Kategorie des
+								Problems aus.</div>
+						</div>
+					</div>
+					<div class="required field">
+						<label>Beschreibung</label>
+						<textarea name="description"></textarea>
+					</div>
+
+					<div class="field">
+						<label>Foto</label> <input id="fileinputfield" type="file"
+							name="userPhoto" accept="image/*" />
+					</div>
+					<p></p>
+					<div class="required inline field">
+						<div class="ui checkbox">
+							<input type="checkbox" name="terms"> <label>Hiermit
+								bestätige Ich, dass alle angegebenen Informationen der Wahrheit
+								entsprechen.</label>
+						</div>
+					</div>
+					<div class="ui blue submit button" id="submitButton">Submit</div>
+					<div class="ui reset button">Reset</div>
+					<div class="ui button" onClick="autoComplete()">Autom.
+						Ausfüllen</div>
+					<div class="ui error message"></div>
+				</form>
+
+				<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+				<script src="semantic_ui/semantic.min.js"></script>
+				<script src="js/controller.js"></script>
+
 			</div>
-			<div class="ui blue submit button" id="submitButton">Submit</div>
-			<div class="ui reset button">Reset</div>
-			<div class="ui button" onClick="autoComplete()">Autom.
-				Ausfüllen</div>
-			<div class="ui error message"></div>
-		</form>
-
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-		<script src="semantic_ui/semantic.min.js"></script>
-		<script src="js/controller.js"></script>
-
+		</div>
 	</div>
 </body>
 </html>
