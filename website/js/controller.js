@@ -161,6 +161,7 @@ $('#categoryDropdown').dropdown({
 $('#buildingDropdown').dropdown({
 	onChange : function(value)	{
 		$("#roomField").attr('class', 'required Field');
+		$('#roomDropdown').dropdown('clear');
 		$('#roomDropdown').dropdown({
 			  apiSettings: {
 			    url: '//localhost:8000/room_building/' + value,
