@@ -43,6 +43,17 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
 
     });
 
+$('#dropdownCat').dropdown({
+    onClick : function (value) {
+        
+    },
+    apiSettings:{
+    url: '//localhost:8000/category'//,
+    //cache: false
+}
+});
+
+
 
 
 function actionFormatter(value, row, index){
