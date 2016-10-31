@@ -14,27 +14,27 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 </head>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 <body bgcolor=white>
 
 	<div class="ui container">
-		<form class="ui form piled segment" id="loginForm">
+		<form class="ui form piled segment" id="loginForm" action = "/index.html">
 			<div class="ui stacked segment">
 				<h4 class="ui dividing header">Bitte loggen Sie sich ein.</h4>
 				<div class="field">
 					<div class="ui left icon input">
-						<i class="user icon"></i> <input type="text" name="email"
-							placeholder="E-mail address">
+						<i class="user icon"></i> <input type="text" name="username"
+							placeholder="Bitte geben Sie Ihren Benutzernamen an.">
 					</div>
 				</div>
 				<div class="field">
 					<div class="ui left icon input">
 						<i class="lock icon"></i> <input type="password" name="password"
-							placeholder="Password">
+							placeholder="Bitte geben Sie Ihr Passwort an.">
 					</div>
 				</div>
-				<div class="g-recaptcha" data-sitekey="6Ld6ugoUAAAAALYG4zXONNuBLjU6UEv7SSqAMVLw"></div>
 				<div class="ui blue submit button">Login</div>
+				<div class="ui button" onClick="autoComplete('testuser', 'testpassword')">Autom.
+						Ausfüllen</div>
 			</div>
 
 			<div class="ui error message"></div>
@@ -42,7 +42,7 @@
 		</form>
 
 		<div class="ui message">
-			New to us? <a href="#">Sign Up</a>
+			Sie glauben, Sie haben kein FacMan-Konto? <a href="http://www.hs-lu.de/service/it-service-center/einfuehrung-it-services/3-wlan-wifi.html">Hier erhalten Sie Hilfe.</a>
 		</div>
 	</div>
 
