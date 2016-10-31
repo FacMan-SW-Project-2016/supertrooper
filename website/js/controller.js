@@ -68,6 +68,34 @@ console.log($form);
 // default methods for semantic-ui animations
 //$('select.dropdown').dropdown();
 
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
+function checkCookie() {
+    var user = getCookie("username");
+    if (user != "") {
+        alert("Willkommen zurück, " + user);
+    } else {
+    	window.alert('Bitte loggen Sie sich ein, bevor Sie diese Seite aufrufen.');
+        window.location.href='/login.html';
+    }
+}
+
+// Call the checkCookie method for all the sites that bind this .js
+checkCookie();
+
 // Initialize the form using rules & settings
 $form.form(rulesAndSettings);
 
