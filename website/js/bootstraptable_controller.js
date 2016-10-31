@@ -32,9 +32,9 @@ function setDynamicOptions(selector, options) {
 
     if (html != undefined)
     {
-      html += '<div class="item" data-value="' + options[key].ID + '">' + options[key].text + '</div>';
+      html += '<div class="item" data-value="' + options[key].ID + '">' + options[key].name + '</div>';
     }else {
-      html = '<div class="item" data-value="' + options[key].ID + '">' + options[key].text + '</div>';
+      html = '<div class="item" data-value="' + options[key].ID + '">' + options[key].name + '</div>';
     }
   }
 
@@ -53,7 +53,28 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
     }
 
     $('#popupID').text(row.ID);
-    $('#popupRoom').text(row.room);
+    
+    $('#dropdownBuild').dropdown({showOnFocus: false});
+    $.ajax({
+        url: 'http://localhost:8000/building/',
+        cache: false,
+        type: 'GET',
+        success: function (data){
+            setDynamicOptions('#dropdownBuild', data.results);
+    },
+           async : false
+    });
+    
+    $('#dropdownRoom').dropdown({showOnFocus: false});
+    $.ajax({
+        url: 'http://localhost:8000/room/',
+        cache: false,
+        type: 'GET',
+        success: function (data){
+            setDynamicOptions('#dropdownRoom', data.results);
+        },
+        async : false
+    });
 
     $('#dropdownCat').dropdown({showOnFocus: false});
 
@@ -67,12 +88,43 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
        },
   		async : false
   	});
+    
+    $('#dropdownStat').dropdown({showOnFocus: false});
+    
+    $.ajax({
+  		url : 'http://localhost:8000/status/',
+  		cache : false,
+  		type : 'GET',
+  		success : function (data) {
+
+           setDynamicOptions('#dropdownStat', data.results);
+       },
+  		async : false
+  	});
+
+    $('#dropdownFacMan').dropdown({showOnFocus: false});
+    
+    
+    $.ajax({
+  		url : 'http://localhost:8000/user/',
+  		cache : false,
+  		type : 'GET',
+  		success : function (data) {
+
+           setDynamicOptions('#dropdownFacMan', data.results);
+       },
+  		async : false
+  	});
+    
 
     $('#popupStatus').text(row.status);
     $('#popupUser').text(row.usercreate);
     $('#popupDesc').text(row.description);
     $('#popupFacMan').text(row.userfacman);
 
+    $('#dropdownBuild').dropdown('set selected', row.building);
+    $('#dropdownRoom').dropdown('set selected', row.room);
+    $('#dropdownStat').dropdown('set selected', row.status);
     $('#dropdownCat').dropdown('set selected', row.category);
     $('.ui.modal').modal('show');
 
