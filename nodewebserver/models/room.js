@@ -46,6 +46,25 @@ function Room() {
    };
 
 
+   this.getID = function(req, res) {
+      connection.acquire(function(err, con) {
+
+        var id = req.params.id;
+
+        con.query('select * from room where ID = ?', id, function(err, result) {
+     	   con.release();
+
+            var result_values = {};
+
+            result_values["success"] = true;
+            result_values["results"] = result;
+
+            res.send(result_values);
+        });
+      });
+    };
+
+
    this.getWhereBuilding = function(req, res) {
 
 
