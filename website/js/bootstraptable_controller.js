@@ -112,14 +112,13 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
   		type : 'GET',
   		success : function (data) {
 
-           setDynamicOptions('#dropdownFacMan', data.results);
+           setDynamicOptions('#dropdownFacMan', 'name', data.results);
        },
   		async : false
   	});
 
     $('#popupUser').text(row.usercreate);
     $('#popupDesc').text(row.description);
-    $('#popupFacMan').text(row.userfacman);
 
     $.ajax({
       url : 'http://localhost:8000/room/'+ row.room,
