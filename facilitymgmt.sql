@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2016 at 11:08 AM
+-- Generation Time: Nov 02, 2016 at 12:23 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -23,12 +23,6 @@ DROP DATABASE IF EXISTS facilitymgmt;
 
 CREATE DATABASE IF NOT EXISTS `facilitymgmt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `facilitymgmt`;
--- --------------------------------------------------------
-
---
--- Database: `facilitymgmt`
---
-
 -- --------------------------------------------------------
 
 --
@@ -103,7 +97,9 @@ INSERT INTO `report` (`ID`, `title`, `room`, `category`, `status`, `description`
 (2, 'Mülleimer übefüllt', 2, 1, 2, 'Mülleimer im Hörsaal 4 läuft über, der raum ist verdreckt', 'Felix Gillissen', 'Thomas Hammer', NULL, '2016-10-19 18:38:58'),
 (3, 'Penis bild auf Tafel', 1, 4, 2, 'Bild eines Penis wurde auf die Tafel des Hörsaal 6 gemalt.', 'Felix Gillissen', '', NULL, '2016-10-19 18:38:58'),
 (43, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, 'userPhoto-43.jpg', '2016-10-24 17:28:12'),
-(44, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, NULL, '2016-10-24 17:29:06');
+(44, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, NULL, '2016-10-24 17:29:06'),
+(45, 'Müll in Hörsaal 4', 1, 3, NULL, 'Toilette ist verstopft, bla bla blablablabla', NULL, NULL, NULL, '2016-10-29 07:02:07'),
+(46, 'Felix Test', 1, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, NULL, '2016-10-31 11:20:36');
 
 -- --------------------------------------------------------
 
@@ -147,6 +143,25 @@ INSERT INTO `status` (`ID`, `type`) VALUES
 (2, 'processing'),
 (3, 'done');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `name` char(40) NOT NULL,
+  `password` char(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`name`, `password`) VALUES
+('Admin', '25f9e794323b453885f5181f1b624d0b'),
+('Student', '6ebe76c9fb411be97b3b0d48b791a7c9');
+
 --
 -- Indexes for dumped tables
 --
@@ -186,6 +201,12 @@ ALTER TABLE `status`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`name`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -193,7 +214,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 --
 -- Constraints for dumped tables
 --
