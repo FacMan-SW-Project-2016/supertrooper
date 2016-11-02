@@ -5,6 +5,7 @@ var category = require('./models/category');
 var report = require('./models/report');
 var photo = require('./models/photo');
 var building = require('./models/building');
+var user = require('./models/user');
 
 module.exports = {
   configure: function(app) {
@@ -32,6 +33,11 @@ module.exports = {
       room.get(res);
     });
 
+    //Room table
+    app.get('/room/:id', function(req, res) {
+      room.getID(req, res);
+    });
+
     //insert
     app.post('/room/', function(req, res) {
       room.create(req.body, res);
@@ -41,6 +47,10 @@ module.exports = {
     app.put('/room/', function(req, res) {
       room.update(req.body, res);
     });
+
+    app.get('/user/', function (req, res){
+      user.get(res);
+    })
 
 
 
