@@ -24,7 +24,7 @@ $('#table').bootstrapTable({
 });
 
 
-function setDynamicOptions(selector, options) {
+function setDynamicOptions(selector, keyword, options) {
     var att = "data-dinamic-opt";
     $(selector).find('[' + att + ']').remove();
     var html;
@@ -32,15 +32,15 @@ function setDynamicOptions(selector, options) {
 
     if (html != undefined)
     {
-      html += '<div class="item" data-value="' + options[key].ID + '">' + options[key].name + '</div>';
+      html += '<div class="item" data-value="' + options[key].ID + '">' + options[key][keyword] + '</div>';
     }else {
-      html = '<div class="item" data-value="' + options[key].ID + '">' + options[key].name + '</div>';
+      html = '<div class="item" data-value="' + options[key].ID + '">' + options[key][keyword] + '</div>';
     }
   }
 
     $(selector + ' .menu').html(html);
     $(selector).dropdown({showOnFocus: false});
-}
+};
 
 $('#table').on('click-row.bs.table', function (e, row, $element) {
         console.log('Event: click-row.bs.table ID:' + row.ID);
@@ -53,25 +53,26 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
     }
 
     $('#popupID').text(row.ID);
-    
-    $('#dropdownBuild').dropdown({showOnFocus: false});
+
+    $('#dropdownBuild').dropdown({   showOnFocus: false});
+
     $.ajax({
         url: 'http://localhost:8000/building/',
         cache: false,
         type: 'GET',
         success: function (data){
-            setDynamicOptions('#dropdownBuild', data.results);
+            setDynamicOptions('#dropdownBuild', 'name', data.results);
     },
            async : false
     });
-    
+
     $('#dropdownRoom').dropdown({showOnFocus: false});
     $.ajax({
         url: 'http://localhost:8000/room/',
         cache: false,
         type: 'GET',
         success: function (data){
-            setDynamicOptions('#dropdownRoom', data.results);
+            setDynamicOptions('#dropdownRoom', 'name', data.results);
         },
         async : false
     });
@@ -84,27 +85,27 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
   		type : 'GET',
   		success : function (data) {
 
-           setDynamicOptions('#dropdownCat', data.results);
+           setDynamicOptions('#dropdownCat', 'text', data.results);
        },
   		async : false
   	});
-    
+
     $('#dropdownStat').dropdown({showOnFocus: false});
-    
+
     $.ajax({
   		url : 'http://localhost:8000/status/',
   		cache : false,
   		type : 'GET',
   		success : function (data) {
 
-           setDynamicOptions('#dropdownStat', data.results);
+           setDynamicOptions('#dropdownStat', 'type', data);
        },
   		async : false
   	});
 
     $('#dropdownFacMan').dropdown({showOnFocus: false});
-    
-    
+
+
     $.ajax({
   		url : 'http://localhost:8000/user/',
   		cache : false,
@@ -115,14 +116,22 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
        },
   		async : false
   	});
-    
 
-    $('#popupStatus').text(row.status);
     $('#popupUser').text(row.usercreate);
     $('#popupDesc').text(row.description);
     $('#popupFacMan').text(row.userfacman);
 
-    $('#dropdownBuild').dropdown('set selected', row.building);
+    $.ajax({
+      url : 'http://localhost:8000/room/'+ row.room,
+      cache : false,
+      type : 'GET',
+      success : function (data) {
+
+           $('#dropdownBuild').dropdown('set selected', data.results[0].building);
+       },
+      async : false
+    });
+
     $('#dropdownRoom').dropdown('set selected', row.room);
     $('#dropdownStat').dropdown('set selected', row.status);
     $('#dropdownCat').dropdown('set selected', row.category);
