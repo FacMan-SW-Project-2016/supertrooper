@@ -24,13 +24,55 @@ $(document).ready(function() {
 		inline : true,
 		on : 'blur',
 		transition : 'fade down',
-		onSuccess : function() {
-			setCookie("username", $('#loginForm').form('get value', 'username'), 1);
-//			window.location.href='/index.html';
-		}
+		onSuccess : authenticate
 
 	});
 });
+
+function authenticate() {
+	var password = $('#loginForm').form('get value', 'password');
+	var passhash = hex_md5(password);
+	
+	var username = $("#loginForm").form('get value', 'username');
+	
+	var values = "name=" + username + "&password=" + passhash;
+	
+	$.ajax({
+		url : 'http://localhost:8000/user/authenticate',
+		data : values,
+		cache : false,
+		contentType : 'application/x-www-form-urlencoded',
+		processData : false,
+		type : 'POST',
+		success : function (data) {
+         switch (data.status) {
+		case 0:
+			alert("SUCCESS");
+			setCookie("username", $('#loginForm').form('get value', 'username'), 1);
+			$('#loginForm').attr('action', '/index.html');
+			break;
+
+		case 1:
+			alert("ERROR");
+			break;
+			
+			
+		case 2:
+			alert("Wrong Password");
+			break;
+			
+		case 3:
+			alert("No such user");
+			break;
+		}
+         
+     },
+		async : false
+	});
+	
+	//setCookie("username", $('#loginForm').form('get value', 'username'), 1);
+	
+}
 
 function setCookie(cname, cvalue, exdays) {
 	var d = new Date();
