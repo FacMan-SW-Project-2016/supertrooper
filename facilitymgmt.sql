@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 02, 2016 at 12:23 PM
+-- Generation Time: Nov 03, 2016 at 12:40 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -19,10 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `facilitymgmt`
 --
-DROP DATABASE IF EXISTS facilitymgmt;
-
 CREATE DATABASE IF NOT EXISTS `facilitymgmt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `facilitymgmt`;
+
 -- --------------------------------------------------------
 
 --
@@ -40,11 +39,11 @@ CREATE TABLE `building` (
 --
 
 INSERT INTO `building` (`ID`, `name`, `address`) VALUES
-(0, 'Turmstrasse', 'Turmstrasse, Ludwigshafen'),
 (1, 'Hauptgebaeude A', 'Ernst-Boehe-Strasse, Ludwigsha'),
 (2, 'Hauptgebaeude B', 'Ernst-Boehe-Strasse, Ludwigsha'),
 (3, 'Maxstrasse', 'Max-Strasse, Ludwigshafen'),
-(4, 'Transatlantik', 'Trans-Strasse, Ludwigshafen');
+(4, 'Transatlantik', 'Trans-Strasse, Ludwigshafen'),
+(5, 'Turmstrasse', 'Turmstrasse 8');
 
 -- --------------------------------------------------------
 
@@ -99,7 +98,7 @@ INSERT INTO `report` (`ID`, `title`, `room`, `category`, `status`, `description`
 (43, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, 'userPhoto-43.jpg', '2016-10-24 17:28:12'),
 (44, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, NULL, '2016-10-24 17:29:06'),
 (45, 'Müll in Hörsaal 4', 1, 3, NULL, 'Toilette ist verstopft, bla bla blablablabla', NULL, NULL, NULL, '2016-10-29 07:02:07'),
-(46, 'Felix Test', 1, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, NULL, '2016-10-31 11:20:36');
+(46, 'Felix Test', 1, 2, 2, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, '', NULL, '2016-11-03 11:39:48');
 
 -- --------------------------------------------------------
 
@@ -119,8 +118,8 @@ CREATE TABLE `room` (
 --
 
 INSERT INTO `room` (`ID`, `name`, `floor`, `building`) VALUES
-(1, 'Hörsaal 6', 1, 0),
-(2, 'Hörsaal 4', 1, 0),
+(1, 'Hörsaal 6', 1, 5),
+(2, 'Hörsaal 4', 1, 5),
 (3, 'Bibliothek', 0, 1);
 
 -- --------------------------------------------------------
@@ -214,7 +213,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- Constraints for dumped tables
 --

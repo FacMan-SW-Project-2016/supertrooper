@@ -24,7 +24,16 @@ $('#table').bootstrapTable({
 });
 
 
-function setDynamicOptions(selector, keyword, options) {
+function clearRoomDropDown()
+{
+  var att = "data-dinamic-opt";
+  $('#dropdownRoom').find('[' + att + ']').remove();
+
+  $('#dropdownRoom' + ' .menu').html(" ");
+};
+
+
+function setDynamicOptions(selector, keyword, textfield, options) {
     var att = "data-dinamic-opt";
     $(selector).find('[' + att + ']').remove();
     var html;
@@ -32,18 +41,21 @@ function setDynamicOptions(selector, keyword, options) {
 
     if (html != undefined)
     {
-      html += '<div class="item" data-value="' + options[key].ID + '">' + options[key][keyword] + '</div>';
+
+
+      html += '<div class="item" data-value="' + options[key][keyword] + '">' + options[key][textfield] + '</div>';
     }else {
-      html = '<div class="item" data-value="' + options[key].ID + '">' + options[key][keyword] + '</div>';
+      html = '<div class="item" data-value="' + options[key][keyword] + '">' + options[key][textfield] + '</div>';
     }
   }
 
     $(selector + ' .menu').html(html);
-    $(selector).dropdown({showOnFocus: false});
+  // $(selector).dropdown({showOnFocus: false});
 };
 
 $('#table').on('click-row.bs.table', function (e, row, $element) {
         console.log('Event: click-row.bs.table ID:' + row.ID);
+
     var time = row.moment.substring(0,16);
 
     $('#popupTitle').text(row.title  + " - " + time);
@@ -54,25 +66,69 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
 
     $('#popupID').text(row.ID);
 
-    $('#dropdownBuild').dropdown({   showOnFocus: false});
+var roomofbuilding = -1;
 
     $.ajax({
         url: 'http://localhost:8000/building/',
         cache: false,
         type: 'GET',
         success: function (data){
-            setDynamicOptions('#dropdownBuild', 'name', data.results);
+            setDynamicOptions('#dropdownBuild', 'ID', 'name', data.results);
     },
            async : false
     });
 
+    $('#dropdownBuild').dropdown({
+      onChange : function(value)	{
+        $('#dropdownRoom').dropdown('clear');
+
+
+        roomofbuilding = value;
+
+
+        $('#dropdownRoom').dropdown({showOnFocus: false});
+        $.ajax({
+            url: 'http://localhost:8000/room_building/' + roomofbuilding,
+            cache: false,
+            type: 'GET',
+            success: function (data){
+
+              clearRoomDropDown();
+
+
+                setDynamicOptions('#dropdownRoom', 'ID', 'name', data.results);
+
+            },
+            async : false
+        });
+
+
+    },
+    showOnFocus: false
+    });
+
+
+
+        $('#popupUser').text(row.usercreate);
+        $('#popupDesc').text(row.description);
+        $.ajax({
+          url : 'http://localhost:8000/room/'+ row.room,
+          cache : false,
+          type : 'GET',
+          success : function (data) {
+
+            roomofbuilding = data.results[0].building;
+           },
+          async : false
+        });
+
     $('#dropdownRoom').dropdown({showOnFocus: false});
     $.ajax({
-        url: 'http://localhost:8000/room/',
+        url: 'http://localhost:8000/room_building/' + roomofbuilding,
         cache: false,
         type: 'GET',
         success: function (data){
-            setDynamicOptions('#dropdownRoom', 'name', data.results);
+            setDynamicOptions('#dropdownRoom', 'ID', 'name', data.results);
         },
         async : false
     });
@@ -85,7 +141,7 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
   		type : 'GET',
   		success : function (data) {
 
-           setDynamicOptions('#dropdownCat', 'text', data.results);
+           setDynamicOptions('#dropdownCat', 'ID', 'text', data.results);
        },
   		async : false
   	});
@@ -98,7 +154,7 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
   		type : 'GET',
   		success : function (data) {
 
-           setDynamicOptions('#dropdownStat', 'type', data);
+           setDynamicOptions('#dropdownStat', 'ID', 'type', data);
        },
   		async : false
   	});
@@ -112,24 +168,12 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
   		type : 'GET',
   		success : function (data) {
 
-           setDynamicOptions('#dropdownFacMan', 'name', data.results);
+           setDynamicOptions('#dropdownFacMan', 'name', 'name', data.results);
        },
   		async : false
   	});
 
-    $('#popupUser').text(row.usercreate);
-    $('#popupDesc').text(row.description);
-
-    $.ajax({
-      url : 'http://localhost:8000/room/'+ row.room,
-      cache : false,
-      type : 'GET',
-      success : function (data) {
-
-           $('#dropdownBuild').dropdown('set selected', data.results[0].building);
-       },
-      async : false
-    });
+       $('#dropdownBuild').dropdown('set selected',roomofbuilding);
 
     $('#dropdownRoom').dropdown('set selected', row.room);
     $('#dropdownStat').dropdown('set selected', row.status);
@@ -153,3 +197,28 @@ function actionFormatter(value, row, index){
 function deleteReport(value, row, index){
     alert('delete triggered for row ID ' + row.ID);
 }
+
+
+function updateData()
+{
+
+  var _id = $('#popupID').text();
+
+  var values = $("#popupForm").serialize();
+
+  values = "ID=" + _id + "&" + values;
+
+//	We use jQuery.ajax to post our data to the webservice via http
+	$.ajax({
+		url : 'http://localhost:8000/report/',
+		data : values,
+		cache : false,
+		contentType : 'application/x-www-form-urlencoded',
+		processData : false,
+		type : 'PUT',
+		success : function (data) {
+        alert("successful update");
+     },
+		async : false
+	});
+};
