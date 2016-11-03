@@ -19,6 +19,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `facilitymgmt`
 --
+
+DROP DATABASE `facilitymgmt`;
+
 CREATE DATABASE IF NOT EXISTS `facilitymgmt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `facilitymgmt`;
 
