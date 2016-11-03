@@ -61,7 +61,6 @@ var rulesAndSettings = {
 
 // save our reportForm to address it later on
 var $form = $('#reportForm');
-console.log($form);
 
 // -------------------------------METHODS-------------------------------------
 
@@ -86,15 +85,37 @@ function getCookie(cname) {
 function checkCookie() {
     var user = getCookie("username");
     if (user != "") {
-        alert("Willkommen zurück, " + user);
+    	$('#info_container').html('<i class="close icon"></i>Willkommen zurück, ' + user + '.');
     } else {
     	window.alert('Bitte loggen Sie sich ein, bevor Sie diese Seite aufrufen.');
         window.location.href='/login.html';
     }
 }
 
+function setCookie(cname, cvalue, exdays) {
+	var d = new Date();
+	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+	var expires = "expires=" + d.toUTCString();
+	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
 // Call the checkCookie method for all the sites that bind this .js
 checkCookie();
+if (getCookie("welcome") == "true") {
+	$('#info_container').show();
+} else {
+	$('#info_container').hide();
+}
+
+$('.message .close')
+.on('click', function() {
+	setCookie("welcome", "false", 1);
+  $(this)
+    .closest('.message')
+    .transition('fade')
+  ;
+})
+;
 
 // Initialize the form using rules & settings
 $form.form(rulesAndSettings);
