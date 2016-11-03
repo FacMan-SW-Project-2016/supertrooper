@@ -50,7 +50,12 @@ module.exports = {
 
     app.get('/user/', function (req, res){
       user.get(res);
-    })
+    });
+    
+    //User authentication
+    app.post('/user/authenticate', function (req, res){
+    	user.authenticate(req.body, res);
+    });
 
 
 

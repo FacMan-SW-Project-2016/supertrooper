@@ -16,6 +16,28 @@ function User() {
        });
      });
    };
+   
+   this.authenticate = function(user, res) {
+	   connection.acquire(function(err, con) {
+		   var name = user.name;
+		   con.query('select * from user where name = ?', name, function(err, result) {
+			   con.release();
+			   if(err) {
+				   res.send({status: 1, message: 'Error', user: user, error: err, name: name});
+			   } else if (result.length > 0) {
+				   // If password is correct:
+				   res.send(result);
+				   
+				   //else
+				   //res.send({status: 1, message: 'authentication failed', result: result});
+			   } else {
+				   res.send({status: 1, message: 'No such user'});
+			   }
+			   
+			    
+		   })
+	   })
+   };
 
    this.create = function(user, res) {
       connection.acquire(function(err, con) {
