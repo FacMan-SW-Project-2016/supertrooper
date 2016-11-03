@@ -37,6 +37,10 @@ function authenticate() {
 	
 	var values = "name=" + username + "&password=" + passhash;
 	
+	var return_value = false;
+	
+	var html;
+	
 	$.ajax({
 		url : 'http://localhost:8000/user/authenticate',
 		data : values,
@@ -47,30 +51,33 @@ function authenticate() {
 		success : function (data) {
          switch (data.status) {
 		case 0:
-			alert("SUCCESS");
 			setCookie("username", $('#loginForm').form('get value', 'username'), 1);
 			$('#loginForm').attr('action', '/index.html');
+			return_value = true;
 			break;
 
 		case 1:
-			alert("ERROR");
+			html = '<div class="header">Es kam leider zu einem Fehler!</div>Bitte kontaktieren Sie den Admin dieser Seite.';
 			break;
 			
-			
 		case 2:
-			alert("Wrong Password");
+			html = '<div class="header">Ups!</div>Das war leider das falsche Passwort, bitte versuchen Sie es erneut.';
 			break;
 			
 		case 3:
-			alert("No such user");
+			html = '<div class="header">Dieser User existiert leider nicht in unserem System!</div>Bitte registrieren Sie sich unter untenstehendem Link.';
 			break;
 		}
          
      },
 		async : false
 	});
+	if (html !== undefined) {
+		$('#message_container').html(html);
+		$('#message_container').show();
+	}	
 	
-	//setCookie("username", $('#loginForm').form('get value', 'username'), 1);
+	return return_value;
 	
 }
 
