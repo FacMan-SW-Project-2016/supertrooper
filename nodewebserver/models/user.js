@@ -23,15 +23,16 @@ function User() {
 		   con.query('select * from user where name = ?', name, function(err, result) {
 			   con.release();
 			   if(err) {
-				   res.send({status: 1, message: 'Error', user: user, error: err, name: name});
+				   res.send({status: 1, message: 'Error', error: err});
 			   } else if (result.length > 0) {
-				   // If password is correct:
-				   res.send(result);
-				   
-				   //else
-				   //res.send({status: 1, message: 'authentication failed', result: result});
+				   // Check if password is correct:
+				   if (result[0].password == user.password) {
+					   res.send({status: 0, message: 'User successfully authenticated!'});
+				   } else {
+					   res.send({status: 2, message: 'Wrong password.'});
+				   }
 			   } else {
-				   res.send({status: 1, message: 'No such user'});
+				   res.send({status: 3, message: 'No such user.'});
 			   }
 			   
 			    
