@@ -3,21 +3,6 @@ var connection = require('../connection');
 function Report() {
 
 
-  this.update = function(todo, res) {
-    connection.acquire(function(err, con) {
-      con.query('update report set ? where id = ?', [todo, todo.id], function(err, result) {
-        con.release();
-          if (res) {
-              if (err) {
-                  res.send({status: 1, message: 'report update failed'});
-              } else {
-                  res.send({status: 0, message: 'report updated successfully'});
-              }
-          }
-      });
-    });
-  };
-
     this.update = function(report, res) {
         connection.acquire(function(err, con) {
             con.query('update report set ? where ID = ?', [report, report.ID], function(err, result) {

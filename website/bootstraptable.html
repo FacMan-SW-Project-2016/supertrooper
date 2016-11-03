@@ -74,11 +74,12 @@
 			<script src="./bootstrap/bootstrap-table.js"></script>
 			<script src="./bootstrap/bootstrap-table.min.js"></script>
 			<script src="js/bootstraptable_controller.js"></script>
-			<script src="js/controller.js"></script>
 
 			<div class="existing code" data-type="html">
+
 				<div class="ui modal">
 					<i class="close icon"></i>
+
 					<div class="header">Detail Report</div>
 					<div class="image content">
 						<div class="ui medium image">
@@ -86,7 +87,7 @@
 						</div>
 						<div class="description">
 							<div class="ui header" id="popupTitle"></div>
-
+		<form  class="ui form" id="popupForm">
 							<table class="ui definition table">
 								<tbody>
 									<tr>
@@ -96,18 +97,20 @@
                                     <tr>
                                         <td>Gebäude</td>
                                         <td>
-                                            <div class="ui floating search selection dropdown" id="dropdownBuild">
+
+
+                                             <div class="ui floating search selection dropdown" id="dropdownBuild">
                                                 <input type="hidden">
                                                 <i class="dropdown icon"></i>
                                                 <div class="default text"></div>
-                                            </div>
+                                            </div> 
                                         </td>
                                     </tr>
 									<tr>
 										<td>Raum</td>
 										<td>
-                                            <div class="ui floating search selection dropdown" id="dropdownRoom"> 
-                                                <input type="hidden">
+                                            <div class="ui floating search selection dropdown" id="dropdownRoom">
+                                                <input type="hidden" name="room">
                                                 <i class="dropdown icon"></i>
                                                 <div class="default text"></div>
                                             </div>
@@ -116,8 +119,8 @@
 									<tr>
 										<td>Kategorie</td>
 										<td>
-											<div class="ui floating search selection dropdown" id="dropdownCat">
-													<input type="hidden">
+											<div class="ui floating search selection dropdown" id="dropdownCat" name=category>
+													<input type="hidden" name="category">
 	                                                <i class="dropdown icon"></i>
 													<div class="default text" id="popupCat"></div>
 												</div>
@@ -127,7 +130,7 @@
 										<td>Status</td>
 										<td>
                                             <div class="ui floating search selection dropdown" id="dropdownStat">
-													<input type="hidden">
+													<input type="hidden" name="status">
 	                                                <i class="dropdown icon"></i>
 													<div class="default text" id="popupStat"></div>
                                             </div>
@@ -137,7 +140,7 @@
 										<td>Sachbearbeiter</td>
 										<td>
                                             <div class="ui floating search selection dropdown" id="dropdownFacMan">
-													<input type="hidden">
+													<input type="hidden" name="userfacman">
 	                                                <i class="dropdown icon"></i>
 													<div class="default text" id="popupFacMan"></div>
                                             </div>
@@ -158,11 +161,17 @@
 					</div>
 					<div class="actions">
 						<div class="ui black deny button">Abbrechen</div>
-						<div class="ui positive right labeled icon button">
+						<div class="ui positive right labeled icon button" onclick="updateData()">
 							Speichern <i class="checkmark icon"></i>
 						</div>
+
+
+
 					</div>
+
 				</div>
+</form>
+
 			</div>
 
 		</div>
