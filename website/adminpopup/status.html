@@ -9,10 +9,38 @@
           <td>Status</td>
           <td>
                         <div class="required field">
-                          <input name="status">
+                          <input name="type">
            </div>
           </td>
       </tr>
   </tbody>
   <!--                <p>ID = </p><p id="popupID"></p>-->
 </table>
+<script>
+
+
+
+function insertData()
+{
+
+  var values = $("#popupForm").serialize();
+
+
+//	We use jQuery.ajax to post our data to the webservice via http
+	$.ajax({
+		url : 'http://localhost:8000/status/',
+		data : values,
+		cache : false,
+		contentType : 'application/x-www-form-urlencoded',
+		processData : false,
+		type : 'POST',
+		success : function (data) {
+        alert("successful update");
+
+
+				$('#table_status').bootstrapTable('refresh');
+     },
+		async : false
+	});
+}
+</script>

@@ -31,6 +31,21 @@ function Category() {
         });
     };
 
+
+    this.delete = function(id, res) {
+        connection.acquire(function (err, con) {
+            con.query('delete from category where id = ?', [id], function (err, result) {
+                con.release();
+                if (err) {
+                    res.send({status: 1, message: 'Failed to delete'});
+                } else {
+                    res.send({status: 0, message: 'Deleted successfully'});
+                }
+            });
+        });
+    };
+
+
     this.update = function(category, res) {
         connection.acquire(function(err, con) {
             con.query('update category set ? where ID = ?', [category, category.ID], function(err, result) {

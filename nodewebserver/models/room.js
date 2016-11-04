@@ -45,6 +45,19 @@ function Room() {
      });
    };
 
+    this.delete = function(id, res) {
+        connection.acquire(function (err, con) {
+            con.query('delete from room where id = ?', [id], function (err, result) {
+                con.release();
+                if (err) {
+                    res.send({status: 1, message: 'Failed to delete'});
+                } else {
+                    res.send({status: 0, message: 'Deleted successfully'});
+                }
+            });
+        });
+    };
+
 
    this.getID = function(req, res) {
       connection.acquire(function(err, con) {

@@ -22,9 +22,8 @@
 				src="https://s3-eu-west-1.amazonaws.com/flinc-img/groupavatars/b26b6b9af5a65062686449c9a901a366/large.jpg?1444231765">
 		</div>
 		<a class="item" href="http://localhost/index.html">Meldung anlegen</a>
-		<a class="item" href="http://localhost/bootstraptable.html">Meldungen
-			anzeigen</a>
-
+		<a class="item" href="http://localhost/bootstraptable.html">Meldungen anzeigen</a>
+    <a class="item" href="http://localhost/admin.html">Administration</a>
 
 	</div>
 	<div class="pusher">
@@ -61,32 +60,48 @@
       <a class="item" data-tab="user">Nutzer</a>
 </div>
 <div class="ui bottom attached active tab segment" data-tab="room">
-  	<div class="ui button">Eintrag hinzufügen</div>
-  <table id="table_room" class="ui selectable celled table">
+  	<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
+	<button onclick="refreshTable(event)" class="ui button">Refresh</button>
+	<button onclick="deleteItem(event)" class="ui button">Delete</button>
+
+  <table id="table_room" class="ui selectable celled table"  data-click-to-select="true"
+       data-single-select="true">
     <!--    <button class="ui button">test</button>-->
   </table>
 </div>
 <div class="ui bottom attached tab segment" data-tab="building">
-  	<div class="ui button">Eintrag hinzufügen</div>
-  <table id="table_building" class="ui selectable celled table">
+	<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
+    <button onclick="refreshTable(event)" class="ui button">Refresh</button>
+		<button onclick="deleteItem(event)" class="ui button">Delete</button>
+  <table id="table_building" class="ui selectable celled table"  data-click-to-select="true"
+       data-single-select="true">
     <!--    <button class="ui button">test</button>-->
   </table>
 </div>
 <div class="ui bottom attached tab segment" data-tab="status">
-  	<div class="ui button">Eintrag hinzufügen</div>
-  <table id="table_status" class="ui selectable celled table">
+  	<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
+    <button onclick="refreshTable(event)" class="ui button">Refresh</button>
+		<button onclick="deleteItem(event)" class="ui button">Delete</button>
+  <table id="table_status" class="ui selectable celled table"  data-click-to-select="true"
+       data-single-select="true">
     <!--    <button class="ui button">test</button>-->
   </table>
 </div>
 <div class="ui bottom attached tab segment" data-tab="category">
-  	<div class="ui button">Eintrag hinzufügen</div>
-  <table id="table_category" class="ui selectable celled table">
+  	<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
+    <button onclick="refreshTable(event)" class="ui button">Refresh</button>
+		  <button onclick="deleteItem(event)" class="ui button">Delete</button>
+  <table id="table_category" class="ui selectable celled table"   data-click-to-select="true"
+       data-single-select="true">
     <!--    <button class="ui button">test</button>-->
   </table>
 </div>
 <div class="ui bottom attached tab segment" data-tab="user">
-  	<div class="ui button">Eintrag hinzufügen</div>
-  <table id="table_user" class="ui selectable celled table">
+  	<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
+    <button onclick="refreshTable(event)" class="ui button">Refresh</button>
+		<button onclick="deleteItem(event)" class="ui button">Delete</button>
+  <table id="table_user" class="ui selectable celled table"   data-click-to-select="true"
+       data-single-select="true">
     <!--    <button class="ui button">test</button>-->
   </table>
 </div>
@@ -115,7 +130,7 @@
             </form>
       <div class="actions">
         <div class="ui black deny button">Abbrechen</div>
-        <div class="ui positive right labeled icon button" onclick="updateData()">
+        <div class="ui positive right labeled icon button" onclick="insertData()">
           Eintrag hinzufügen <i class="checkmark icon"></i>
         </div>
 
@@ -137,5 +152,5 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/bootstrap-table.js"></script>
 <script src="./bootstrap/bootstrap-table.min.js"></script>
-<script src="js/controller.js"></script>
+<script src="js/generic_controller.js"></script>
 	<script src="js/admin.js"></script>

@@ -34,6 +34,10 @@ module.exports = {
     });
 
     //Room table
+    app.delete('/room/:id', function(req, res) {
+      room.delete(req.params.id, res);
+    });
+    //Room table
     app.get('/room/:id', function(req, res) {
       room.getID(req, res);
     });
@@ -57,11 +61,21 @@ module.exports = {
     	user.authenticate(req.body, res);
     });
 
+    //Room table
+    app.delete('/user/:id', function(req, res) {
+      user.delete(req.params.id, res);
+    });
+
 
 
     //Room where building
     app.get('/room_building/:buildingid', function(req, res) {
       room.getWhereBuilding(req, res);
+    });
+
+    //Room table
+    app.delete('/building/:id', function(req, res) {
+      building.delete(req.params.id, res);
     });
     //Building table
     app.get('/building/', function(req, res) {
@@ -103,6 +117,11 @@ module.exports = {
       status.get(res);
     });
 
+    //Room table
+    app.delete('/status/:id', function(req, res) {
+      status.delete(req.params.id, res);
+    });
+
     //insert
     app.post('/status/', function(req, res) {
       status.create(req.body, res);
@@ -122,6 +141,11 @@ module.exports = {
     //insert
     app.post('/category/', function(req, res) {
       category.create(req.body, res);
+    });
+
+    //Room table
+    app.delete('/category/:id', function(req, res) {
+      category.delete(req.params.id, res);
     });
 
 

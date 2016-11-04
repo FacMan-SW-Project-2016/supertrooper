@@ -24,3 +24,31 @@
   </tbody>
   <!--                <p>ID = </p><p id="popupID"></p>-->
 </table>
+
+<script>
+
+function insertData()
+{
+
+  var values = $("#popupForm").serialize();
+
+
+//	We use jQuery.ajax to post our data to the webservice via http
+	$.ajax({
+		url : 'http://localhost:8000/category/',
+		data : values,
+		cache : false,
+		contentType : 'application/x-www-form-urlencoded',
+		processData : false,
+		type : 'POST',
+		success : function (data) {
+        alert("successful update");
+
+
+				$('#table_category').bootstrapTable('refresh');
+     },
+		async : false
+	});
+}
+
+</script>

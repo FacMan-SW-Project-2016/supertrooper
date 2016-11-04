@@ -21,6 +21,49 @@
           </div>
           </td>
       </tr>
+
+			<tr>
+          <td>Passwort bestätigen</td>
+          <td>
+            <div class="required field">
+            <input type="password" name="password_best">
+          </div>
+          </td>
+      </tr>
+			<tr>
+				<td>Rolle</td>
+			<td>
+				<div class"required field">
+
+					<div class="ui selection dropdown">
+					  <input type="hidden" name="role">
+					  <i class="dropdown icon"></i>
+					  <div class="default text"></div>
+					  <div class="menu">
+					    <div class="item" data-value="admin">Admin</div>
+					    <div class="item" data-value="advisor">Sachbearbeiter</div>
+							<div class="item" data-value="student">Student</div>
+					  </div>
+					</div>
+
+          </div>
+				</td>
+			</tr>
   </tbody>
   <!--                <p>ID = </p><p id="popupID"></p>-->
 </table>
+<script>
+$('.ui.dropdown')
+  .dropdown()
+;
+
+
+function insertData()
+{
+
+alert("insert user");
+}
+
+
+
+</script>

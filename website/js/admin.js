@@ -2,12 +2,16 @@ $('.menu .item')
   .tab()
 ;
 
-$.getJSON('http://localhost:8000/room/', function (data)
-{
+
   $('#table_room').bootstrapTable({
-      data: data.results,
+    responseHandler: function (res) {
+    return res.results;
+},
+      url: "http://localhost:8000/room/",
       columns: [
-      {
+        {
+          field: 'state',
+          checkbox: true},{
         field: 'ID',
         title: 'ID'
       },{
@@ -22,15 +26,16 @@ $.getJSON('http://localhost:8000/room/', function (data)
       }]
   });
 
-})
 
-
-$.getJSON('http://localhost:8000/building/', function (data)
-{
   $('#table_building').bootstrapTable({
-      data: data.results,
+    responseHandler: function (res) {
+    return res.results;
+},
+url: "http://localhost:8000/building/",
       columns: [
-      {
+        {
+          field: 'state',
+          checkbox: true},{
         field: 'ID',
         title: 'ID'
       },{
@@ -42,12 +47,13 @@ $.getJSON('http://localhost:8000/building/', function (data)
       }]
   });
 
-})
 
 $('#table_status').bootstrapTable({
     url: 'http://localhost:8000/status/',
     columns: [
-    {
+      {
+        field: 'state',
+        checkbox: true},{
       field: 'ID',
       title: 'ID'
     },{
@@ -57,12 +63,15 @@ $('#table_status').bootstrapTable({
 });
 
 
-$.getJSON('http://localhost:8000/category/', function (data)
-{
-  $('#table_category').bootstrapTable({
-      data: data.results,
+$('#table_category').bootstrapTable({
+  responseHandler: function (res) {
+  return res.results;
+},
+url: "http://localhost:8000/category/",
       columns: [
-      {
+        {
+          field: 'state',
+          checkbox: true},{
         field: 'ID',
         title: 'ID'
       },{
@@ -74,24 +83,28 @@ $.getJSON('http://localhost:8000/category/', function (data)
       }]
   });
 
-})
 
 
-$.getJSON('http://localhost:8000/user/', function (data)
-{
-  $('#table_user').bootstrapTable({
-      data: data.results,
+$('#table_user').bootstrapTable({
+  responseHandler: function (res) {
+  return res.results;
+},
+url: "http://localhost:8000/user/",
       columns: [
       {
+        field: 'state',
+        checkbox: true},{
         field: 'name',
         title: 'Name'
-      }]
+      },
+    {
+        field: 'role',
+  title: 'Rolle'}]
   });
 
-})
 
 
-$('.ui.button').on('click', function (data) {
+function addItem(data) {
 
 
 $parent = $(data.target.parentElement);
@@ -100,4 +113,45 @@ var location = $parent[0].attributes['data-tab'].value;
 
  $("#popupContent").load("/adminpopup/" + location + ".html");
   $('.ui.modal').modal('show');
-});
+};
+
+function refreshTable(data)
+{
+  $parent = $(data.target.parentElement);
+
+  var location = $parent[0].attributes['data-tab'].value;
+
+$('#table_' + location).bootstrapTable('refresh');
+
+}
+
+
+
+function deleteItem( data )
+{
+  $parent = $(data.target.parentElement);
+  var location = $parent[0].attributes['data-tab'].value;
+
+  $table = $('#table_' + location);
+  var indexfield = $('#table_' + location).bootstrapTable('getSelections');
+
+  if (indexfield.length > 0)
+  {
+
+    var index = indexfield[0].ID;
+
+    $.ajax({
+      url : 'http://localhost:8000/' + location +'/' + index,
+      cache : false,
+      processData : false,
+      type : 'DELETE',
+      success : function (data) {
+          alert("delete successful");
+          $('#table_' + location).bootstrapTable('refresh');
+       },
+      async : false
+    });
+  }
+
+
+}

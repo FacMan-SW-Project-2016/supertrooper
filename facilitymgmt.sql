@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Database: `facilitymgmt`
 --
 
-DROP DATABASE `facilitymgmt`;
+
 
 CREATE DATABASE IF NOT EXISTS `facilitymgmt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `facilitymgmt`;
@@ -175,12 +175,18 @@ INSERT INTO `user` (`name`, `password`, `role`) VALUES
 --
 ALTER TABLE `building`
   ADD PRIMARY KEY (`ID`);
+  
+ALTER TABLE `building`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`ID`);
+  
+ALTER TABLE `category`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Indexes for table `report`
@@ -197,18 +203,25 @@ ALTER TABLE `report`
 ALTER TABLE `room`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `building` (`building`);
+  
+ALTER TABLE `room`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Indexes for table `status`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`ID`);
+  
+ ALTER TABLE `status`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`name`);
+  
 
 --
 -- AUTO_INCREMENT for dumped tables
