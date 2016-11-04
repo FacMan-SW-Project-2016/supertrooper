@@ -1,0 +1,38 @@
+
+<link rel="stylesheet" type="text/css"
+	href="../semantic_ui/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+<table class="ui definition table">
+  <tbody>
+      <tr>
+          <td>Name</td>
+          <td>
+
+
+            <div class="required field">
+          <input name="name">
+           </div>
+          </td>
+      </tr>
+    <tr>
+      <td>Stockwerk</td>
+      <td>
+        <div class="required field">
+        <input name="floor">
+       </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Gebäude</td>
+      <td>
+        <div class="ui floating search selection dropdown" id="dropdownbuilding" name=building>
+            <input type="hidden" name="building">
+                      <i class="dropdown icon"></i>
+            <div class="default text" ></div>
+          </div>
+      </td>
+    </tr>
+  </tbody>
+  <!--                <p>ID = </p><p id="popupID"></p>-->
+</table>
