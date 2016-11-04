@@ -20,8 +20,7 @@ function checkCookie() {
 				'<i class="close icon"></i>Willkommen zurück, ' + user + '.');
 		// Fill the #whoami div with content
 		$('#whoami').html(
-				'<div class="item">Sie sind angemeldet als ' + user
-						+ '.</div><a href="/login.html" onClick="deleteAllCookies()">  Abmelden</a>');
+				'Sie sind angemeldet als ' + user);
 	} else {
 		window
 				.alert('Bitte loggen Sie sich ein, bevor Sie diese Seite aufrufen.');
