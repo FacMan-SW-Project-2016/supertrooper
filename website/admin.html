@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 </head>
+
 <body bgcolor=white>
 
 	<div class="ui vertical inverted sidebar menu" id="menu">
@@ -21,9 +22,13 @@
 			<img
 				src="https://s3-eu-west-1.amazonaws.com/flinc-img/groupavatars/b26b6b9af5a65062686449c9a901a366/large.jpg?1444231765">
 		</div>
+
+		<div class="active item" id="whoami"></div>
 		<a class="item" href="http://localhost/index.html">Meldung anlegen</a>
 		<a class="item" href="http://localhost/bootstraptable.html">Meldungen anzeigen</a>
     <a class="item" href="http://localhost/admin.html">Administration</a>
+		<a class="item" href="/login.html" onClick="deleteAllCookies()">  Abmelden</a>
+
 
 	</div>
 	<div class="pusher">
@@ -50,6 +55,9 @@
 			</div>
 
 			<div class="ui container">
+
+
+					<form class="ui form piled segment" id="reportForm">
 
 
         <div class="ui top attached tabular menu">
@@ -142,6 +150,7 @@
 
 
   </div>
+</form>
 
 </body>
 
