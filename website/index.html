@@ -35,6 +35,7 @@
 						<a class="view-ui item"> <i class="sidebar icon"></i> Menu
 						</a>
 						<div class="right menu">
+							<div class="item" id="whoami"></div>
 							<div class="item">
 								<div class="ui logo shape">
 									<div class="sides">
@@ -51,9 +52,9 @@
 			</div>
 
 			<div class="ui container">
-				<form class="ui form piled segment" id="reportForm">
-					<div class="ui info message" id="info_container" style="display: none;">
-					</div>
+				<form class="ui form piled segment" id="reportForm" method="post">
+					<div class="ui info message" id="info_container"
+						style="display: none;"></div>
 					<h4 class="ui dividing header">Bitte beschreiben Sie Ihr
 						Anliegen</h4>
 					<div class="required field">
@@ -114,7 +115,9 @@
 
 				<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 				<script src="semantic_ui/semantic.min.js"></script>
-				<script src="js/controller.js"></script>
+				<script src="js/generic_controller.js"></script>
+				<script src="js/index_controller.js"></script>
+
 
 			</div>
 		</div>

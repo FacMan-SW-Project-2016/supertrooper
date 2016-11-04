@@ -53,6 +53,7 @@ function authenticate() {
 		case 0:
 			setCookie("username", $('#loginForm').form('get value', 'username'), 1);
 			setCookie("welcome", "true", 1);
+			setCookie("role", data.role, 1);
 			$('#loginForm').attr('action', '/index.html');
 			return_value = true;
 			break;
