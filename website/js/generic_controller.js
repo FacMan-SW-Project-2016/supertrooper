@@ -17,6 +17,8 @@ function checkCookie() {
     var user = getCookie("username");
     if (user != "") {
     	$('#info_container').html('<i class="close icon"></i>Willkommen zurück, ' + user + '.');
+    	// Fill the #whoami div with content
+    	$('#whoami').html('<div class="item">Sie sind angemeldet als ' + user + '.</div><a href="/login.html">  Abmelden</a>');
     } else {
     	window.alert('Bitte loggen Sie sich ein, bevor Sie diese Seite aufrufen.');
         window.location.href='/login.html';
@@ -56,3 +58,4 @@ $('.ui.sticky')
 
 // Call the checkCookie method for all the sites that bind this .js
 checkCookie();
+
