@@ -153,20 +153,22 @@ INSERT INTO `status` (`ID`, `type`) VALUES
 
 CREATE TABLE `user` (
   `name` char(40) NOT NULL,
-  `password` char(32) NOT NULL
+  `password` char(32) NOT NULL,
+  `role` enum('student','advisor','admin','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`name`, `password`) VALUES
-('Admin', '25f9e794323b453885f5181f1b624d0b'),
-('Student', '6ebe76c9fb411be97b3b0d48b791a7c9');
+INSERT INTO `user` (`name`, `password`, `role`) VALUES
+('Admin', '25f9e794323b453885f5181f1b624d0b', 'admin'),
+('Student', '6ebe76c9fb411be97b3b0d48b791a7c9', 'student');
 
 --
 -- Indexes for dumped tables
 --
+
 
 --
 -- Indexes for table `building`

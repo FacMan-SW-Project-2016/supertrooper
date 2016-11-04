@@ -27,7 +27,7 @@ function User() {
 			   } else if (result.length > 0) {
 				   // Check if password is correct:
 				   if (result[0].password == user.password) {
-					   res.send({status: 0, message: 'User successfully authenticated!'});
+					   res.send({status: 0, message: 'User successfully authenticated!', role: result[0].role});
 				   } else {
 					   res.send({status: 2, message: 'Wrong password.'});
 				   }
