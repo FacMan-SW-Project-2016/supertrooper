@@ -9,7 +9,7 @@
           <td>Status</td>
           <td>
                         <div class="required field">
-                          <input name="type">
+                          <input id="type" name="type">
            </div>
           </td>
       </tr>
@@ -19,10 +19,38 @@
 <script>
 
 
+var rulesAndSettings = {
+	fields : {
+		type : {
+			identifier : 'type',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte geben Sie einen Statustext ein.'
+			} ]
+		}
+	},
+	// These are the settings for our report <form>
+	inline : true,
+	on : 'blur',
+	transition : 'fade down',
+	onSuccess : insertData,
+};
+
+
+
+var $popupform = $('#popupForm');
+
+// Initialize the form using rules & settings
+$popupform.form(rulesAndSettings);
+
+
+function validateForm()
+{
+		$('#popupForm').form('validate form');
+}
 
 function insertData()
 {
-
   var values = $("#popupForm").serialize();
 
 
@@ -35,10 +63,9 @@ function insertData()
 		processData : false,
 		type : 'POST',
 		success : function (data) {
-        alert("successful update");
+			$('.ui.modal').modal('hide');
 
-
-				$('#table_status').bootstrapTable('refresh');
+			$('#table_status').bootstrapTable('refresh');
      },
 		async : false
 	});

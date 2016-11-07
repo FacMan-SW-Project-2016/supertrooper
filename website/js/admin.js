@@ -119,8 +119,7 @@ function refreshTable(data)
   $parent = $(data.target.parentElement);
 
   var location = $parent[0].attributes['data-tab'].value;
-
-$('#table_' + location).bootstrapTable('refresh');
+ $('#table_' + location).bootstrapTable('refresh');
 
 }
 
@@ -156,10 +155,10 @@ function deleteItem( data )
       success : function (data) {
           alert("delete successful");
           $('#table_' + location).bootstrapTable('refresh');
+
        },
       async : false
     });
   }
-
 
 }

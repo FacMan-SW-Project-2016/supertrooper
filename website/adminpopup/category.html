@@ -9,7 +9,7 @@
           <td>Typ</td>
           <td>
                         <div class="required field">
-             <input name="type">
+             <input id="type" name="type">
            </div>
           </td>
       </tr>
@@ -17,7 +17,7 @@
           <td>Text</td>
           <td>
                         <div class="required field">
-           <input name="text">
+           <input id="text" name="text">
            </div>
           </td>
       </tr>
@@ -26,6 +26,46 @@
 </table>
 
 <script>
+
+
+
+
+var rulesAndSettings = {
+	fields : {
+		type : {
+			identifier : 'type',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte geben Sie einen Kategorie Typ ein.'
+			} ]
+		},
+		text : {
+			identifier : 'text',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte geben Sie einen Kategorie Text ein.'
+			} ]
+		}
+	},
+	// These are the settings for our report <form>
+	inline : true,
+	on : 'blur',
+	transition : 'fade down',
+	onSuccess : insertData,
+};
+
+
+
+var $popupform = $('#popupForm');
+
+// Initialize the form using rules & settings
+$popupform.form(rulesAndSettings);
+
+
+function validateForm()
+{
+		$('#popupForm').form('validate form');
+}
 
 function insertData()
 {
@@ -44,8 +84,9 @@ function insertData()
 		success : function (data) {
         alert("successful update");
 
-
+$('.ui.modal').modal('hide');
 				$('#table_category').bootstrapTable('refresh');
+
      },
 		async : false
 	});

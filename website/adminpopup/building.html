@@ -11,7 +11,7 @@
 
 
             <div class="required field">
-              <input name="name">
+              <input id="name" name="name">
            </div>
           </td>
       </tr>
@@ -19,8 +19,8 @@
       <td>Adresse</td>
       <td>
         <div class="required field">
-       <input name="address">
-       </div>
+       <input id="address" name="address">
+		 </div>
       </td>
     </tr>
   </tbody>
@@ -28,6 +28,45 @@
 </table>
 
 <script>
+
+
+
+var rulesAndSettings = {
+	fields : {
+		name : {
+			identifier : 'name',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte geben Sie einen Gebäudenamen ein.'
+			} ]
+		},
+		address : {
+			identifier : 'address',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte geben Sie einen Adresse ein.'
+			} ]
+		}
+	},
+	// These are the settings for our report <form>
+	inline : true,
+	on : 'blur',
+	transition : 'fade down',
+	onSuccess : insertData,
+};
+
+
+
+var $popupform = $('#popupForm');
+
+// Initialize the form using rules & settings
+$popupform.form(rulesAndSettings);
+
+
+function validateForm()
+{
+		$('#popupForm').form('validate form');
+}
 
 function insertData()
 {
@@ -44,10 +83,9 @@ console.log(values);
 		processData : false,
 		type : 'POST',
 		success : function (data) {
-        alert("successful update");
+			$('.ui.modal').modal('hide');
 
-
-				$('#table_building').bootstrapTable('refresh');
+			$('#table_building').bootstrapTable('refresh');
      },
 		async : false
 	});

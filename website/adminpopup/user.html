@@ -9,7 +9,7 @@
           <td>Name</td>
           <td>
             <div class="required field">
-              <input name="name">
+              <input id="name" name="name">
             </div>
           </td>
       </tr>
@@ -35,7 +35,7 @@
 				<td>Rolle</td>
 			<td>
 				<div class"required field">
-
+  <div class="required field">
 					<div class="ui selection dropdown">
 					  <input type="hidden" name="role">
 					  <i class="dropdown icon"></i>
@@ -46,6 +46,7 @@
 							<div class="item" data-value="student">Student</div>
 					  </div>
 					</div>
+				</div>
 
           </div>
 				</td>
@@ -58,6 +59,62 @@
 $('.ui.dropdown')
   .dropdown()
 ;
+
+
+
+var rulesAndSettings = {
+	fields : {
+		name : {
+			identifier : 'name',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte geben Sie einen Nutzernamen ein.'
+			} ]
+		}	,
+		pwd_initial : {
+			identifier : 'pwd_initial',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte geben Sie ein Passwort an.'
+			}, {
+				type : 'length[6]',
+				prompt : 'Das Passwort muss mindestens 6 Zeichen lang sein.'
+			} ]
+		},
+		pwd_best : {
+			identifier : 'pwd_best',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte bestätigen Sie das Passwort'
+			}]
+		},
+		role : {
+			identifier : 'role',
+			rules : [ {
+				type : 'minCount[1]',
+				prompt : 'Bitte wählen Sie eine Rolle an.'
+			} ]
+		},
+	},
+	// These are the settings for our report <form>
+	inline : true,
+	on : 'blur',
+	transition : 'fade down',
+	onSuccess : insertData,
+};
+
+
+
+var $popupform = $('#popupForm');
+
+// Initialize the form using rules & settings
+$popupform.form(rulesAndSettings);
+
+
+function validateForm()
+{
+		$('#popupForm').form('validate form');
+}
 
 
 function insertData()

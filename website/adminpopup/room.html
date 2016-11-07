@@ -8,10 +8,8 @@
       <tr>
           <td>Name</td>
           <td>
-
-
             <div class="required field">
-          <input name="name">
+          <input id="name" name="name">
            </div>
           </td>
       </tr>
@@ -19,18 +17,20 @@
       <td>Stockwerk</td>
       <td>
         <div class="required field">
-        <input name="floor">
+        <input id="floor" name="floor">
        </div>
       </td>
     </tr>
     <tr>
       <td>Gebäude</td>
       <td>
+				  <div class="required field">
         <div class="ui floating search selection dropdown" id="dropdownbuilding" name=building>
             <input type="hidden" name="building">
                       <i class="dropdown icon"></i>
             <div class="default text" ></div>
           </div>
+				</div>
       </td>
     </tr>
   </tbody>
@@ -38,6 +38,53 @@
 </table>
 
 <script>
+
+
+var rulesAndSettings = {
+	fields : {
+		name : {
+			identifier : 'name',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte geben Sie einen Raumnamen ein.'
+			} ]
+		},
+		floor : {
+			identifier : 'floor',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte geben Sie ein Stockwerk ein.'
+			} ]
+		},
+		building : {
+			identifier : 'building',
+			rules : [ {
+				type : 'minCount[1]',
+				prompt : 'Bitte wählen Sie ein Gebäude aus.'
+			} ]
+		},
+	},
+	// These are the settings for our report <form>
+	inline : true,
+	on : 'blur',
+	transition : 'fade down',
+	onSuccess : insertData,
+};
+
+
+
+var $popupform = $('#popupForm');
+
+// Initialize the form using rules & settings
+$popupform.form(rulesAndSettings);
+
+
+function validateForm()
+{
+		$('#popupForm').form('validate form');
+}
+
+
 $('#dropdownbuilding').dropdown({
 	apiSettings: {
 	    url: '//localhost:8000/building',
@@ -67,9 +114,9 @@ function insertData()
 		processData : false,
 		type : 'POST',
 		success : function (data) {
-        alert("successful update");
+			$('.ui.modal').modal('hide');
 
-				$('#table_room').bootstrapTable('refresh');
+			$('#table_room').bootstrapTable('refresh');
      },
 		async : false
 	});
