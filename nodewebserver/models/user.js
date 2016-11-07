@@ -17,9 +17,24 @@ function User() {
      });
    };
 
+
+   this.create = function(user, res) {
+       connection.acquire(function(err, con) {
+           con.query('insert into user set ?', user, function(err, result) {
+               con.release();
+               if (err) {
+                   res.send({status: 1, message: 'user creation failed'});
+               } else {
+                   res.send({status: 0, message: 'user created successfully'});
+               }
+           });
+       });
+   };
+
+
     this.delete = function(id, res) {
         connection.acquire(function (err, con) {
-            con.query('delete from user where id = ?', [id], function (err, result) {
+            con.query('delete from user where name = ?', [id], function (err, result) {
                 con.release();
                 if (err) {
                     res.send({status: 1, message: 'Failed to delete'});
@@ -48,8 +63,8 @@ function User() {
 			   } else {
 				   res.send({status: 3, message: 'No such user.'});
 			   }
-			   
-			    
+
+
 		   })
 	   })
    };

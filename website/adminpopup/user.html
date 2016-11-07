@@ -17,7 +17,7 @@
           <td>Passwort</td>
           <td>
             <div class="required field">
-            <input type="password" name="password">
+            <input id="pwd_initial" type="password">
           </div>
           </td>
       </tr>
@@ -26,9 +26,10 @@
           <td>Passwort bestätigen</td>
           <td>
             <div class="required field">
-            <input type="password" name="password_best">
+            <input id="pwd_best" type="password" >
           </div>
           </td>
+						<div class="ui error message hidden" id="message_container"></div>
       </tr>
 			<tr>
 				<td>Rolle</td>
@@ -52,6 +53,7 @@
   </tbody>
   <!--                <p>ID = </p><p id="popupID"></p>-->
 </table>
+	<script src="../js/md5.js"></script>
 <script>
 $('.ui.dropdown')
   .dropdown()
@@ -61,7 +63,47 @@ $('.ui.dropdown')
 function insertData()
 {
 
-alert("insert user");
+	var password = document.getElementById("pwd_initial"),
+	 confirm_password = document.getElementById("pwd_best");
+
+if(password.value != confirm_password.value) {
+alert("passwords don't match");
+
+
+var html = '<div class="header">Passwörter stimmen nicht überein!';
+
+$('#message_container').html(html);
+$('#message_container').show();
+
+return false;
+}else {
+
+	var passhash = hex_md5(password);
+
+				var values = $("#popupForm").serialize();
+				values += "&password=" + passhash;
+
+
+				//	We use jQuery.ajax to post our data to the webservice via http
+				$.ajax({
+					url : 'http://localhost:8000/user/',
+					data : values,
+					cache : false,
+					contentType : 'application/x-www-form-urlencoded',
+					processData : false,
+					type : 'POST',
+					success : function (data) {
+							alert("successful created user");
+  						$('.ui.modal').modal('hide');
+
+							$('#table_user').bootstrapTable('refresh');
+					 },
+					async : false
+				});
+
+				return true;
+
+			}
 }
 
 

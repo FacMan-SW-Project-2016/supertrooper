@@ -1,6 +1,5 @@
 $('.menu .item')
-  .tab()
-;
+  .tab();
 
 
   $('#table_room').bootstrapTable({
@@ -138,7 +137,16 @@ function deleteItem( data )
   if (indexfield.length > 0)
   {
 
-    var index = indexfield[0].ID;
+    var index;
+
+    if (location == 'user')
+    {
+      index = indexfield[0].name;
+    }else
+    {
+      index = indexfield[0].ID;
+    }
+
 
     $.ajax({
       url : 'http://localhost:8000/' + location +'/' + index,

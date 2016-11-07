@@ -55,15 +55,19 @@ module.exports = {
     app.get('/user/', function (req, res){
       user.get(res);
     });
-    
+
     //User authentication
     app.post('/user/authenticate', function (req, res){
     	user.authenticate(req.body, res);
     });
 
+    app.post('/user/', function (req, res){
+      user.create(req.body, res);
+    });
+
     //Room table
-    app.delete('/user/:id', function(req, res) {
-      user.delete(req.params.id, res);
+    app.delete('/user/:name', function(req, res) {
+      user.delete(req.params.name, res);
     });
 
 
