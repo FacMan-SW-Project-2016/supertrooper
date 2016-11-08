@@ -21,10 +21,11 @@
 		</div>
 		<div class="active item" id="whoami"></div>
 		<a class="item" href="http://localhost/index.html">Meldung anlegen</a>
-		<a class="item" href="http://localhost/bootstraptable.html">Meldungen anzeigen</a>
-		<a class="item" href="http://localhost/admin.html">Administration</a>
+		<a class="item" href="http://localhost/bootstraptable.html">Meldungen
+			anzeigen</a> <a class="item" href="http://localhost/admin.html">Administration</a>
 
-		<a class="item" href="/login.html" onClick="deleteAllCookies()">  Abmelden</a>
+		<a class="item" href="/login.html" onClick="deleteAllCookies()">
+			Abmelden</a>
 
 
 	</div>
@@ -92,88 +93,92 @@
 						</div>
 						<div class="description">
 							<div class="ui header" id="popupTitle"></div>
-		 <form  class="ui form" id="popupForm">
-							<table class="ui definition table">
-								<tbody>
-									<tr>
-										<td>ID</td>
-										<td id="popupID"></td>
-									</tr>
-                                    <tr>
-                                        <td>Gebäude</td>
-                                        <td>
+							<form class="ui form" id="popupForm">
+								<table class="ui definition table">
+									<tbody>
+										<tr>
+											<td>ID</td>
+											<td id="popupID"></td>
+										</tr>
+										<tr>
+											<td>Gebäude</td>
+											<td>
 
 
-                                             <div class="ui floating search selection dropdown" id="dropdownBuild">
-                                                <input type="hidden">
-                                                <i class="dropdown icon"></i>
-                                                <div class="default text"></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-									<tr>
-										<td>Raum</td>
-										<td>
-                                            <div class="ui floating search selection dropdown" id="dropdownRoom">
-                                                <input type="hidden" name="room">
-                                                <i class="dropdown icon"></i>
-                                                <div class="default text"></div>
-                                            </div>
-                                        </td>
-									</tr>
-									<tr>
-										<td>Kategorie</td>
-										<td>
-											<div class="ui floating search selection dropdown" id="dropdownCat" name=category>
-													<input type="hidden" name="category">
-	                                                <i class="dropdown icon"></i>
+												<div class="ui floating search selection dropdown"
+													id="dropdownBuild">
+													<input type="hidden"> <i class="dropdown icon"></i>
+													<div class="default text"></div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>Raum</td>
+											<td>
+												<div class="ui floating search selection dropdown"
+													id="dropdownRoom">
+													<input type="hidden" name="room"> <i
+														class="dropdown icon"></i>
+													<div class="default text"></div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>Kategorie</td>
+											<td>
+												<div class="ui floating search selection dropdown"
+													id="dropdownCat">
+													<input type="hidden" name="category"> <i
+														class="dropdown icon"></i>
 													<div class="default text" id="popupCat"></div>
 												</div>
-										</td>
-									</tr>
-									<tr>
-										<td>Status</td>
-										<td>
-                                            <div class="ui floating search selection dropdown" id="dropdownStat">
-													<input type="hidden" name="status">
-	                                                <i class="dropdown icon"></i>
+											</td>
+										</tr>
+										<tr>
+											<td>Status</td>
+											<td>
+												<div class="ui floating search selection dropdown"
+													id="dropdownStat">
+													<input type="hidden" name="status"> <i
+														class="dropdown icon"></i>
 													<div class="default text" id="popupStat"></div>
-                                            </div>
-                                        </td>
-									</tr>
-                                    <tr>
-										<td>Sachbearbeiter</td>
-										<td>
-                                            <div class="ui floating search selection dropdown" id="dropdownFacMan">
-													<input type="hidden" name="userfacman">
-	                                                <i class="dropdown icon"></i>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>Sachbearbeiter</td>
+											<td>
+												<div class="ui floating search selection dropdown"
+													id="dropdownFacMan">
+													<input type="hidden" name="userfacman"> <i
+														class="dropdown icon"></i>
 													<div class="default text" id="popupFacMan"></div>
-                                            </div>
-                                        </td>
-									</tr>
-									<tr>
-										<td>Nutzer</td>
-										<td id="popupUser"></td>
-									</tr>
-									<tr>
-										<td>Beschreibung</td>
-										<td id="popupDesc"></td>
-									</tr>
-								</tbody>
-								<!--                <p>ID = </p><p id="popupID"></p>-->
-							</table>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>Nutzer</td>
+											<td id="popupUser"></td>
+										</tr>
+										<tr>
+											<td>Beschreibung</td>
+											<td id="popupDesc"></td>
+										</tr>
+									</tbody>
+									<!--                <p>ID = </p><p id="popupID"></p>-->
+								</table>
+								</form>
 						</div>
 					</div>
 					<div class="actions">
 						<div class="ui black deny button">Abbrechen</div>
-						<div class="ui positive right labeled icon button" onclick="updateData()">
+						<div class="ui positive right labeled icon button"
+							onclick="updateData()">
 							Speichern <i class="checkmark icon"></i>
 						</div>
 
 
 					</div>
-
- </form>
 				</div>
 
 
