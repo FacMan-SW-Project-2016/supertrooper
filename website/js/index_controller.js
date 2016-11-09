@@ -84,8 +84,10 @@ $form.form(rulesAndSettings);
 // to save the data in our DB
 function submitForm() {
 
-	var values = $("#reportForm :input[name != 'terms'][name != 'building']").serialize();
+	var values1 = $("#reportForm :input[name != 'terms'][name != 'building']").serialize();
+    var values = values1 + "&usercreate="+getCookie("username");
 	var formData = new FormData($(this)[0]);
+    
 
 //	We use jQuery.ajax to post our data to the webservice via http
 	$.ajax({
