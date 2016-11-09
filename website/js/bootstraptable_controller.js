@@ -68,23 +68,12 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
 
 var roomofbuilding = -1;
 
-    $.ajax({
-        url: 'http://localhost:8000/building/',
-        cache: false,
-        type: 'GET',
-        success: function (data){
-            setDynamicOptions('#dropdownBuild', 'ID', 'name', data.results);
-    },
-           async : false
-    });
 
-    $('#dropdownBuild').dropdown({
-      onChange : function(value)	{
-        $('#dropdownRoom').dropdown('clear');
-
+$('#dropdownBuild').dropdown({
+  onChange : function(value)	{
+    $('#dropdownRoom').dropdown('clear');
 
         roomofbuilding = value;
-
 
         $('#dropdownRoom').dropdown({showOnFocus: false});
         $.ajax({
@@ -94,10 +83,7 @@ var roomofbuilding = -1;
             success: function (data){
 
               clearRoomDropDown();
-
-
                 setDynamicOptions('#dropdownRoom', 'ID', 'name', data.results);
-
             },
             async : false
         });
@@ -106,6 +92,21 @@ var roomofbuilding = -1;
     },
     showOnFocus: false
     });
+
+$.ajax({
+    url: 'http://localhost:8000/building/',
+    cache: false,
+    type: 'GET',
+    success: function (data){
+        setDynamicOptions('#dropdownBuild', 'ID', 'name', data.results);
+
+
+},
+       async : false
+});
+
+
+
 
 
 
@@ -122,18 +123,19 @@ var roomofbuilding = -1;
           async : false
         });
 
-    $('#dropdownRoom').dropdown({showOnFocus: false});
+
+
     $.ajax({
         url: 'http://localhost:8000/room_building/' + roomofbuilding,
         cache: false,
         type: 'GET',
         success: function (data){
             setDynamicOptions('#dropdownRoom', 'ID', 'name', data.results);
+              $('#dropdownRoom').dropdown({showOnFocus: false});
         },
         async : false
     });
-
-    $('#dropdownCat').dropdown({showOnFocus: false});
+    $('#dropdownCat').dropdown({showOnFocus: false}).dropdown('set selected', 2);
 
     $.ajax({
   		url : 'http://localhost:8000/category/',
@@ -142,6 +144,7 @@ var roomofbuilding = -1;
   		success : function (data) {
 
            setDynamicOptions('#dropdownCat', 'ID', 'text', data.results);
+
        },
   		async : false
   	});
@@ -173,13 +176,16 @@ var roomofbuilding = -1;
   		async : false
   	});
 
-       $('#dropdownBuild').dropdown('set selected',roomofbuilding);
+    $('#dropdownBuild').dropdown('set selected',roomofbuilding);
 
-    $('#dropdownRoom').dropdown('set selected', row.room);
-    $('#dropdownStat').dropdown('set selected', row.status);
-    $('#dropdownCat').dropdown('set selected', row.category);
+ $('#dropdownRoom').dropdown('set selected', row.room);
+ $('#dropdownStat').dropdown('set selected', row.status);
+
+
+ $('#dropdownCat').dropdown('set selected', row.category);
+ $( "#dropdownCat" ).next().val( row.category );
+
     $('.ui.modal').modal('show');
-
     });
 
 
