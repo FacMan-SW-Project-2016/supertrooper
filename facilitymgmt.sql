@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2016 at 12:40 PM
+-- Generation Time: Nov 09, 2016 at 07:49 PM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Database: `facilitymgmt`
 --
 
-
+DROP DATABASE `facilitymgmt`;
 
 CREATE DATABASE IF NOT EXISTS `facilitymgmt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `facilitymgmt`;
@@ -123,7 +123,10 @@ CREATE TABLE `room` (
 INSERT INTO `room` (`ID`, `name`, `floor`, `building`) VALUES
 (1, 'Hörsaal 6', 1, 5),
 (2, 'Hörsaal 4', 1, 5),
-(3, 'Bibliothek', 0, 1);
+(3, 'Bibliothek', 0, 1),
+(4, 'Hörsaal 1', 2, 2),
+(5, 'Hörsaal 2', 3, 3),
+(6, 'Hörsaal 3', 1, 4);
 
 -- --------------------------------------------------------
 
@@ -169,24 +172,17 @@ INSERT INTO `user` (`name`, `password`, `role`) VALUES
 -- Indexes for dumped tables
 --
 
-
 --
 -- Indexes for table `building`
 --
 ALTER TABLE `building`
   ADD PRIMARY KEY (`ID`);
-  
-ALTER TABLE `building`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`ID`);
-  
-ALTER TABLE `category`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Indexes for table `report`
@@ -203,35 +199,48 @@ ALTER TABLE `report`
 ALTER TABLE `room`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `building` (`building`);
-  
-ALTER TABLE `room`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Indexes for table `status`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`ID`);
-  
- ALTER TABLE `status`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`name`);
-  
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `building`
+--
+ALTER TABLE `building`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+--
+-- AUTO_INCREMENT for table `room`
+--
+ALTER TABLE `room`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
