@@ -50,15 +50,34 @@ $('#table').bootstrapTable({
 		title : 'Titel'
 	}, {
 		field : 'room',
-		title : 'Raum'
+		title : 'Raum',
+		formatter: roomFormat
 	}, {
 		field : 'category',
-		title : 'Kategorie'
+		title : 'Kategorie',
+		formatter: categoryFormat
 	}, {
 		field : 'moment',
-		title : 'Zeit'
+		title : 'Zeit',
+		formatter: timestampFormat
 	} ]
 });
+
+function timestampFormat (value, row, index)
+{
+	return "Penis";
+};
+
+function categoryFormat (value, row, index)
+{
+	return "CategoryPenis";
+};
+
+
+function roomFormat (value, row, index)
+{
+	return "RoomPenis";
+};
 
 
 function clearRoomDropDown()
@@ -87,6 +106,7 @@ function setDynamicOptions(selector, keyword, textfield, options) {
       html = '<div class="item" data-value="' + options[key][keyword] + '">' + options[key][textfield] + '</div>';
     }
   }
+
 
     $(selector + ' .menu').html(html);
   // $(selector).dropdown({showOnFocus: false});

@@ -21,9 +21,38 @@ $('.menu .item')
           title: 'Stockwerk'
       },{
           field:'building',
-          title:'Gebäude'
+          title:'Gebäude',
+          formatter: buildingFormat
       }]
   });
+
+
+function buildingFormat(value, row, index)
+{
+
+var displayname;
+  $.ajax({
+    url : 'http://localhost:8000/building/',
+    cache : false,
+    processData : false,
+    type : 'GET',
+    success : function (data) {
+      
+          for (index = 0; index < data.results.length; ++index)
+          {
+              if (data.results[index].ID == value)
+              {
+                displayname = data.results[index].name;
+                break;
+              }
+        }
+     },
+    async : false
+  });
+
+  return displayname;
+
+};
 
 
   $('#table_building').bootstrapTable({
