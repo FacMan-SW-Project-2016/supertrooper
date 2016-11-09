@@ -63,6 +63,8 @@ $('#table').bootstrapTable({
 
 function clearRoomDropDown()
 {
+	$('#dropdownRoom').dropdown('clear');
+
   var att = "data-dinamic-opt";
   $('#dropdownRoom').find('[' + att + ']').remove();
 
@@ -108,21 +110,26 @@ var roomofbuilding = -1;
 
 $('#dropdownBuild').dropdown({
   onChange : function(value)	{
-    $('#dropdownRoom').dropdown('clear');
 
         roomofbuilding = value;
+				$('#dropdownRoom').dropdown({showOnFocus: false});
 
-        $('#dropdownRoom').dropdown({showOnFocus: false});
         $.ajax({
             url: 'http://localhost:8000/room_building/' + roomofbuilding,
             cache: false,
             type: 'GET',
+						async: false,
             success: function (data){
 
               clearRoomDropDown();
                 setDynamicOptions('#dropdownRoom', 'ID', 'name', data.results);
-            },
-            async : false
+
+
+								$(document).ready(function() {
+
+						 $('#dropdownRoom').dropdown('set selected', row.room);
+					 });
+            }
         });
 
 
@@ -137,15 +144,9 @@ $.ajax({
     success: function (data){
         setDynamicOptions('#dropdownBuild', 'ID', 'name', data.results);
 
-
 },
        async : false
 });
-
-
-
-
-
 
         $('#popupUser').text(row.usercreate);
         $('#popupDesc').text(row.description);
@@ -160,19 +161,7 @@ $.ajax({
           async : false
         });
 
-
-
-    $.ajax({
-        url: 'http://localhost:8000/room_building/' + roomofbuilding,
-        cache: false,
-        type: 'GET',
-        success: function (data){
-            setDynamicOptions('#dropdownRoom', 'ID', 'name', data.results);
-              $('#dropdownRoom').dropdown({showOnFocus: false});
-        },
-        async : false
-    });
-    $('#dropdownCat').dropdown({showOnFocus: false}).dropdown('set selected', 2);
+		$('#dropdownCat').dropdown({showOnFocus: false});
 
     $.ajax({
   		url : 'http://localhost:8000/category/',
@@ -213,16 +202,21 @@ $.ajax({
   		async : false
   	});
 
-    $('#dropdownBuild').dropdown('set selected',roomofbuilding);
+
+
+
+		$(document).ready(function() {
+
+			$('#dropdownBuild').dropdown('set selected',roomofbuilding);
 
  $('#dropdownRoom').dropdown('set selected', row.room);
  $('#dropdownStat').dropdown('set selected', row.status);
 
-
  $('#dropdownCat').dropdown('set selected', row.category);
- $( "#dropdownCat" ).next().val( row.category );
  $('#dropdownFacMan').dropdown('set selected', row.userfacman);
 
+
+});
 
 $('#popupForm').form(rulesAndSettings);
 
