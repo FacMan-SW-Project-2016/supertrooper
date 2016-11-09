@@ -26,7 +26,7 @@ var rulesAndSettings = {
 			identifier : 'category',
 			rules : [ {
 				type : 'minCount[1]',
-				prompt : 'Bitte wählen Sie mindestens eine Kategorie für Ihr Anliegen.'
+				prompt : 'Bitte wählen Sie eine Kategorie für Ihr Anliegen.'
 			} ]
 		},
 		description : {

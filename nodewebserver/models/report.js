@@ -8,6 +8,7 @@ function Report() {
             con.query('update report set ? where ID = ?', [report, report.ID], function(err, result) {
                 con.release();
                 if (err) {
+                	console.log("Update-error: " + err);
                     res.send({status: 1, message: 'report update failed'});
                 } else {
                     res.send({status: 0, message: 'report updated successfully'});
@@ -40,11 +41,11 @@ function Report() {
         con.query('insert into report set ?', todo, function(err, result) {
           con.release();
           if (err) {
-        	  console.log("Error");
+        	  console.log("Create Error");
             console.log(todo);
             res.send({status: 404, message: 'Report creation failed'});
           } else {
-        	  console.log("Success");
+        	  console.log("Create Success");
             res.send({status: 0, message: 'Report created successfully', insertId: result.insertId});
           }
         });

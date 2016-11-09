@@ -23,7 +23,11 @@ function User() {
            con.query('insert into user set ?', user, function(err, result) {
                con.release();
                if (err) {
-                   res.send({status: 1, message: 'user creation failed'});
+            	   if (err.code == "ER_DUP_ENTRY") {
+            		   res.send({status: 2, message: 'user with this username already exists'});
+				} else {
+	                   res.send({status: 1, message: 'user creation failed', error: err});
+				}            	   
                } else {
                    res.send({status: 0, message: 'user created successfully'});
                }
@@ -68,19 +72,6 @@ function User() {
 		   })
 	   })
    };
-
-   this.create = function(user, res) {
-      connection.acquire(function(err, con) {
-        con.query('insert into user set ?', user, function(err, result) {
-          con.release();
-          if (err) {
-            res.send({status: 1, message: 'user creation failed'});
-          } else {
-            res.send({status: 0, message: 'user created successfully'});
-          }
-        });
-      });
-    };
 
     this.update = function(user, res) {
         connection.acquire(function(err, con) {
