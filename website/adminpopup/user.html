@@ -135,7 +135,7 @@ $('#message_container').show();
 return false;
 }else {
 
-	var passhash = hex_md5(password);
+	var passhash = hex_md5(password.value);
 
 				var values = $("#popupForm").serialize();
 				values += "&password=" + passhash;
