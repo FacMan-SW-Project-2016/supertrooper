@@ -83,7 +83,7 @@
 
 			<div class="existing code" data-type="html">
 
-				<div class="ui modal">
+				<div class="ui modal" id="popup">
 					<i class="close icon"></i>
 
 					<div class="header">Detail Report</div>
@@ -93,55 +93,64 @@
 						</div>
 						<div class="description">
 							<div class="ui header" id="popupTitle"></div>
-							<form class="ui form" id="popupForm">
+							<form class="ui form" id="popupForm" method="post">
 								<table class="ui definition table">
 									<tbody>
 										<tr>
 											<td>ID</td>
 											<td id="popupID"></td>
 										</tr>
+										
 										<tr>
+										
 											<td>Gebäude</td>
 											<td>
 
-
+												<div class="required field">
 												<div class="ui floating search selection dropdown"
 													id="dropdownBuild">
-													<input type="hidden"> <i class="dropdown icon"></i>
+													<input type="hidden" name="building"> <i class="dropdown icon"></i>
 													<div class="default text"></div>
+												</div>
 												</div>
 											</td>
 										</tr>
 										<tr>
 											<td>Raum</td>
 											<td>
+											<div class="required field">
 												<div class="ui floating search selection dropdown"
 													id="dropdownRoom">
 													<input type="hidden" name="room"> <i
 														class="dropdown icon"></i>
 													<div class="default text"></div>
 												</div>
+												</div>
 											</td>
 										</tr>
 										<tr>
 											<td>Kategorie</td>
 											<td>
+											<div class="required field">
 												<div class="ui floating search selection dropdown"
 													id="dropdownCat">
 													<input type="hidden" name="category"> <i
 														class="dropdown icon"></i>
 													<div class="default text" id="popupCat"></div>
 												</div>
+												</div>
 											</td>
 										</tr>
 										<tr>
 											<td>Status</td>
 											<td>
+											<div class="required field">
 												<div class="ui floating search selection dropdown"
 													id="dropdownStat">
 													<input type="hidden" name="status"> <i
 														class="dropdown icon"></i>
 													<div class="default text" id="popupStat"></div>
+												</div>
 												</div>
 											</td>
 										</tr>
@@ -167,13 +176,15 @@
 									</tbody>
 									<!--                <p>ID = </p><p id="popupID"></p>-->
 								</table>
+								
+								<div class="ui error message" id="message_container"></div>
+								
 								</form>
 						</div>
 					</div>
 					<div class="actions">
 						<div class="ui black deny button">Abbrechen</div>
-						<div class="ui positive right labeled icon button"
-							onclick="updateData()">
+						<div class="ui right labeled icon green button" onClick="$('#popupForm').form('validate form');">
 							Speichern <i class="checkmark icon"></i>
 						</div>
 

@@ -1,26 +1,63 @@
+// These are the rules for the report <form> - they need to be fulfilled in order to send the form
+var rulesAndSettings = {
+	fields : {
+		building : {
+			identifier : 'building',
+			rules : [ {
+				type : 'minCount[1]',
+				prompt : 'Bitte wählen Sie das Gebäude aus, in dem das Problem aufgetreten ist.'
+			} ]
+		},
+		room : {
+			identifier : 'room',
+			rules : [ {
+				type : 'minCount[1]',
+				prompt : 'Bitte wählen Sie den Raum aus, in dem das Problem aufgetreten ist.'
+			} ]
+		},
+		category : {
+			identifier : 'category',
+			rules : [ {
+				type : 'minCount[1]',
+				prompt : 'Bitte wählen Sie eine Kategorie für Ihr Anliegen.'
+			} ]
+		},
+		status : {
+			identifier : 'status',
+			rules : [ {
+				type : 'minCount[1]',
+				prompt : 'Bitte wählen Sie einen Status für Ihr Anliegen.'
+			} ]
+		}
+	},
+
+	// These are the settings for our report <form>
+	inline : true,
+	on : 'blur',
+	transition : 'fade down',
+	onSuccess : updateData
+};
 
 $('#table').bootstrapTable({
-    url: 'http://localhost:8000/report/',
-    columns: [
-        {
-        field: 'remove',
-            title: 'Remove',
-        formatter: actionFormatter,
-            events:deleteReport
-    }, {
-        field: 'title',
-        title: 'Titel'
-    },{
-        field: 'room',
-        title: 'Raum'
-    },{
-        field:'category',
-        title:'Kategorie'
-    },{
-        field:'moment',
-        title:'Zeit'
-    }
-             ]
+	url : 'http://localhost:8000/report/',
+	columns : [ {
+		field : 'remove',
+		title : 'Remove',
+		formatter : actionFormatter,
+		events : deleteReport
+	}, {
+		field : 'title',
+		title : 'Titel'
+	}, {
+		field : 'room',
+		title : 'Raum'
+	}, {
+		field : 'category',
+		title : 'Kategorie'
+	}, {
+		field : 'moment',
+		title : 'Zeit'
+	} ]
 });
 
 
@@ -184,6 +221,10 @@ $.ajax({
 
  $('#dropdownCat').dropdown('set selected', row.category);
  $( "#dropdownCat" ).next().val( row.category );
+ $('#dropdownFacMan').dropdown('set selected', row.userfacman);
+
+
+$('#popupForm').form(rulesAndSettings);
 
     $('.ui.modal').modal('show');
     });
@@ -208,13 +249,15 @@ function deleteReport(value, row, index){
 function updateData()
 {
 
-  var _id = $('#popupID').text();
+var _id = $('#popupID').text();
 
-  var values = $("#popupForm").serialize();
+	var values = $("#popupForm :input[name != 'building']").serialize();
 
-  values = "ID=" + _id + "&" + values;
+	values = "ID=" + _id + "&" + values;
 
-//	We use jQuery.ajax to post our data to the webservice via http
+	var html;
+
+	// We use jQuery.ajax to post our data to the webservice via http
 	$.ajax({
 		url : 'http://localhost:8000/report/',
 		data : values,
@@ -222,9 +265,20 @@ function updateData()
 		contentType : 'application/x-www-form-urlencoded',
 		processData : false,
 		type : 'PUT',
-		success : function (data) {
-        alert("successful update");
-     },
+		success : function(data) {
+			if (data.status == 0) {
+				$('#popup').modal('hide');
+
+				 $('#table').bootstrapTable('refresh');
+			} else {
+				html = '<div class="header">Es kam leider zu einem Fehler!</div>Bitte kontaktieren Sie den Admin dieser Seite.';
+			}
+		},
 		async : false
 	});
+
+	if (html !== undefined) {
+		$('#message_container').html(html);
+		$('#message_container').show();
+	}
 };

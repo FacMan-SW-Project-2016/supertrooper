@@ -139,6 +139,8 @@ return false;
 
 				var values = $("#popupForm").serialize();
 				values += "&password=" + passhash;
+				var html;
+				var return_value = false;
 
 
 				//	We use jQuery.ajax to post our data to the webservice via http
@@ -150,15 +152,33 @@ return false;
 					processData : false,
 					type : 'POST',
 					success : function (data) {
-							alert("successful created user");
-  						$('.ui.modal').modal('hide');
+					
+					switch (data.status) {
+		case 0:
+			$('.ui.modal').modal('hide');
+			$('#table_user').bootstrapTable('refresh');
+			return_value = true;
+			break;
 
-							$('#table_user').bootstrapTable('refresh');
+		case 1:
+			html = '<div class="header">Es kam leider zu einem Fehler!</div>Bitte kontaktieren Sie den Admin dieser Seite.';
+			break;
+			
+		case 2:
+			html = '<div class="header">Ups!</div>Dieser Benutzername ist leider schon vergeben. Versuchen Sie doch einen anderen.';
+			break;
+		}
+  						
 					 },
 					async : false
 				});
+				
+				if (html !== undefined) {
+					$('#message_container').html(html);
+					$('#message_container').show();
+				}
 
-				return true;
+				return return_value;
 
 			}
 }
