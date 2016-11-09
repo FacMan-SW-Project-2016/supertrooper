@@ -243,8 +243,13 @@ $('#popupForm').form(rulesAndSettings);
     $('.ui.modal').modal('show');
     });
 
+	$(document).ready(function() {
 
+var object = {usercreate: "Felix Gillissen"};
 
+	$('#table').bootstrapTable('filterBy', object);
+
+});
 
 
 
