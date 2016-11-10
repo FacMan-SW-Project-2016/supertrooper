@@ -1,67 +1,73 @@
-<link rel="stylesheet" type="text/css" href="../semantic_ui/semantic.min.css">
+
+<link rel="stylesheet" type="text/css"
+	href="../semantic_ui/semantic.min.css">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 <table class="ui definition table">
-	<tbody>
-		<tr>
-			<td>Status</td>
-			<td>
-				<div class="required field">
-					<input id="type" name="type">
-				</div>
-			</td>
-		</tr>
-	</tbody>
-	<!--                <p>ID = </p><p id="popupID"></p>-->
+  <tbody>
+      <tr>
+          <td>Status</td>
+          <td>
+                        <div class="required field">
+                          <input id="type" name="type">
+           </div>
+          </td>
+      </tr>
+  </tbody>
+  <!--                <p>ID = </p><p id="popupID"></p>-->
 </table>
 <script>
-	var rulesAndSettings = {
-		fields: {
-			type: {
-				identifier: 'type',
-				rules: [{
-					type: 'empty',
-					prompt: 'Bitte geben Sie einen Statustext ein.'
-				}]
-			}
-		},
-		// These are the settings for our report <form>
-		inline: true,
-		on: 'blur',
-		transition: 'fade down',
-		onSuccess: insertData,
-	};
+
+
+var rulesAndSettings = {
+	fields : {
+		type : {
+			identifier : 'type',
+			rules : [ {
+				type : 'empty',
+				prompt : 'Bitte geben Sie einen Statustext ein.'
+			} ]
+		}
+	},
+	// These are the settings for our report <form>
+	inline : true,
+	on : 'blur',
+	transition : 'fade down',
+	onSuccess : insertData,
+};
 
 
 
-	var $popupform = $('#popupForm');
+var $popupform = $('#popupForm');
 
-	// Initialize the form using rules & settings
-	$popupform.form(rulesAndSettings);
+// Initialize the form using rules & settings
+$popupform.form(rulesAndSettings);
 
 
-	function validateForm() {
+function validateForm()
+{
 		$('#popupForm').form('validate form');
-	}
+}
 
-	function insertData() {
-		var values = $("#popupForm").serialize();
+function insertData()
+{
+  var values = $("#popupForm").serialize();
 
 
-		//	We use jQuery.ajax to post our data to the webservice via http
-		$.ajax({
-			url: 'http://localhost:8000/status/',
-			data: values,
-			cache: false,
-			contentType: 'application/x-www-form-urlencoded',
-			processData: false,
-			type: 'POST',
-			success: function(data) {
-				$('.ui.modal').modal('hide');
+//	We use jQuery.ajax to post our data to the webservice via http
+	$.ajax({
+		url : 'http://localhost:8000/status/',
+		data : values,
+		cache : false,
+		contentType : 'application/x-www-form-urlencoded',
+		processData : false,
+		type : 'POST',
+		success : function (data) {
+			$('.ui.modal').modal('hide');
 
-				$('#table_status').bootstrapTable('refresh');
-			},
-			async: false
-		});
-	}
+			$('#table_status').bootstrapTable('refresh');
+     },
+		async : false
+	});
+}
 </script>

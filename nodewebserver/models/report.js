@@ -8,60 +8,48 @@ function Report() {
             con.query('update report set ? where ID = ?', [report, report.ID], function(err, result) {
                 con.release();
                 if (err) {
-                    console.log("Update-error: " + err);
-                    res.send({
-                        status: 1,
-                        message: 'report update failed'
-                    });
+                	console.log("Update-error: " + err);
+                    res.send({status: 1, message: 'report update failed'});
                 } else {
-                    res.send({
-                        status: 0,
-                        message: 'report updated successfully'
-                    });
+                    res.send({status: 0, message: 'report updated successfully'});
                 }
             });
         });
     };
 
 
-    this.get = function(req, res) {
-        connection.acquire(function(err, con) {
+  this.get = function(req, res) {
+     connection.acquire(function(err, con) {
 
 
-            var id = req.params.id;
-            var sql = 'select * from report';
+         var id = req.params.id;
+         var sql = 'select * from report';
 
-            if (id != undefined) {
-                sql += ' where id = ' + id;
-            }
-            con.query(sql, function(err, result) {
-                con.release();
-                res.send(result);
-            });
+         if (id != undefined)
+         {
+           sql += ' where id = ' + id;
+         }
+       con.query(sql, function(err, result) {
+         con.release();
+         res.send(result);
+       });
+     });
+   };
+
+   this.create = function(todo, res) {
+      connection.acquire(function(err, con) {
+        con.query('insert into report set ?', todo, function(err, result) {
+          con.release();
+          if (err) {
+        	  console.log("Create Error");
+            console.log(todo);
+            res.send({status: 404, message: 'Report creation failed'});
+          } else {
+        	  console.log("Create Success");
+            res.send({status: 0, message: 'Report created successfully', insertId: result.insertId});
+          }
         });
-    };
-
-    this.create = function(todo, res) {
-        connection.acquire(function(err, con) {
-            con.query('insert into report set ?', todo, function(err, result) {
-                con.release();
-                if (err) {
-                    console.log("Create Error");
-                    console.log(todo);
-                    res.send({
-                        status: 404,
-                        message: 'Report creation failed'
-                    });
-                } else {
-                    console.log("Create Success");
-                    res.send({
-                        status: 0,
-                        message: 'Report created successfully',
-                        insertId: result.insertId
-                    });
-                }
-            });
-        });
+      });
     };
 
 

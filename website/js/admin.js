@@ -1,87 +1,90 @@
 $('.menu .item')
-    .tab();
+  .tab();
 
 
-$('#table_room').bootstrapTable({
-    responseHandler: function(res) {
-        return res.results;
-    },
-    url: "http://localhost:8000/room/",
-    columns: [{
-        field: 'state',
-        checkbox: true
-    }, {
+  $('#table_room').bootstrapTable({
+    responseHandler: function (res) {
+    return res.results;
+},
+      url: "http://localhost:8000/room/",
+      columns: [
+        {
+          field: 'state',
+          checkbox: true},{
         field: 'ID',
         title: 'ID'
-    }, {
-        field: 'name',
-        title: 'Name'
-    }, {
-        field: 'floor',
-        title: 'Stockwerk'
-    }, {
-        field: 'building',
-        title: 'Gebäude',
-        formatter: buildingFormat
-    }]
-});
+      },{
+          field: 'name',
+          title: 'Name'
+      },{
+          field: 'floor',
+          title: 'Stockwerk'
+      },{
+          field:'building',
+          title:'Gebäude',
+          formatter: buildingFormat
+      }]
+  });
 
 
-function buildingFormat(value, row, index) {
+function buildingFormat(value, row, index)
+{
 
-    var displayname;
-    $.ajax({
-        url: 'http://localhost:8000/building/',
-        cache: false,
-        processData: false,
-        type: 'GET',
-        success: function(data) {
+var displayname;
+  $.ajax({
+    url : 'http://localhost:8000/building/',
+    cache : false,
+    processData : false,
+    type : 'GET',
+    success : function (data) {
+      
+          for (index = 0; index < data.results.length; ++index)
+          {
+              if (data.results[index].ID == value)
+              {
+                displayname = data.results[index].name;
+                break;
+              }
+        }
+     },
+    async : false
+  });
 
-            for (index = 0; index < data.results.length; ++index) {
-                if (data.results[index].ID == value) {
-                    displayname = data.results[index].name;
-                    break;
-                }
-            }
-        },
-        async: false
-    });
-
-    return displayname;
+  return displayname;
 
 };
 
 
-$('#table_building').bootstrapTable({
-    responseHandler: function(res) {
-        return res.results;
-    },
-    url: "http://localhost:8000/building/",
-    columns: [{
-        field: 'state',
-        checkbox: true
-    }, {
+  $('#table_building').bootstrapTable({
+    responseHandler: function (res) {
+    return res.results;
+},
+url: "http://localhost:8000/building/",
+      columns: [
+        {
+          field: 'state',
+          checkbox: true},{
         field: 'ID',
         title: 'ID'
-    }, {
-        field: 'name',
-        title: 'Name'
-    }, {
-        field: 'address',
-        title: 'Adresse'
-    }]
-});
+      },{
+          field: 'name',
+          title: 'Name'
+      },{
+          field: 'address',
+          title: 'Adresse'
+      }]
+  });
 
 
 $('#table_status').bootstrapTable({
     url: 'http://localhost:8000/status/',
-    columns: [{
+    columns: [
+      {
         field: 'state',
-        checkbox: true
-    }, {
-        field: 'ID',
-        title: 'ID'
-    }, {
+        checkbox: true},{
+      field: 'ID',
+      title: 'ID'
+    },{
         field: 'type',
         title: 'Type'
     }]
@@ -89,97 +92,102 @@ $('#table_status').bootstrapTable({
 
 
 $('#table_category').bootstrapTable({
-    responseHandler: function(res) {
-        return res.results;
-    },
-    url: "http://localhost:8000/category/",
-    columns: [{
-        field: 'state',
-        checkbox: true
-    }, {
+  responseHandler: function (res) {
+  return res.results;
+},
+url: "http://localhost:8000/category/",
+      columns: [
+        {
+          field: 'state',
+          checkbox: true},{
         field: 'ID',
         title: 'ID'
-    }, {
-        field: 'type',
-        title: 'Typ'
-    }, {
-        field: 'text',
-        title: 'Text'
-    }]
-});
+      },{
+          field: 'type',
+          title: 'Typ'
+      },{
+          field: 'text',
+          title: 'Text'
+      }]
+  });
 
 
 
 $('#table_user').bootstrapTable({
-    responseHandler: function(res) {
-        return res.results;
-    },
-    url: "http://localhost:8000/user/",
-    columns: [{
+  responseHandler: function (res) {
+  return res.results;
+},
+url: "http://localhost:8000/user/",
+      columns: [
+      {
         field: 'state',
-        checkbox: true
-    }, {
+        checkbox: true},{
         field: 'name',
         title: 'Name'
-    }, {
+      },
+    {
         field: 'role',
-        title: 'Rolle'
-    }]
-});
+  title: 'Rolle'}]
+  });
 
 
 
 function addItem(data) {
 
 
-    $parent = $(data.target.parentElement);
+$parent = $(data.target.parentElement);
 
-    var location = $parent[0].attributes['data-tab'].value;
+var location = $parent[0].attributes['data-tab'].value;
 
-    $("#popupContent").load("/adminpopup/" + location + ".html");
-    $('.ui.modal').modal('show');
+ $("#popupContent").load("/adminpopup/" + location + ".html");
+  $('.ui.modal').modal('show');
 };
 
-function refreshTable(data) {
-    $parent = $(data.target.parentElement);
+function refreshTable(data)
+{
+  $parent = $(data.target.parentElement);
 
-    var location = $parent[0].attributes['data-tab'].value;
-    $('#table_' + location).bootstrapTable('refresh');
+  var location = $parent[0].attributes['data-tab'].value;
+ $('#table_' + location).bootstrapTable('refresh');
 
 }
 
 
 
-function deleteItem(data) {
-    $parent = $(data.target.parentElement);
-    var location = $parent[0].attributes['data-tab'].value;
+function deleteItem( data )
+{
+  $parent = $(data.target.parentElement);
+  var location = $parent[0].attributes['data-tab'].value;
 
-    $table = $('#table_' + location);
-    var indexfield = $('#table_' + location).bootstrapTable('getSelections');
+  $table = $('#table_' + location);
+  var indexfield = $('#table_' + location).bootstrapTable('getSelections');
 
-    if (indexfield.length > 0) {
+  if (indexfield.length > 0)
+  {
 
-        var index;
+    var index;
 
-        if (location == 'user') {
-            index = indexfield[0].name;
-        } else {
-            index = indexfield[0].ID;
-        }
-
-
-        $.ajax({
-            url: 'http://localhost:8000/' + location + '/' + index,
-            cache: false,
-            processData: false,
-            type: 'DELETE',
-            success: function(data) {
-                alert("delete successful");
-                $('#table_' + location).bootstrapTable('refresh');
-
-            },
-            async: false
-        });
+    if (location == 'user')
+    {
+      index = indexfield[0].name;
+    }else
+    {
+      index = indexfield[0].ID;
     }
+
+
+    $.ajax({
+      url : 'http://localhost:8000/' + location +'/' + index,
+      cache : false,
+      processData : false,
+      type : 'DELETE',
+      success : function (data) {
+          alert("delete successful");
+          $('#table_' + location).bootstrapTable('refresh');
+
+       },
+      async : false
+    });
+  }
 
 }
