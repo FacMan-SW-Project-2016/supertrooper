@@ -1,188 +1,180 @@
-
-<link rel="stylesheet" type="text/css"
-	href="../semantic_ui/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="../semantic_ui/semantic.min.css">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 <table class="ui definition table">
-  <tbody>
-      <tr>
-          <td>Name</td>
-          <td>
-            <div class="required field">
-              <input id="name" name="name">
-            </div>
-          </td>
-      </tr>
-      <tr>
-          <td>Passwort</td>
-          <td>
-            <div class="required field">
-            <input id="pwd_initial" type="password">
-          </div>
-          </td>
-      </tr>
-
-			<tr>
-          <td>Passwort bestätigen</td>
-          <td>
-            <div class="required field">
-            <input id="pwd_best" type="password" >
-          </div>
-          </td>
-						<div class="ui error message hidden" id="message_container"></div>
-      </tr>
-			<tr>
-				<td>Rolle</td>
+	<tbody>
+		<tr>
+			<td>Name</td>
 			<td>
-				<div class"required field">
-  <div class="required field">
-					<div class="ui selection dropdown">
-					  <input type="hidden" name="role">
-					  <i class="dropdown icon"></i>
-					  <div class="default text"></div>
-					  <div class="menu">
-					    <div class="item" data-value="admin">Admin</div>
-					    <div class="item" data-value="advisor">Sachbearbeiter</div>
-							<div class="item" data-value="student">Student</div>
-					  </div>
-					</div>
+				<div class="required field">
+					<input id="name" name="name">
 				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Passwort</td>
+			<td>
+				<div class="required field">
+					<input id="pwd_initial" type="password">
+				</div>
+			</td>
+		</tr>
 
-          </div>
-				</td>
-			</tr>
-  </tbody>
-  <!--                <p>ID = </p><p id="popupID"></p>-->
+		<tr>
+			<td>Passwort bestätigen</td>
+			<td>
+				<div class="required field">
+					<input id="pwd_best" type="password">
+				</div>
+			</td>
+			<div class="ui error message hidden" id="message_container"></div>
+		</tr>
+		<tr>
+			<td>Rolle</td>
+			<td>
+				<div class "required field">
+					<div class="required field">
+						<div class="ui selection dropdown">
+							<input type="hidden" name="role">
+							<i class="dropdown icon"></i>
+							<div class="default text"></div>
+							<div class="menu">
+								<div class="item" data-value="admin">Admin</div>
+								<div class="item" data-value="advisor">Sachbearbeiter</div>
+								<div class="item" data-value="student">Student</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</td>
+		</tr>
+	</tbody>
+	<!--                <p>ID = </p><p id="popupID"></p>-->
 </table>
-	<script src="../js/md5.js"></script>
+<script src="../js/md5.js"></script>
 <script>
-$('.ui.dropdown')
-  .dropdown()
-;
+	$('.ui.dropdown')
+		.dropdown();
 
 
 
-var rulesAndSettings = {
-	fields : {
-		name : {
-			identifier : 'name',
-			rules : [ {
-				type : 'empty',
-				prompt : 'Bitte geben Sie einen Nutzernamen ein.'
-			} ]
-		}	,
-		pwd_initial : {
-			identifier : 'pwd_initial',
-			rules : [ {
-				type : 'empty',
-				prompt : 'Bitte geben Sie ein Passwort an.'
-			}, {
-				type : 'length[6]',
-				prompt : 'Das Passwort muss mindestens 6 Zeichen lang sein.'
-			} ]
+	var rulesAndSettings = {
+		fields: {
+			name: {
+				identifier: 'name',
+				rules: [{
+					type: 'empty',
+					prompt: 'Bitte geben Sie einen Nutzernamen ein.'
+				}]
+			},
+			pwd_initial: {
+				identifier: 'pwd_initial',
+				rules: [{
+					type: 'empty',
+					prompt: 'Bitte geben Sie ein Passwort an.'
+				}, {
+					type: 'length[6]',
+					prompt: 'Das Passwort muss mindestens 6 Zeichen lang sein.'
+				}]
+			},
+			pwd_best: {
+				identifier: 'pwd_best',
+				rules: [{
+					type: 'empty',
+					prompt: 'Bitte bestätigen Sie das Passwort'
+				}]
+			},
+			role: {
+				identifier: 'role',
+				rules: [{
+					type: 'minCount[1]',
+					prompt: 'Bitte wählen Sie eine Rolle an.'
+				}]
+			},
 		},
-		pwd_best : {
-			identifier : 'pwd_best',
-			rules : [ {
-				type : 'empty',
-				prompt : 'Bitte bestätigen Sie das Passwort'
-			}]
-		},
-		role : {
-			identifier : 'role',
-			rules : [ {
-				type : 'minCount[1]',
-				prompt : 'Bitte wählen Sie eine Rolle an.'
-			} ]
-		},
-	},
-	// These are the settings for our report <form>
-	inline : true,
-	on : 'blur',
-	transition : 'fade down',
-	onSuccess : insertData,
-};
+		// These are the settings for our report <form>
+		inline: true,
+		on: 'blur',
+		transition: 'fade down',
+		onSuccess: insertData,
+	};
 
 
 
-var $popupform = $('#popupForm');
+	var $popupform = $('#popupForm');
 
-// Initialize the form using rules & settings
-$popupform.form(rulesAndSettings);
+	// Initialize the form using rules & settings
+	$popupform.form(rulesAndSettings);
 
 
-function validateForm()
-{
+	function validateForm() {
 		$('#popupForm').form('validate form');
-}
+	}
 
 
-function insertData()
-{
+	function insertData() {
 
-	var password = document.getElementById("pwd_initial"),
-	 confirm_password = document.getElementById("pwd_best");
+		var password = document.getElementById("pwd_initial"),
+			confirm_password = document.getElementById("pwd_best");
 
-if(password.value != confirm_password.value) {
-alert("passwords don't match");
-
-
-var html = '<div class="header">Passwörter stimmen nicht überein!';
-
-$('#message_container').html(html);
-$('#message_container').show();
-
-return false;
-}else {
-
-	var passhash = hex_md5(password.value);
-
-				var values = $("#popupForm").serialize();
-				values += "&password=" + passhash;
-				var html;
-				var return_value = false;
+		if (password.value != confirm_password.value) {
+			alert("passwords don't match");
 
 
-				//	We use jQuery.ajax to post our data to the webservice via http
-				$.ajax({
-					url : 'http://localhost:8000/user/',
-					data : values,
-					cache : false,
-					contentType : 'application/x-www-form-urlencoded',
-					processData : false,
-					type : 'POST',
-					success : function (data) {
-					
+			var html = '<div class="header">Passwörter stimmen nicht überein!';
+
+			$('#message_container').html(html);
+			$('#message_container').show();
+
+			return false;
+		} else {
+
+			var passhash = hex_md5(password.value);
+
+			var values = $("#popupForm").serialize();
+			values += "&password=" + passhash;
+			var html;
+			var return_value = false;
+
+
+			//	We use jQuery.ajax to post our data to the webservice via http
+			$.ajax({
+				url: 'http://localhost:8000/user/',
+				data: values,
+				cache: false,
+				contentType: 'application/x-www-form-urlencoded',
+				processData: false,
+				type: 'POST',
+				success: function(data) {
+
 					switch (data.status) {
-		case 0:
-			$('.ui.modal').modal('hide');
-			$('#table_user').bootstrapTable('refresh');
-			return_value = true;
-			break;
+						case 0:
+							$('.ui.modal').modal('hide');
+							$('#table_user').bootstrapTable('refresh');
+							return_value = true;
+							break;
 
-		case 1:
-			html = '<div class="header">Es kam leider zu einem Fehler!</div>Bitte kontaktieren Sie den Admin dieser Seite.';
-			break;
-			
-		case 2:
-			html = '<div class="header">Ups!</div>Dieser Benutzername ist leider schon vergeben. Versuchen Sie doch einen anderen.';
-			break;
-		}
-  						
-					 },
-					async : false
-				});
-				
-				if (html !== undefined) {
-					$('#message_container').html(html);
-					$('#message_container').show();
-				}
+						case 1:
+							html = '<div class="header">Es kam leider zu einem Fehler!</div>Bitte kontaktieren Sie den Admin dieser Seite.';
+							break;
 
-				return return_value;
+						case 2:
+							html = '<div class="header">Ups!</div>Dieser Benutzername ist leider schon vergeben. Versuchen Sie doch einen anderen.';
+							break;
+					}
 
+				},
+				async: false
+			});
+
+			if (html !== undefined) {
+				$('#message_container').html(html);
+				$('#message_container').show();
 			}
-}
 
+			return return_value;
 
-
+		}
+	}
 </script>

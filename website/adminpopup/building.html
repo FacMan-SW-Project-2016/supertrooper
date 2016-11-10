@@ -1,94 +1,85 @@
-
-<link rel="stylesheet" type="text/css"
-	href="../semantic_ui/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="../semantic_ui/semantic.min.css">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 <table class="ui definition table">
-  <tbody>
-      <tr>
-          <td>Name</td>
-          <td>
+	<tbody>
+		<tr>
+			<td>Name</td>
+			<td>
 
-
-            <div class="required field">
-              <input id="name" name="name">
-           </div>
-          </td>
-      </tr>
-    <tr>
-      <td>Adresse</td>
-      <td>
-        <div class="required field">
-       <input id="address" name="address">
-		 </div>
-      </td>
-    </tr>
-  </tbody>
-  <!--                <p>ID = </p><p id="popupID"></p>-->
+				<div class="required field">
+					<input id="name" name="name">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Adresse</td>
+			<td>
+				<div class="required field">
+					<input id="address" name="address">
+				</div>
+			</td>
+		</tr>
+	</tbody>
+	<!--                <p>ID = </p><p id="popupID"></p>-->
 </table>
 
 <script>
-
-
-
-var rulesAndSettings = {
-	fields : {
-		name : {
-			identifier : 'name',
-			rules : [ {
-				type : 'empty',
-				prompt : 'Bitte geben Sie einen Gebäudenamen ein.'
-			} ]
+	var rulesAndSettings = {
+		fields: {
+			name: {
+				identifier: 'name',
+				rules: [{
+					type: 'empty',
+					prompt: 'Bitte geben Sie einen Gebäudenamen ein.'
+				}]
+			},
+			address: {
+				identifier: 'address',
+				rules: [{
+					type: 'empty',
+					prompt: 'Bitte geben Sie einen Adresse ein.'
+				}]
+			}
 		},
-		address : {
-			identifier : 'address',
-			rules : [ {
-				type : 'empty',
-				prompt : 'Bitte geben Sie einen Adresse ein.'
-			} ]
-		}
-	},
-	// These are the settings for our report <form>
-	inline : true,
-	on : 'blur',
-	transition : 'fade down',
-	onSuccess : insertData,
-};
+		// These are the settings for our report <form>
+		inline: true,
+		on: 'blur',
+		transition: 'fade down',
+		onSuccess: insertData,
+	};
 
 
 
-var $popupform = $('#popupForm');
+	var $popupform = $('#popupForm');
 
-// Initialize the form using rules & settings
-$popupform.form(rulesAndSettings);
+	// Initialize the form using rules & settings
+	$popupform.form(rulesAndSettings);
 
 
-function validateForm()
-{
+	function validateForm() {
 		$('#popupForm').form('validate form');
-}
+	}
 
-function insertData()
-{
+	function insertData() {
 
-  var values = $("#popupForm").serialize();
+		var values = $("#popupForm").serialize();
 
-console.log(values);
-//	We use jQuery.ajax to post our data to the webservice via http
-	$.ajax({
-		url : 'http://localhost:8000/building/',
-		data : values,
-		cache : false,
-		contentType : 'application/x-www-form-urlencoded',
-		processData : false,
-		type : 'POST',
-		success : function (data) {
-			$('.ui.modal').modal('hide');
+		console.log(values);
+		//	We use jQuery.ajax to post our data to the webservice via http
+		$.ajax({
+			url: 'http://localhost:8000/building/',
+			data: values,
+			cache: false,
+			contentType: 'application/x-www-form-urlencoded',
+			processData: false,
+			type: 'POST',
+			success: function(data) {
+				$('.ui.modal').modal('hide');
 
-			$('#table_building').bootstrapTable('refresh');
-     },
-		async : false
-	});
-}
-
+				$('#table_building').bootstrapTable('refresh');
+			},
+			async: false
+		});
+	}
 </script>

@@ -2,20 +2,20 @@ var connection = require('../connection');
 
 function Category() {
 
-  this.get = function(res) {
-     connection.acquire(function(err, con) {
-       con.query('select * from category', function(err, result) {
-         con.release();
+    this.get = function(res) {
+        connection.acquire(function(err, con) {
+            con.query('select * from category', function(err, result) {
+                con.release();
 
-         var result_values = {};
+                var result_values = {};
 
-         result_values["success"] = true;
-         result_values["results"] = result;
+                result_values["success"] = true;
+                result_values["results"] = result;
 
-         res.send(result_values);
-       });
-     });
-   };
+                res.send(result_values);
+            });
+        });
+    };
 
 
     this.create = function(category, res) {
@@ -23,9 +23,15 @@ function Category() {
             con.query('insert into category set ?', category, function(err, result) {
                 con.release();
                 if (err) {
-                    res.send({status: 1, message: 'category creation failed'});
+                    res.send({
+                        status: 1,
+                        message: 'category creation failed'
+                    });
                 } else {
-                    res.send({status: 0, message: 'category created successfully'});
+                    res.send({
+                        status: 0,
+                        message: 'category created successfully'
+                    });
                 }
             });
         });
@@ -33,13 +39,19 @@ function Category() {
 
 
     this.delete = function(id, res) {
-        connection.acquire(function (err, con) {
-            con.query('delete from category where id = ?', [id], function (err, result) {
+        connection.acquire(function(err, con) {
+            con.query('delete from category where id = ?', [id], function(err, result) {
                 con.release();
                 if (err) {
-                    res.send({status: 1, message: 'Failed to delete'});
+                    res.send({
+                        status: 1,
+                        message: 'Failed to delete'
+                    });
                 } else {
-                    res.send({status: 0, message: 'Deleted successfully'});
+                    res.send({
+                        status: 0,
+                        message: 'Deleted successfully'
+                    });
                 }
             });
         });
@@ -51,9 +63,15 @@ function Category() {
             con.query('update category set ? where ID = ?', [category, category.ID], function(err, result) {
                 con.release();
                 if (err) {
-                    res.send({status: 1, message: 'category update failed'});
+                    res.send({
+                        status: 1,
+                        message: 'category update failed'
+                    });
                 } else {
-                    res.send({status: 0, message: 'category updated successfully'});
+                    res.send({
+                        status: 0,
+                        message: 'category updated successfully'
+                    });
                 }
             });
         });

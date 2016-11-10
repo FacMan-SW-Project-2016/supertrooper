@@ -1,128 +1,118 @@
-
-<link rel="stylesheet" type="text/css"
-	href="../semantic_ui/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="../semantic_ui/semantic.min.css">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 <table class="ui definition table">
-  <tbody>
-      <tr>
-          <td>Name</td>
-          <td>
-            <div class="required field">
-          <input id="name" name="name">
-           </div>
-          </td>
-      </tr>
-    <tr>
-      <td>Stockwerk</td>
-      <td>
-        <div class="required field">
-        <input id="floor" name="floor">
-       </div>
-      </td>
-    </tr>
-    <tr>
-      <td>Gebäude</td>
-      <td>
-				  <div class="required field">
-        <div class="ui floating search selection dropdown" id="dropdownbuilding" name=building>
-            <input type="hidden" name="building">
-                      <i class="dropdown icon"></i>
-            <div class="default text" ></div>
-          </div>
+	<tbody>
+		<tr>
+			<td>Name</td>
+			<td>
+				<div class="required field">
+					<input id="name" name="name">
 				</div>
-      </td>
-    </tr>
-  </tbody>
-  <!--                <p>ID = </p><p id="popupID"></p>-->
+			</td>
+		</tr>
+		<tr>
+			<td>Stockwerk</td>
+			<td>
+				<div class="required field">
+					<input id="floor" name="floor">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Gebäude</td>
+			<td>
+				<div class="required field">
+					<div class="ui floating search selection dropdown" id="dropdownbuilding" name=building>
+						<input type="hidden" name="building">
+						<i class="dropdown icon"></i>
+						<div class="default text"></div>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</tbody>
+	<!--                <p>ID = </p><p id="popupID"></p>-->
 </table>
 
 <script>
-
-
-var rulesAndSettings = {
-	fields : {
-		name : {
-			identifier : 'name',
-			rules : [ {
-				type : 'empty',
-				prompt : 'Bitte geben Sie einen Raumnamen ein.'
-			} ]
+	var rulesAndSettings = {
+		fields: {
+			name: {
+				identifier: 'name',
+				rules: [{
+					type: 'empty',
+					prompt: 'Bitte geben Sie einen Raumnamen ein.'
+				}]
+			},
+			floor: {
+				identifier: 'floor',
+				rules: [{
+					type: 'empty',
+					prompt: 'Bitte geben Sie ein Stockwerk ein.'
+				}]
+			},
+			building: {
+				identifier: 'building',
+				rules: [{
+					type: 'minCount[1]',
+					prompt: 'Bitte wählen Sie ein Gebäude aus.'
+				}]
+			},
 		},
-		floor : {
-			identifier : 'floor',
-			rules : [ {
-				type : 'empty',
-				prompt : 'Bitte geben Sie ein Stockwerk ein.'
-			} ]
-		},
-		building : {
-			identifier : 'building',
-			rules : [ {
-				type : 'minCount[1]',
-				prompt : 'Bitte wählen Sie ein Gebäude aus.'
-			} ]
-		},
-	},
-	// These are the settings for our report <form>
-	inline : true,
-	on : 'blur',
-	transition : 'fade down',
-	onSuccess : insertData,
-};
+		// These are the settings for our report <form>
+		inline: true,
+		on: 'blur',
+		transition: 'fade down',
+		onSuccess: insertData,
+	};
 
 
 
-var $popupform = $('#popupForm');
+	var $popupform = $('#popupForm');
 
-// Initialize the form using rules & settings
-$popupform.form(rulesAndSettings);
+	// Initialize the form using rules & settings
+	$popupform.form(rulesAndSettings);
 
 
-function validateForm()
-{
+	function validateForm() {
 		$('#popupForm').form('validate form');
-}
+	}
 
 
-$('#dropdownbuilding').dropdown({
-	apiSettings: {
-	    url: '//localhost:8000/building',
-	    cache: false
-	  },
-	  saveRemoteData: false,
-	  fields: {
-//	    remoteValues: 'results',
-		  value: 'ID',
-		  name: 'name'
-	  }
-});
-
-
-function insertData()
-{
-
-  var values = $("#popupForm").serialize();
-
-
-//	We use jQuery.ajax to post our data to the webservice via http
-	$.ajax({
-		url : 'http://localhost:8000/room/',
-		data : values,
-		cache : false,
-		contentType : 'application/x-www-form-urlencoded',
-		processData : false,
-		type : 'POST',
-		success : function (data) {
-			$('.ui.modal').modal('hide');
-
-			$('#table_room').bootstrapTable('refresh');
-     },
-		async : false
+	$('#dropdownbuilding').dropdown({
+		apiSettings: {
+			url: '//localhost:8000/building',
+			cache: false
+		},
+		saveRemoteData: false,
+		fields: {
+			//	    remoteValues: 'results',
+			value: 'ID',
+			name: 'name'
+		}
 	});
-}
 
 
+	function insertData() {
+
+		var values = $("#popupForm").serialize();
 
 
+		//	We use jQuery.ajax to post our data to the webservice via http
+		$.ajax({
+			url: 'http://localhost:8000/room/',
+			data: values,
+			cache: false,
+			contentType: 'application/x-www-form-urlencoded',
+			processData: false,
+			type: 'POST',
+			success: function(data) {
+				$('.ui.modal').modal('hide');
+
+				$('#table_room').bootstrapTable('refresh');
+			},
+			async: false
+		});
+	}
 </script>

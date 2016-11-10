@@ -1,95 +1,86 @@
-
-<link rel="stylesheet" type="text/css"
-	href="../semantic_ui/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="../semantic_ui/semantic.min.css">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 
 <table class="ui definition table">
-  <tbody>
-      <tr>
-          <td>Typ</td>
-          <td>
-                        <div class="required field">
-             <input id="type" name="type">
-           </div>
-          </td>
-      </tr>
-      <tr>
-          <td>Text</td>
-          <td>
-                        <div class="required field">
-           <input id="text" name="text">
-           </div>
-          </td>
-      </tr>
-  </tbody>
-  <!--                <p>ID = </p><p id="popupID"></p>-->
+	<tbody>
+		<tr>
+			<td>Typ</td>
+			<td>
+				<div class="required field">
+					<input id="type" name="type">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Text</td>
+			<td>
+				<div class="required field">
+					<input id="text" name="text">
+				</div>
+			</td>
+		</tr>
+	</tbody>
+	<!--                <p>ID = </p><p id="popupID"></p>-->
 </table>
 
 <script>
-
-
-
-
-var rulesAndSettings = {
-	fields : {
-		type : {
-			identifier : 'type',
-			rules : [ {
-				type : 'empty',
-				prompt : 'Bitte geben Sie einen Kategorie Typ ein.'
-			} ]
+	var rulesAndSettings = {
+		fields: {
+			type: {
+				identifier: 'type',
+				rules: [{
+					type: 'empty',
+					prompt: 'Bitte geben Sie einen Kategorie Typ ein.'
+				}]
+			},
+			text: {
+				identifier: 'text',
+				rules: [{
+					type: 'empty',
+					prompt: 'Bitte geben Sie einen Kategorie Text ein.'
+				}]
+			}
 		},
-		text : {
-			identifier : 'text',
-			rules : [ {
-				type : 'empty',
-				prompt : 'Bitte geben Sie einen Kategorie Text ein.'
-			} ]
-		}
-	},
-	// These are the settings for our report <form>
-	inline : true,
-	on : 'blur',
-	transition : 'fade down',
-	onSuccess : insertData,
-};
+		// These are the settings for our report <form>
+		inline: true,
+		on: 'blur',
+		transition: 'fade down',
+		onSuccess: insertData,
+	};
 
 
 
-var $popupform = $('#popupForm');
+	var $popupform = $('#popupForm');
 
-// Initialize the form using rules & settings
-$popupform.form(rulesAndSettings);
+	// Initialize the form using rules & settings
+	$popupform.form(rulesAndSettings);
 
 
-function validateForm()
-{
+	function validateForm() {
 		$('#popupForm').form('validate form');
-}
+	}
 
-function insertData()
-{
+	function insertData() {
 
-  var values = $("#popupForm").serialize();
+		var values = $("#popupForm").serialize();
 
 
-//	We use jQuery.ajax to post our data to the webservice via http
-	$.ajax({
-		url : 'http://localhost:8000/category/',
-		data : values,
-		cache : false,
-		contentType : 'application/x-www-form-urlencoded',
-		processData : false,
-		type : 'POST',
-		success : function (data) {
-        alert("successful update");
+		//	We use jQuery.ajax to post our data to the webservice via http
+		$.ajax({
+			url: 'http://localhost:8000/category/',
+			data: values,
+			cache: false,
+			contentType: 'application/x-www-form-urlencoded',
+			processData: false,
+			type: 'POST',
+			success: function(data) {
+				alert("successful update");
 
-$('.ui.modal').modal('hide');
+				$('.ui.modal').modal('hide');
 				$('#table_category').bootstrapTable('refresh');
 
-     },
-		async : false
-	});
-}
-
+			},
+			async: false
+		});
+	}
 </script>
