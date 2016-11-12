@@ -83,7 +83,8 @@ describe('/GET user', function() {
                             res.body.should.have.property('message').eql('user with this username already exists');
                             done();
                         });
-                }
+                }else
+                    done(error);
 
             })
 
@@ -144,7 +145,8 @@ describe('/GET user', function() {
                             done();
                         });
 
-                }
+                }else
+                    done(error);
             });
 
         });
@@ -176,7 +178,8 @@ describe('/GET user', function() {
                             done();
                         });
 
-                }
+                }else
+                    done(error);
             });
 
         });
@@ -207,7 +210,8 @@ describe('/GET user', function() {
                             done();
                         });
 
-                }
+                }else
+                    done(error);
             });
 
         });
@@ -235,7 +239,8 @@ describe('/GET user', function() {
                             done();
                         });
 
-                }
+                }else
+                    done(error);
             });
 
         });
@@ -266,7 +271,8 @@ describe('/GET user', function() {
                             done();
                         });
 
-                }
+                }else
+                    done(error);
             });
 
         });
@@ -298,7 +304,8 @@ describe('/GET user', function() {
                             done();
                         });
 
-                }
+                }else
+                    done(error);
             });
 
         });
@@ -329,7 +336,8 @@ describe('/GET user', function() {
                             done();
                         });
 
-                }
+                }else
+                    done(error);
             });
 
         });
