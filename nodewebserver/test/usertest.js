@@ -37,4 +37,303 @@ describe('/GET user', function() {
 });
 });
 
+
+
+    /*
+     * Test the /POST route
+     */
+    describe('/POST user', function() {
+        it('it should POST one user', function(done) {
+
+            var user = {
+                name: "TestHorst",
+                role: "admin",
+                password: "Test123Test"
+            }
+
+
+            chai.request(server)
+                .post('/user')
+                .send(user)
+                .end(function (err, res){
+                    res.should.have.status(200);
+                    res.body.should.have.property('message').eql('user created successfully');
+                    done();
+                });
+        });
+        it('user does already exist', function(done) {
+
+
+            var user = {
+                name: "TestHorst",
+                role: "admin",
+                password: "Test123Test"
+            }
+
+
+            User.createUser(user,function (error)
+            {
+                if (!error)
+                {
+                    chai.request(server)
+                        .post('/user')
+                        .send(user)
+                        .end(function (err, res){
+                            res.should.have.status(200);
+                            res.body.should.have.property('message').eql('user with this username already exists');
+                            done();
+                        });
+                }
+
+            })
+
+
+        });
+
+
+        it('user cannot be created', function(done) {
+
+
+            var user = {
+                name: "testuser123",
+                role: "bauer",
+                password: "Test123Test"
+            }
+
+
+
+            chai.request(server)
+                .post('/user')
+                .end(function (err, res){
+                    res.should.have.status(200);
+                    res.body.should.have.property('message').eql('user creation failed');
+                    done();
+                });
+        });
+    });
+
+
+
+    /*
+     * Test the /POST route
+     */
+    describe('/PUT user', function() {
+        it('update user data', function(done) {
+
+
+            var user = {
+                name: "TestHorst",
+                role: "admin",
+                password: "Test123Test"
+            }
+
+
+            User.createUser(user,function (error)
+            {
+                if (!error) {
+
+
+                    user.role = "student";
+
+                    chai.request(server)
+                        .put('/user')
+                        .send(user)
+                        .end(function (err, res){
+                            res.should.have.status(200);
+                            res.body.should.have.property('message').eql('user updated successfully');
+                            done();
+                        });
+
+                }
+            });
+
+        });
+
+
+        it('update user data (no related user)', function(done) {
+
+
+            var user = {
+                name: "TestHorst",
+                role: "admin",
+                password: "Test123Test"
+            }
+
+
+            User.createUser(user,function (error)
+            {
+                if (!error) {
+
+
+                    user.name = "MaierHuber";
+
+                    chai.request(server)
+                        .put('/user')
+                        .send(user)
+                        .end(function (err, res){
+                            res.should.have.status(200);
+                            res.body.should.have.property('message').eql('user update failed');
+                            done();
+                        });
+
+                }
+            });
+
+        });
+
+    });
+
+
+    describe('/DELETE user', function() {
+        it('delte user', function (done) {
+
+
+            var user = {
+                name: "TestHorst",
+                role: "admin",
+                password: "Test123Test"
+            }
+
+
+            User.createUser(user, function (error) {
+                if (!error) {
+
+
+                    chai.request(server)
+                        .delete('/user/' + user.name)
+                        .end(function (err, res) {
+                            res.should.have.status(200);
+                            res.body.should.have.property('message').eql('Deleted successfully');
+                            done();
+                        });
+
+                }
+            });
+
+        });
+
+
+        it('delte user failes', function (done) {
+
+
+            var user = {
+                name: "TestHorst",
+                role: "admin",
+                password: "Test123Test"
+            }
+
+
+            User.createUser(user, function (error) {
+                if (!error) {
+
+
+                    chai.request(server)
+                        .delete('/user/' + 'HorstMaier')
+                        .end(function (err, res) {
+                            res.should.have.status(200);
+                            res.body.should.have.property('message').eql('Deletion failed');
+                            done();
+                        });
+
+                }
+            });
+
+        });
+    });
+
+
+    describe('/Authenticate user', function() {
+        it('right credentials user', function (done) {
+
+
+            var user = {
+                name: "TestHorst",
+                role: "admin",
+                password: "Test123Test"
+            }
+
+
+            User.createUser(user, function (error) {
+                if (!error) {
+
+
+                    chai.request(server)
+                        .post('/user/authenticate')
+                        .send(user)
+                        .end(function (err, res) {
+                            res.should.have.status(200);
+                            res.body.should.have.property('message').eql('User successfully authenticated!');
+                            done();
+                        });
+
+                }
+            });
+
+        });
+
+
+
+        it('wrong password', function (done) {
+
+
+            var user = {
+                name: "TestHorst",
+                role: "admin",
+                password: "Test123Test"
+            }
+
+
+            User.createUser(user, function (error) {
+                if (!error) {
+
+
+                    user.password = "meinPasswort";
+
+                    chai.request(server)
+                        .post('/user/authenticate')
+                        .send(user)
+                        .end(function (err, res) {
+                            res.should.have.status(200);
+                            res.body.should.have.property('message').eql('Wrong password.');
+                            done();
+                        });
+
+                }
+            });
+
+        });
+
+
+        it('No such user', function (done) {
+
+
+            var user = {
+                name: "TestHorst",
+                role: "admin",
+                password: "Test123Test"
+            }
+
+
+            User.createUser(user, function (error) {
+                if (!error) {
+
+
+                    user.name = "Horst Huber";
+
+                    chai.request(server)
+                        .post('/user/authenticate')
+                        .send(user)
+                        .end(function (err, res) {
+                            res.should.have.status(200);
+                            res.body.should.have.property('message').eql('No such user.');
+                            done();
+                        });
+
+                }
+            });
+
+        });
+
+    });
+
 });
