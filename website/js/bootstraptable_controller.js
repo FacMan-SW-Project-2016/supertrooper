@@ -70,13 +70,55 @@ function timestampFormat (value, row, index)
 
 function categoryFormat (value, row, index)
 {
-	return "CategoryPenis";
+
+	var displayname;
+	$.ajax({
+		url : 'http://localhost:8000/category/',
+		cache : false,
+		processData : false,
+		type : 'GET',
+		success : function (data) {
+
+			for (index = 0; index < data.results.length; ++index)
+			{
+				if (data.results[index].ID == value)
+				{
+					displayname = data.results[index].text;
+					break;
+				}
+			}
+		},
+		async : false
+	});
+
+	return displayname;
 };
 
 
 function roomFormat (value, row, index)
 {
-	return "RoomPenis";
+
+	var displayname;
+	$.ajax({
+		url : 'http://localhost:8000/room/',
+		cache : false,
+		processData : false,
+		type : 'GET',
+		success : function (data) {
+
+			for (index = 0; index < data.results.length; ++index)
+			{
+				if (data.results[index].ID == value)
+				{
+					displayname = data.results[index].name;
+					break;
+				}
+			}
+		},
+		async : false
+	});
+
+	return displayname;
 };
 
 
