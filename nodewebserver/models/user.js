@@ -12,11 +12,24 @@ function User() {
            result_values["success"] = true;
            result_values["results"] = result;
 
-           res.send(result_values);
+           res.send( result_values);
        });
      });
    };
 
+
+   // this.getSpecific = function (name)
+   // {
+   //     connection.acquire(function(err, con) {
+   //         con.query('select * from user where name= ?',name, function(err, result) {
+   //             con.release();
+   //
+   //             if ( !error )
+   //              return result;
+   //              return result;
+   //         });
+   //     });
+   // };
 
    this.create = function(user, res) {
        connection.acquire(function(err, con) {
@@ -35,6 +48,16 @@ function User() {
        });
    };
 
+   //util method for tests
+    this.createUser = function(user, callback) {
+        connection.acquire(function(err, con) {
+            con.query('insert into user set ?', user, function(err, result) {
+                con.release();
+                callback(err);
+            });
+        });
+    };
+
 
     this.delete = function(id, res) {
         connection.acquire(function (err, con) {
@@ -47,6 +70,20 @@ function User() {
                 }
             });
         });
+    };
+
+    //util method for tests
+    this.deleteAll = function(){
+        connection.acquire(function (err, con) {
+        con.query('delete from user', function (err) {
+            con.release();
+            if (err) {
+                return false;
+            } else {
+               return true;
+            }
+        });
+    });
     };
 
 
@@ -75,7 +112,7 @@ function User() {
 
     this.update = function(user, res) {
         connection.acquire(function(err, con) {
-            con.query('update user set ? where ID = ?', [user, user.ID], function(err, result) {
+            con.query('update user set ? where name = ?', [user, user.name], function(err, result) {
                 con.release();
                 if (err) {
                     res.send({status: 1, message: 'user update failed'});

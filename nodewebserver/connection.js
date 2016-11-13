@@ -1,3 +1,5 @@
+
+var config = require('config');
 var mysql = require('mysql');
 
 function Connection() {
@@ -9,7 +11,7 @@ function Connection() {
       host: 'localhost',
       user: 'root',
       password: '',
-      database: 'facilitymgmt'
+      database: config.DBHost
     });
   };
 

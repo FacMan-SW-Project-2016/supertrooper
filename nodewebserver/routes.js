@@ -70,7 +70,10 @@ module.exports = {
       user.delete(req.params.name, res);
     });
 
-
+    app.put('/user/', function (req, res)
+    {
+      user.update(req.body, res);
+    });
 
     //Room where building
     app.get('/room_building/:buildingid', function(req, res) {

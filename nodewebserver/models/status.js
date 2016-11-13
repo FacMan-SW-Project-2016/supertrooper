@@ -2,6 +2,34 @@ var connection = require('../connection');
 
 function Status() {
 
+
+    //util method for tests
+    this.deleteAll = function(){
+        connection.acquire(function (err, con) {
+            con.query('delete from status', function (err) {
+                con.release();
+                if (err) {
+                    return false;
+                } else {
+                    return true;
+                }
+            });
+        });
+    };
+
+
+    //util method for tests
+    this.createStatus = function(status, callback) {
+        connection.acquire(function(err, con) {
+            con.query('insert into status set ?', status, function(err, result) {
+                con.release();
+                callback(err);
+            });
+        });
+    };
+
+
+
     this.update = function(status, res) {
         connection.acquire(function(err, con) {
             con.query('update status set ? where ID = ?', [status, status.ID], function(err, result) {
