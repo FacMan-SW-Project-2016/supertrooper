@@ -55,9 +55,13 @@
 
 			<div class="ui container">
 				<form class="ui form piled segment" id="reportForm">
-					<h4>Report Liste:</h4>
-					<p>W&auml;hlen sie eine Meldung aus um zur Detail Ansicht zu
-						w&auml;chseln</p>
+					<h4>Meine Meldungen:</h4>
+					<p>W&auml;hlen sie eine Meldung aus um zur Detail Ansicht zu wechseln</p>
+					<div class="ui slider checkbox"  id="showAll">
+						<input type="checkbox">
+						<label>Meldungen aller Ersteller anzeigen</label>
+					</div>
+
 					<div class='ui center aligned container'>
 						<table id="table" class="ui selectable celled table">
 							<!--    <button class="ui button">test</button>-->
@@ -67,6 +71,7 @@
 						<p></p>
 						<button onclick="history.go(-1);" class="ui secondary button">Zurück</button>
 						<button onclick="table.reload()" class="ui primary button">Refresh</button>
+
 					</div>
 				</form>
 			</div>
@@ -78,7 +83,7 @@
 			<script src="./bootstrap/bootstrap-table.js"></script>
 			<script src="./bootstrap/bootstrap-table.min.js"></script>
 				<script src="js/generic_controller.js"></script>
-			<script src="js/bootstraptable_controller.js"></script>		
+			<script src="js/bootstraptable_controller.js"></script>
 
 
 			<div class="existing code" data-type="html">

@@ -295,11 +295,52 @@ $('#popupForm').form(rulesAndSettings);
     $('.ui.modal').modal('show');
     });
 
+
+
+		$('.ui.slider.checkbox')
+		  .checkbox({
+		    onChecked: function() {
+
+					$('#table').bootstrapTable('filterBy', null);
+						$('#table').bootstrapTable('refresh');
+		    },
+				onUnchecked: function() {
+
+					var userName = getCookie("username");
+					var object = {usercreate: userName};
+
+					$('#table').bootstrapTable('filterBy', object);
+					$('#table').bootstrapTable('refresh');
+		    }
+		  });
+
+
 	$(document).ready(function() {
 
-var object = {usercreate: "Felix Gillissen"};
 
-	$('#table').bootstrapTable('filterBy', object);
+var userName = getCookie("username");
+var userRole = getCookie("role");
+
+var object = {usercreate: userName};
+
+$('#table').bootstrapTable('filterBy', object);
+
+
+switch (userRole)
+{
+	case "student":
+		//toggle button für filter vestecken
+		$('#showAll').hide();
+		//refresh table
+		break;
+	case "sachbearbeiter":
+	case "admin":
+			//toggle button anzeigen lassen
+			$('#showAll').show();
+			//refresh table
+			break;
+}
+
 
 });
 
