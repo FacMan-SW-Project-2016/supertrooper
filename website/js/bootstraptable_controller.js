@@ -73,9 +73,15 @@ $('#table').bootstrapTable({
 	} ]
 });
 
+var timeStamp;
 function timestampFormat (value, row, index)
 {
-	return "Penis";
+    var time = value.slice(11, -8);
+    var year = value.slice(0, -20);
+    var month = value.slice(5,-17);
+    var day = value.slice(8, -14);
+	timeStamp = time + " " + day +"."+month+"."+year;
+    return timeStamp;
 };
 
 function categoryFormat (value, row, index)
@@ -169,7 +175,7 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
 
     var time = row.moment.substring(0,16);
 
-    $('#popupTitle').text(row.title  + " - " + time);
+    $('#popupTitle').text(row.title  + " - " + timeStamp);
     $('#popupPic').attr('src', '');
     if(row.data!==null){
     $('#popupPic').attr('src', 'http://localhost:8000/photo/download/' + row.ID);
