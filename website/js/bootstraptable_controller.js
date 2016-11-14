@@ -77,8 +77,6 @@ $('#table').bootstrapTable({
 	} ]
 });
 
-var timeStamp;
-
 function statusFormat(value, row, index){
 	var formatted_status;
 	switch (value) {
@@ -103,11 +101,12 @@ function statusFormat(value, row, index){
 
 function timestampFormat (value, row, index)
 {
+	var timeStamp;
     var time = value.slice(11, -8);
     var year = value.slice(0, -20);
     var month = value.slice(5,-17);
     var day = value.slice(8, -14);
-	timeStamp = time + " " + day +"."+month+"."+year;
+	timeStamp = day +"."+month+"."+year + ", " + time + " Uhr";
     return timeStamp;
 };
 
