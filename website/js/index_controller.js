@@ -210,4 +210,10 @@ if (getCookie("welcome") == "true") {
 	$('#info_container').show();
 } else {
 	$('#info_container').hide();
-}
+};
+
+
+// Dummy method that wants to be tested
+function theAnswer() {
+	  return 42;
+	}
