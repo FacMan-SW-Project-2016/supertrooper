@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 -- Database: `factest`
 --
 
-DROP DATABASE `factest`;
+DROP DATABASE IF EXISTS `factest`;
 
 CREATE DATABASE IF NOT EXISTS `factest` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `factest`;
