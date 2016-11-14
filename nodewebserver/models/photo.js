@@ -32,7 +32,7 @@ this.upload = function(req, res) {
       res.end("File is uploaded");
 
 var updateData = {};
-updateData.id = id;
+updateData.ID = id;
 updateData.data = 'userPhoto-' + id + '.jpg';
 
       report.update(updateData, null);

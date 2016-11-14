@@ -9,9 +9,11 @@ function Report() {
                 con.release();
                 if (err) {
                 	console.log("Update-error: " + err);
-                    res.send({status: 1, message: 'report update failed'});
+                 if (res) res.send({status: 1, message: 'report update failed'});
                 } else {
-                    res.send({status: 0, message: 'report updated successfully'});
+                    console.log ("successfull");
+
+                  if (res) res.send({status: 0, message: 'report updated successfully'});
                 }
             });
         });
