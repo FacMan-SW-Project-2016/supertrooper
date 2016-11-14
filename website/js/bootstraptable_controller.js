@@ -65,15 +65,42 @@ $('#table').bootstrapTable({
 	}, {
 		field : 'category',
 		title : 'Kategorie',
-		formatter: categoryFormat
+		formatter : categoryFormat
 	}, {
 		field : 'moment',
 		title : 'Zeit',
-		formatter: timestampFormat
+		formatter : timestampFormat
+	}, {
+		field : 'status',
+		title : 'Status',
+		formatter : statusFormat
 	} ]
 });
 
 var timeStamp;
+
+function statusFormat(value, row, index){
+	var formatted_status;
+	switch (value) {
+	case 1:
+		formatted_status = '<i class="orange wait icon"></i>Aktiv';
+		break;
+		
+	case 2:
+		formatted_status = '<i class="yellow spinner icon"></i>In Bearbeitung';
+		break;
+		
+	case 3:
+		formatted_status = '<i class="green checkmark icon"></i>Erledigt';
+		break;
+		
+	case null:
+		formatted_status = '<i class="red help icon"></i>Nicht zugeordnet';
+		break;
+	}
+	return formatted_status;
+};
+
 function timestampFormat (value, row, index)
 {
     var time = value.slice(11, -8);
