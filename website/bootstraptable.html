@@ -21,8 +21,8 @@
 		</div>
 		<div class="active item" id="whoami"></div>
 		<a class="item" href="http://localhost/index.html">Meldung anlegen</a>
-		<a class="item" href="http://localhost/bootstraptable.html">Meldungen
-			anzeigen</a> <a class="item" href="http://localhost/admin.html">Administration</a>
+		<a class="item" href="http://localhost/bootstraptable.html">Meldungen anzeigen</a>
+		<a class="item" id="adminMenuItem" href="http://localhost/admin.html">Administration</a>
 
 		<a class="item" href="/login.html" onClick="deleteAllCookies()">
 			Abmelden</a>
@@ -77,8 +77,8 @@
 			<!-- Latest compiled and minified JavaScript -->
 			<script src="./bootstrap/bootstrap-table.js"></script>
 			<script src="./bootstrap/bootstrap-table.min.js"></script>
-			<script src="js/bootstraptable_controller.js"></script>
-			<script src="js/generic_controller.js"></script>
+				<script src="js/generic_controller.js"></script>
+			<script src="js/bootstraptable_controller.js"></script>		
 
 
 			<div class="existing code" data-type="html">
@@ -100,9 +100,9 @@
 											<td>ID</td>
 											<td id="popupID"></td>
 										</tr>
-										
+
 										<tr>
-										
+
 											<td>Gebäude</td>
 											<td>
 
@@ -176,9 +176,9 @@
 									</tbody>
 									<!--                <p>ID = </p><p id="popupID"></p>-->
 								</table>
-								
+
 								<div class="ui error message" id="message_container"></div>
-								
+
 								</form>
 						</div>
 					</div>

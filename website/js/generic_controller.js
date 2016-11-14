@@ -28,6 +28,24 @@ function checkCookie() {
 	}
 }
 
+function checkPathAuthorization(){
+	var pathname = window.location.pathname; // Returns path only
+	var role = this.getCookie("role");
+
+	//if current position is admin.html
+	if (pathname === "/admin.html")
+	{
+		if (role !== "admin"){
+
+			//send back to index.html; not authorized
+			window.location.href = '/index.html';
+			Console.log("User is not authorized!");
+
+		}
+	}
+}
+
+
 function setCookie(cname, cvalue, exdays) {
 	var d = new Date();
 	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -42,6 +60,10 @@ function deleteAllCookies() {
 						"=;expires=" + new Date().toUTCString() + ";path=/");
 			});
 }
+
+
+//checks whether user is allowed to view page or not
+checkPathAuthorization();
 
 // selector cache
 var $menu = $('#menu');

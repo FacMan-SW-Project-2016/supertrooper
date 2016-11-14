@@ -27,6 +27,14 @@ $('.menu .item')
   });
 
 
+  var userRole = getCookie("role");
+
+  if (userRole !== "admin")
+  {
+  	$('#adminMenuItem').remove();
+  }
+
+
 function buildingFormat(value, row, index)
 {
 
@@ -37,7 +45,7 @@ var displayname;
     processData : false,
     type : 'GET',
     success : function (data) {
-      
+
           for (index = 0; index < data.results.length; ++index)
           {
               if (data.results[index].ID == value)

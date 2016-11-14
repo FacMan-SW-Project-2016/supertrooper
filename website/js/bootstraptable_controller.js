@@ -38,6 +38,16 @@ var rulesAndSettings = {
 	onSuccess : updateData
 };
 
+
+var userRole = getCookie("role");
+
+if (userRole !== "admin")
+{
+	$('#adminMenuItem').remove();
+}
+
+
+
 $('#table').bootstrapTable({
 	url : 'http://localhost:8000/report/',
 	columns : [ {

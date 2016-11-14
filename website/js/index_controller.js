@@ -77,6 +77,15 @@ $('.message .close')
 })
 ;
 
+
+
+var userRole = getCookie("role");
+
+if (userRole !== "admin")
+{
+	$('#adminMenuItem').remove();
+}
+
 // Initialize the form using rules & settings
 $form.form(rulesAndSettings);
 
@@ -87,7 +96,7 @@ function submitForm() {
 	var values1 = $("#reportForm :input[name != 'terms'][name != 'building']").serialize();
     var values = values1 + "&usercreate="+getCookie("username");
 	var formData = new FormData($(this)[0]);
-    
+
 
 //	We use jQuery.ajax to post our data to the webservice via http
 	$.ajax({
