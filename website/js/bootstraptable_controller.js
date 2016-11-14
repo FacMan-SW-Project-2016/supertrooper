@@ -292,7 +292,13 @@ $.ajax({
 
 $('#popupForm').form(rulesAndSettings);
 
+
+
+
     $('.ui.modal').modal('show');
+
+
+
     });
 
 
@@ -331,16 +337,19 @@ switch (userRole)
 	case "student":
 		//toggle button für filter vestecken
 		$('#showAll').hide();
-		//refresh table
+
+		//disable editor dropdown
+		//disable status dropdown
+		$("#fieldStatus").attr('class', 'required disabled field');
+		$("#fieldAdvisor").attr('class', 'required disabled field');
+
 		break;
 	case "advisor":
 	case "admin":
 			//toggle button anzeigen lassen
 			$('#showAll').show();
-			//refresh table
 			break;
 }
-
 
 });
 
