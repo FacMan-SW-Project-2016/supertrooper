@@ -201,7 +201,7 @@ $('#table').on('click-row.bs.table', function (e, row, $element) {
 
     var time = row.moment.substring(0,16);
 
-    $('#popupTitle').text(row.title  + " - " + timeStamp);
+    $('#popupTitle').text(row.title  + " - " + timestampFormat(row.moment));
     $('#popupPic').attr('src', '');
     if(row.data!==null){
     $('#popupPic').attr('src', 'http://localhost:8000/photo/download/' + row.ID);
