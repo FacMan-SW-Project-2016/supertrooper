@@ -4,3 +4,6 @@ Das Choose File Feld könnte hierdurch ersetzt werden:
         					<i class="file icon"></i>
       						  Wählen Sie ein passendes Bild aus.</label>
 						    <input type="file" id="fileinputfield" style="display:none">
+						    
+Siehe dazu:
+https://github.com/Semantic-Org/Semantic-UI/issues/403
