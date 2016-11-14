@@ -333,7 +333,7 @@ switch (userRole)
 		$('#showAll').hide();
 		//refresh table
 		break;
-	case "sachbearbeiter":
+	case "advisor":
 	case "admin":
 			//toggle button anzeigen lassen
 			$('#showAll').show();
