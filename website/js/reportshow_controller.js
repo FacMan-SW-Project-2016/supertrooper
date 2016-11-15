@@ -50,12 +50,7 @@ if (userRole !== "admin")
 
 $('#table').bootstrapTable({
 	url : 'http://localhost:8000/report/',
-	columns : [ {
-		field : 'remove',
-		title : 'Remove',
-		formatter : actionFormatter,
-		events : deleteReport
-	}, {
+	columns : [{
 		field : 'title',
 		title : 'Titel'
 	}, {
@@ -83,15 +78,15 @@ function statusFormat(value, row, index){
 	case 1:
 		formatted_status = '<i class="orange wait icon"></i>Aktiv';
 		break;
-		
+
 	case 2:
 		formatted_status = '<i class="yellow spinner icon"></i>In Bearbeitung';
 		break;
-		
+
 	case 3:
 		formatted_status = '<i class="green checkmark icon"></i>Erledigt';
 		break;
-		
+
 	case null:
 		formatted_status = '<i class="red help icon"></i>Nicht zugeordnet';
 		break;
@@ -389,19 +384,6 @@ switch (userRole)
 }
 
 });
-
-
-
-function actionFormatter(value, row, index){
-    return [
-        '<a class="remove ml10" href="javascript:void(0)" title="Remove">',
-        '<i class="remove icon"></i>',
-        '</a>'
-    ].join('');
-}
-function deleteReport(value, row, index){
-    alert('delete triggered for row ID ' + row.ID);
-}
 
 
 function updateData()
