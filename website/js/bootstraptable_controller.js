@@ -327,7 +327,12 @@ $('#popupForm').form(rulesAndSettings);
 
 
 
-    $('.ui.modal').modal('show');
+    $('.ui.modal').modal({
+        onHide: function(){
+        	$('#popupForm').form('reset');
+
+        }
+    }).modal('show');
 
 
 
