@@ -5,12 +5,10 @@
 <!-- Standard Meta -->
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <title>FacMan Wilkommen</title>
-<link rel="stylesheet" type="text/css"
-	href="semantic_ui/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="semantic_ui/semantic.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="icon" href="/images/Facility-Maint-01.png">
@@ -20,17 +18,14 @@
 
 	<div class="ui vertical inverted sidebar menu" id="menu">
 		<div class="item">
-			<img class="ui logo icon image" src="/images/Facility-Maint-01.png" height="80">
-			<a href="/">
-				<b>Facility Management</b>
+			<img class="ui logo icon image" src="/images/Facility-Maint-01.png" height="80"> <a href="/"> <b>Facility Management</b>
 			</a>
 		</div>
 		<div class="active item" id="whoami"></div>
 		<a class="item" href="http://localhost/reportcreate.html">Meldung anlegen</a>
 		<a class="item" href="http://localhost/reportshow.html">Meldungen anzeigen</a>
 		<a class="item" id="adminMenuItem" href="http://localhost/admin.html">Administration</a>
-
-		<a class="item" href="/login.html" onClick="deleteAllCookies()">  Abmelden</a>
+		<a class="item" href="/login.html" onClick="deleteAllCookies()"> Abmelden</a>
 
 
 
@@ -39,7 +34,7 @@
 		<div class="full height">
 			<div class="following bar light fixed" style="background: #585858;">
 				<div class="ui container">
-					<div class="ui sticky secondary inverted menu" >
+					<div class="ui sticky secondary inverted menu">
 						<a class="view-ui item"> <i class="sidebar icon"></i> Menu
 						</a>
 						<div class="right menu">
@@ -47,8 +42,7 @@
 								<div class="ui logo shape">
 									<div class="sides">
 										<div class="active ui side">
-											<img class="ui image" src="/images/FHLU_logo.png"
-												height="50">
+											<img class="ui image" src="/images/FHLU_logo.png" height="50">
 										</div>
 									</div>
 								</div>
@@ -60,45 +54,43 @@
 
 			<div class="ui container">
 				<p></p>
-				 
-            <div class="ui center aligned container">
-            <div class="ui centered link cards">
-  <div class="card">
-      <a class="image" href="reportcreate.html">
-              <img src="/images/MeldungAnlegen.png">
-      </a>
-    <a class="content" href="reportcreate.html">
-      <div class="header">Meldung anlegen</div>
-    </a>
-  </div>
-  <div class="card">
-    <a class="image" hred="reportshow.html">
-      <i class="massive circular black write icon"></i>
-    </a>
-    <a class="content" href="reportshow.html">
-      <div class="header">Meldung anzeigen</div>
-    </a>
-  </div>
-  <div class="card">
-    <a class="image" href="admin.html">
-      <img src="/images/Admin.png">
-    </a>
-    <a class="content" href="admin.html">
-      <div class="header">Administration</div>
-      </a>
-    </div>
-</div>
-        
-                
-                
-                
 
-				<script src="js/jquery-3.1.1.min.js"></script>
-				<script src="semantic_ui/semantic.min.js"></script>
-				<script src="js/generic_controller.js"></script>
-				<script src="js/reportcreate_controller.js"></script>
+				<div class="ui center aligned container">
+					<div class="ui centered link cards">
+						<div class="card">
+							<a class="image" href="reportcreate.html"> <img src="/images/MeldungAnlegen.png">
+							</a>
+							<div class="content">
+								<a class="header" href="reportcreate.html">Meldung erstellen</a>
+							</div>
+						</div>
+						<div class="card">
+							<a class="image" href="reportshow.html"> <i class="massive circular black write icon"></i>
+							</a>
+							<div class="content">
+								<a class="header" href="reportshow.html">Meldung anzeigen</a>
+							</div>
+						</div>
+						<div class="card">
+							<a class="image" href="admin.html"> <img src="/images/Admin.png">
+							</a>
+							<div class="content">
+								<a class="header" href="admin.html">Administration</a>
+							</div>
+						</div>
+					</div>
 
 
+
+
+
+					<script src="js/jquery-3.1.1.min.js"></script>
+					<script src="semantic_ui/semantic.min.js"></script>
+					<script src="js/generic_controller.js"></script>
+					<script src="js/reportcreate_controller.js"></script>
+
+
+				</div>
 			</div>
 		</div>
 	</div>
