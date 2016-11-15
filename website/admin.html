@@ -5,11 +5,10 @@
 <!-- Standard Meta -->
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <title>Administration</title>
- <link rel="stylesheet" type="text/css"	href="semantic_ui/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="semantic_ui/semantic.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <title>FacMan - Administration</title>
@@ -21,23 +20,21 @@
 
 	<div class="ui vertical inverted sidebar menu" id="menu">
 		<div class="item">
-			<img class="ui logo icon image" src="/images/Facility-Maint-01.png" height="80">
- 			<a href="/">
- 				<b>Facility Management</b>
- 			</a>
-	</div>
+			<img class="ui logo icon image" src="/images/Facility-Maint-01.png" height="80"> <a href="/"> <b>Facility Management</b>
+			</a>
+		</div>
 
 		<div class="active item" id="whoami"></div>
 		<a class="item" href="http://localhost/reportcreate.html">Meldung anlegen</a>
 		<a class="item" href="http://localhost/reportshow.html">Meldungen anzeigen</a>
-    <a class="item" id="adminMenuItem" href="http://localhost/admin.html">Administration</a>
-		<a class="item" href="/login.html" onClick="deleteAllCookies()">  Abmelden</a>
+		<a class="item" id="adminMenuItem" href="http://localhost/admin.html">Administration</a>
+		<a class="item" href="/login.html" onClick="deleteAllCookies()"> Abmelden</a>
 
 
 	</div>
-<div class="pusher" style="background: #efefef">
+	<div class="pusher" style="background: #efefef">
 		<div class="full height">
-			<div class="following bar light fixed"  style="background: #585858;">
+			<div class="following bar light fixed" style="background: #585858;">
 				<div class="ui container">
 					<div class="ui sticky secondary inverted menu">
 						<a class="view-ui item"> <i class="sidebar icon"></i> Menu
@@ -47,8 +44,7 @@
 								<div class="ui logo shape">
 									<div class="sides">
 										<div class="active ui side">
-											<img class="ui image" src="/images/FHLU_logo.png"
-												height="50">
+											<img class="ui image" src="/images/FHLU_logo.png" height="50">
 										</div>
 									</div>
 								</div>
@@ -62,67 +58,59 @@
 			<div class="ui container">
 
 
-		 <div class="ui container raised piled segment" id="reportForm">
+				<div class="ui container raised piled segment" id="reportForm">
 
 
-        <div class="ui top attached tabular menu">
-  <a class="active item" data-tab="room">Räume</a>
-  <a class="item" data-tab="building">Gebäude</a>
-  <a class="item" data-tab="status">Status</a>
-    <a class="item" data-tab="category">Kategorien</a>
-      <a class="item" data-tab="user">Nutzer</a>
-</div>
-<div class="ui bottom attached active tab segment" data-tab="room">
-  	<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
-	<button onclick="refreshTable(event)" class="ui button">Refresh</button>
-	<button onclick="deleteItem(event)" class="ui button">Delete</button>
+					<div class="ui top attached tabular menu">
+						<a class="active item" data-tab="room">Räume</a> <a class="item" data-tab="building">Gebäude</a> <a class="item" data-tab="status">Status</a> <a
+							class="item" data-tab="category">Kategorien</a> <a class="item" data-tab="user">Nutzer</a>
+					</div>
+					<div class="ui bottom attached active tab segment" data-tab="room">
+						<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
+						<button onclick="refreshTable(event)" class="ui button">Refresh</button>
+						<button onclick="deleteItem(event)" class="ui button">Delete</button>
 
-  <table id="table_room" class="ui selectable celled table"  data-click-to-select="true"
-       data-single-select="true">
-    <!--    <button class="ui button">test</button>-->
-  </table>
-</div>
-<div class="ui bottom attached tab segment" data-tab="building">
-	<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
-    <button onclick="refreshTable(event)" class="ui button">Refresh</button>
-		<button onclick="deleteItem(event)" class="ui button">Delete</button>
-  <table id="table_building" class="ui selectable celled table"  data-click-to-select="true"
-       data-single-select="true">
-    <!--    <button class="ui button">test</button>-->
-  </table>
-</div>
-<div class="ui bottom attached tab segment" data-tab="status">
-  	<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
-    <button onclick="refreshTable(event)" class="ui button">Refresh</button>
-		<button onclick="deleteItem(event)" class="ui button">Delete</button>
-  <table id="table_status" class="ui selectable celled table"  data-click-to-select="true"
-       data-single-select="true">
-    <!--    <button class="ui button">test</button>-->
-  </table>
-</div>
-<div class="ui bottom attached tab segment" data-tab="category">
-  	<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
-    <button onclick="refreshTable(event)" class="ui button">Refresh</button>
-		  <button onclick="deleteItem(event)" class="ui button">Delete</button>
-  <table id="table_category" class="ui selectable celled table"   data-click-to-select="true"
-       data-single-select="true">
-    <!--    <button class="ui button">test</button>-->
-  </table>
-</div>
-<div class="ui bottom attached tab segment" data-tab="user">
-  	<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
-    <button onclick="refreshTable(event)" class="ui button">Refresh</button>
-		<button onclick="deleteItem(event)" class="ui button">Delete</button>
-  <table id="table_user" class="ui selectable celled table"   data-click-to-select="true"
-       data-single-select="true">
-    <!--    <button class="ui button">test</button>-->
-  </table>
-</div>
+						<table id="table_room" class="ui selectable celled table" data-click-to-select="true" data-single-select="true">
+							<!--    <button class="ui button">test</button>-->
+						</table>
+					</div>
+					<div class="ui bottom attached tab segment" data-tab="building">
+						<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
+						<button onclick="refreshTable(event)" class="ui button">Refresh</button>
+						<button onclick="deleteItem(event)" class="ui button">Delete</button>
+						<table id="table_building" class="ui selectable celled table" data-click-to-select="true" data-single-select="true">
+							<!--    <button class="ui button">test</button>-->
+						</table>
+					</div>
+					<div class="ui bottom attached tab segment" data-tab="status">
+						<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
+						<button onclick="refreshTable(event)" class="ui button">Refresh</button>
+						<button onclick="deleteItem(event)" class="ui button">Delete</button>
+						<table id="table_status" class="ui selectable celled table" data-click-to-select="true" data-single-select="true">
+							<!--    <button class="ui button">test</button>-->
+						</table>
+					</div>
+					<div class="ui bottom attached tab segment" data-tab="category">
+						<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
+						<button onclick="refreshTable(event)" class="ui button">Refresh</button>
+						<button onclick="deleteItem(event)" class="ui button">Delete</button>
+						<table id="table_category" class="ui selectable celled table" data-click-to-select="true" data-single-select="true">
+							<!--    <button class="ui button">test</button>-->
+						</table>
+					</div>
+					<div class="ui bottom attached tab segment" data-tab="user">
+						<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
+						<button onclick="refreshTable(event)" class="ui button">Refresh</button>
+						<button onclick="deleteItem(event)" class="ui button">Delete</button>
+						<table id="table_user" class="ui selectable celled table" data-click-to-select="true" data-single-select="true">
+							<!--    <button class="ui button">test</button>-->
+						</table>
+					</div>
 
-      </div>
-    </div>
-</div>
- </div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 
@@ -133,13 +121,13 @@
 
 		<div class="header">Eintrag hinzufügen</div>
 
-			<div class="description">
-				<div class="ui header" id="popupTitle"></div>
-			</div>
+		<div class="description">
+			<div class="ui header" id="popupTitle"></div>
+		</div>
 
-				<form  class="ui form" id="popupForm">
-					<div id="popupContent"></div>
-					</form>
+		<form class="ui form" id="popupForm">
+			<div id="popupContent"></div>
+		</form>
 		<div class="actions">
 			<div class="ui black deny button">Abbrechen</div>
 			<div class="ui right labeled icon green button" onclick="validateForm()">
@@ -157,9 +145,9 @@
 
 </html>
 
-	<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/jquery-3.1.1.min.js"></script>
 <script src="semantic_ui/semantic.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="./bootstrap/bootstrap-table.js"></script>
 <script src="js/generic_controller.js"></script>
-	<script src="js/admin_controller.js"></script>
+<script src="js/admin_controller.js"></script>
