@@ -5,10 +5,8 @@
 <!-- Standard Meta -->
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<link rel="stylesheet" type="text/css"
-	href="semantic_ui/semantic.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="semantic_ui/semantic.min.css">
 <link rel="icon" href="/images/Facility-Maint-01.png">
 <title>FacMan - Meldungsübersicht</title>
 
@@ -17,18 +15,14 @@
 
 	<div class="ui vertical inverted sidebar menu" id="menu">
 		<div class="item">
-			<img class="ui logo icon image" src="/images/Facility-Maint-01.png" height="80">
-			<a href="/">
-				<b>Facility Management</b>
+			<img class="ui logo icon image" src="/images/Facility-Maint-01.png" height="80"> <a href="/"> <b>Facility Management</b>
 			</a>
-			</div>
+		</div>
 		<div class="active item" id="whoami"></div>
-		<a class="item" href="http://localhost/reportcreate.html">Meldung anlegen</a>
+		<a class="item" href="http://localhost/reportcreate.html">Meldung anlegen</a> 
 		<a class="item" href="http://localhost/reportshow.html">Meldungen anzeigen</a>
 		<a class="item" id="adminMenuItem" href="http://localhost/admin.html">Administration</a>
-
-		<a class="item" href="/login.html" onClick="deleteAllCookies()">
-			Abmelden</a>
+		<a class="item" href="/login.html" onClick="deleteAllCookies()"> Abmelden</a>
 
 
 	</div>
@@ -36,7 +30,7 @@
 		<div class="full height">
 			<div class="following bar light fixed" style="background: #585858;">
 				<div class="ui container">
-					<div class="ui sticky secondary inverted menu" >
+					<div class="ui sticky secondary inverted menu">
 						<a class="view-ui item"> <i class="sidebar icon"></i> Menu
 						</a>
 						<div class="right menu">
@@ -44,8 +38,7 @@
 								<div class="ui logo shape">
 									<div class="sides">
 										<div class="active ui side">
-											<img class="ui image" src="/images/FHLU_logo.png"
-												height="50">
+											<img class="ui image" src="/images/FHLU_logo.png" height="50">
 										</div>
 									</div>
 								</div>
@@ -55,37 +48,29 @@
 				</div>
 			</div>
 
-<p></p>
 			<div class="ui container">
 				<form class="ui form raised piled segment" id="reportForm">
 					<h4>Meine Meldungen:</h4>
 					<p>W&auml;hlen sie eine Meldung aus um zur Detail Ansicht zu wechseln</p>
-					<div class="ui slider checkbox"  id="showAll">
-						<input type="checkbox">
-						<label>Meldungen aller Ersteller anzeigen</label>
+					<div class="ui slider checkbox" id="showAll">
+						<input type="checkbox"> <label>Meldungen aller Ersteller anzeigen</label>
 					</div>
 
 					<div class='ui center aligned container'>
-						<table id="table" class="ui selectable celled table">
+						<table id="table" class="ui selectable celled table" data-click-to-select="true" data-single-select="true">
 							<!--    <button class="ui button">test</button>-->
 						</table>
-					</div>
-					<div class="ui right aligned container">
-						<p></p>
-						<button onclick="history.go(-1);" class="ui secondary button">Zurück</button>
-						<button onclick="table.reload()" class="ui primary button">Refresh</button>
-
 					</div>
 				</form>
 			</div>
 
 
-		<script src="js/jquery-3.1.1.min.js"></script>
+			<script src="js/jquery-3.1.1.min.js"></script>
 			<script src="semantic_ui/semantic.min.js"></script>
 			<!-- Latest compiled and minified JavaScript -->
 			<script src="./bootstrap/bootstrap-table.js"></script>
 			<script src="./bootstrap/bootstrap-table.min.js"></script>
-				<script src="js/generic_controller.js"></script>
+			<script src="js/generic_controller.js"></script>
 			<script src="js/reportshow_controller.js"></script>
 
 
@@ -115,64 +100,55 @@
 											<td>
 
 												<div class="required field">
-												<div class="ui floating search selection dropdown"
-													id="dropdownBuild">
-													<input type="hidden" name="building"> <i class="dropdown icon"></i>
-													<div class="default text"></div>
-												</div>
+													<div class="ui floating search selection dropdown" id="dropdownBuild">
+														<input type="hidden" name="building"> <i class="dropdown icon"></i>
+														<div class="default text"></div>
+													</div>
 												</div>
 											</td>
 										</tr>
 										<tr>
 											<td>Raum</td>
 											<td>
-											<div class="required field">
-												<div class="ui floating search selection dropdown"
-													id="dropdownRoom">
-													<input type="hidden" name="room"> <i
-														class="dropdown icon"></i>
-													<div class="default text"></div>
-												</div>
+												<div class="required field">
+													<div class="ui floating search selection dropdown" id="dropdownRoom">
+														<input type="hidden" name="room"> <i class="dropdown icon"></i>
+														<div class="default text"></div>
+													</div>
 												</div>
 											</td>
 										</tr>
 										<tr>
 											<td>Kategorie</td>
 											<td>
-											<div class="required field">
-												<div class="ui floating search selection dropdown"
-													id="dropdownCat">
-													<input type="hidden" name="category"> <i
-														class="dropdown icon"></i>
-													<div class="default text" id="popupCat"></div>
-												</div>
+												<div class="required field">
+													<div class="ui floating search selection dropdown" id="dropdownCat">
+														<input type="hidden" name="category"> <i class="dropdown icon"></i>
+														<div class="default text" id="popupCat"></div>
+													</div>
 												</div>
 											</td>
 										</tr>
 										<tr>
 											<td>Status</td>
 											<td>
-											<div class="required field" id="fieldStatus">
-												<div class="ui floating search selection dropdown"
-													id="dropdownStat">
-													<input type="hidden" name="status"> <i
-														class="dropdown icon"></i>
-													<div class="default text" id="popupStat"></div>
-												</div>
+												<div class="required field" id="fieldStatus">
+													<div class="ui floating search selection dropdown" id="dropdownStat">
+														<input type="hidden" name="status"> <i class="dropdown icon"></i>
+														<div class="default text" id="popupStat"></div>
+													</div>
 												</div>
 											</td>
 										</tr>
 										<tr>
 											<td>Sachbearbeiter</td>
 											<td>
-													<div class="required field" id="fieldAdvisor">
-												<div class="ui floating search selection dropdown"
-													id="dropdownFacMan">
-													<input type="hidden" name="userfacman"> <i
-														class="dropdown icon"></i>
-													<div class="default text" id="popupFacMan"></div>
+												<div class="required field" id="fieldAdvisor">
+													<div class="ui floating search selection dropdown" id="dropdownFacMan">
+														<input type="hidden" name="userfacman"> <i class="dropdown icon"></i>
+														<div class="default text" id="popupFacMan"></div>
+													</div>
 												</div>
-											</div>
 											</td>
 										</tr>
 										<tr>
@@ -189,7 +165,7 @@
 
 								<div class="ui error message" id="message_container"></div>
 
-								</form>
+							</form>
 						</div>
 					</div>
 					<div class="actions">
