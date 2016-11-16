@@ -5,12 +5,10 @@
 <!-- Standard Meta -->
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 <title>FacMan Meldungserfassung</title>
-<link rel="stylesheet" type="text/css"
-	href="semantic_ui/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="semantic_ui/semantic.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="icon" href="/images/Facility-Maint-01.png">
@@ -20,17 +18,14 @@
 
 	<div class="ui vertical inverted sidebar menu" id="menu">
 		<div class="item">
-			<img class="ui logo icon image" src="/images/Facility-Maint-01.png" height="80">
-			<a href="/">
-				<b>Facility Management</b>
+			<img class="ui logo icon image" src="/images/Facility-Maint-01.png" height="80"> <a href="/"> <b>Facility Management</b>
 			</a>
 		</div>
 		<div class="active item" id="whoami"></div>
 		<a class="item" href="http://localhost/reportcreate.html">Meldung anlegen</a>
 		<a class="item" href="http://localhost/reportshow.html">Meldungen anzeigen</a>
 		<a class="item" id="adminMenuItem" href="http://localhost/admin.html">Administration</a>
-
-		<a class="item" href="/login.html" onClick="deleteAllCookies()">  Abmelden</a>
+		<a class="item" href="/login.html" onClick="deleteAllCookies()"> Abmelden</a>
 
 
 
@@ -39,7 +34,7 @@
 		<div class="full height">
 			<div class="following bar light fixed" style="background: #585858;">
 				<div class="ui container">
-					<div class="ui sticky secondary inverted menu" >
+					<div class="ui sticky secondary inverted menu">
 						<a class="view-ui item"> <i class="sidebar icon"></i> Menu
 						</a>
 						<div class="right menu">
@@ -47,8 +42,7 @@
 								<div class="ui logo shape">
 									<div class="sides">
 										<div class="active ui side">
-											<img class="ui image" src="/images/FHLU_logo.png"
-												height="50">
+											<img class="ui image" src="/images/FHLU_logo.png" height="50">
 										</div>
 									</div>
 								</div>
@@ -61,40 +55,30 @@
 			<div class="ui container">
 				<p></p>
 				<form class="ui form raised piled segment" id="reportForm" method="post">
-					<div class="ui info message" id="info_container"
-						style="display: none;"></div>
-					<h4 class="ui dividing header">Bitte beschreiben Sie Ihr
-						Anliegen</h4>
+					<div class="ui info message" id="info_container" style="display: none;"></div>
+					<h4 class="ui dividing header">Bitte beschreiben Sie Ihr Anliegen</h4>
 					<div class="required field">
-						<label>Titel</label> <input
-							placeholder="Geben Sie Ihrem Anliegen einen Titel - Beispiel: Fenster kaputt"
-							name="title" type="text">
+						<label>Titel</label> <input placeholder="Geben Sie Ihrem Anliegen einen Titel - Beispiel: Fenster kaputt" name="title" type="text">
 					</div>
 					<div class="required field">
 						<label>Gebäude</label>
 						<div class="ui search selection dropdown" id="buildingDropdown">
-							<input type="hidden" name="building"> <i
-								class="dropdown icon"></i> <input type="text" class="search">
-							<div class="default text">Wählen Sie das Gebäude, in dem
-								das Problem aufgetreten ist.</div>
+							<input type="hidden" name="building"> <i class="dropdown icon"></i> <input type="text" class="search">
+							<div class="default text">Wählen Sie das Gebäude, in dem das Problem aufgetreten ist.</div>
 						</div>
 					</div>
 					<div class="required disabled field" id="roomField">
 						<label>Raum</label>
 						<div class="ui search selection dropdown" id="roomDropdown">
-							<input type="hidden" name="room"> <i
-								class="dropdown icon"></i> <input type="text" class="search">
-							<div class="default text">Wählen Sie den Raum, in dem das
-								Problem aufgetreten ist.</div>
+							<input type="hidden" name="room"> <i class="dropdown icon"></i> <input type="text" class="search">
+							<div class="default text">Wählen Sie den Raum, in dem das Problem aufgetreten ist.</div>
 						</div>
 					</div>
 					<div class="required field">
 						<label>Kategorie</label>
 						<div class="ui search selection dropdown" id="categoryDropdown">
-							<input type="hidden" name="category"> <i
-								class="dropdown icon"></i> <input type="text" class="search">
-							<div class="default text">Wählen Sie eine Kategorie des
-								Problems aus.</div>
+							<input type="hidden" name="category"> <i class="dropdown icon"></i> <input type="text" class="search">
+							<div class="default text">Wählen Sie eine Kategorie des Problems aus.</div>
 						</div>
 					</div>
 					<div class="required field">
@@ -103,21 +87,18 @@
 					</div>
 
 					<div class="field">
-						<label>Foto</label> <input id="fileinputfield" type="file"
-							name="userPhoto" accept="image/*" />
+						<label>Foto</label> <input id="fileinputfield" type="file" name="userPhoto" accept="image/*" />
 					</div>
 					<p></p>
 					<div class="required inline field">
 						<div class="ui checkbox">
-							<input type="checkbox" name="terms"> <label>Hiermit
-								bestätige Ich, dass alle angegebenen Informationen der Wahrheit
+							<input type="checkbox" name="terms"> <label>Hiermit bestätige Ich, dass alle angegebenen Informationen der Wahrheit
 								entsprechen.</label>
 						</div>
 					</div>
 					<div class="ui blue submit button" id="submitButton">Absenden</div>
 					<div class="ui reset button">Zurücksetzen</div>
-					<div class="ui button" onClick="autoComplete()">Autom.
-						Ausfüllen</div>
+					<div class="ui button" onClick="autoComplete()">Autom. Ausfüllen</div>
 					<div class="ui error message"></div>
 				</form>
 
