@@ -42,6 +42,10 @@ function checkPathAuthorization(){
 			Console.log("User is not authorized!");
 
 		}
+	} else if (pathname === "/index.html") {
+		if (role !== "admin"){
+			$('#adminColumn').css('display','none');
+		}
 	}
 }
 
