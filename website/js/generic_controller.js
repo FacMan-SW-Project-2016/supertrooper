@@ -43,8 +43,8 @@ function checkPathAuthorization(){
 
 		}
 	} else if (pathname === "/index.html") {
-		if (role !== "admin"){
-			$('#adminColumn').css('display','none');
+		if (role === "admin"){
+			$('#adminColumn').css('display','block');
 		}
 	}
 }
