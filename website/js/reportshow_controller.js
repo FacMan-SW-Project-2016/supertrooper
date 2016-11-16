@@ -40,17 +40,36 @@ var rulesAndSettings = {
 
 
 var userRole = getCookie("role");
+var columnStruct =  [{
+		field: 'state',
+		checkbox: true},{
+	field : 'title',
+	title : 'Titel'
+}, {
+	field : 'room',
+	title : 'Raum',
+	formatter: roomFormat
+}, {
+	field : 'category',
+	title : 'Kategorie',
+	formatter : categoryFormat
+}, {
+	field : 'moment',
+	title : 'Zeit',
+	formatter : timestampFormat
+}, {
+	field : 'status',
+	title : 'Status',
+	formatter : statusFormat
+}] ;
 
 if (userRole !== "admin")
 {
 	$('#adminMenuItem').remove();
-}
 
+	$('#delBtn').hide();
 
-
-$('#table').bootstrapTable({
-	url : 'http://localhost:8000/report/',
-	columns : [{
+	columnStruct =  [{
 		field : 'title',
 		title : 'Titel'
 	}, {
@@ -69,7 +88,14 @@ $('#table').bootstrapTable({
 		field : 'status',
 		title : 'Status',
 		formatter : statusFormat
-	} ]
+	} ];
+
+}
+
+
+$('#table').bootstrapTable({
+	url : 'http://localhost:8000/report/',
+	columns :  columnStruct
 });
 
 function statusFormat(value, row, index){
@@ -340,7 +366,6 @@ $('#popupForm').form(rulesAndSettings);
 		    onChecked: function() {
 
 					$('#table').bootstrapTable('filterBy', null);
-						$('#table').bootstrapTable('refresh');
 		    },
 				onUnchecked: function() {
 
@@ -348,7 +373,6 @@ $('#popupForm').form(rulesAndSettings);
 					var object = {usercreate: userName};
 
 					$('#table').bootstrapTable('filterBy', object);
-					$('#table').bootstrapTable('refresh');
 		    }
 		  });
 
@@ -385,6 +409,31 @@ switch (userRole)
 
 });
 
+
+
+function deleteItem(event)
+{
+	var indexfield =  $('#table').bootstrapTable('getSelections');
+
+	if (indexfield.length > 0)
+	{
+		var index;
+
+		index = indexfield[0].ID;
+
+		$.ajax({
+			url : 'http://localhost:8000/report/' + index,
+			cache : false,
+			processData : false,
+			type : 'DELETE',
+			success : function (data) {
+					alert("delete successful");
+					$('#table').bootstrapTable('refresh');
+			 },
+			async : false
+		});
+	}
+}
 
 function updateData()
 {

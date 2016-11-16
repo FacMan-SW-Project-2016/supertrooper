@@ -57,20 +57,21 @@
 
 <p></p>
 			<div class="ui container">
-				<form class="ui form raised piled segment" id="reportForm">
+				<div class="ui container raised piled segment" id="reportForm">
 					<h4>Meine Meldungen:</h4>
 					<p>W&auml;hlen sie eine Meldung aus um zur Detail Ansicht zu wechseln</p>
 					<div class="ui slider checkbox"  id="showAll">
 						<input type="checkbox">
 						<label>Meldungen aller Ersteller anzeigen</label>
 					</div>
+						<button id="delBtn" onclick="deleteItem(event)" class="ui button">Delete</button>
 
 					<div class='ui center aligned container'>
 						<table id="table" class="ui selectable celled table" data-click-to-select="true" data-single-select="true">
 							<!--    <button class="ui button">test</button>-->
 						</table>
 					</div>
-				</form>
+				</div>
 			</div>
 
 

@@ -108,6 +108,11 @@ module.exports = {
       report.get(req, res);
     });
 
+    //Room table
+    app.delete('/report/:id', function(req, res) {
+      report.delete(req.params.id, res);
+    });
+
     //insert
     app.post('/report/', function(req, res) {
       report.create(req.body, res);
