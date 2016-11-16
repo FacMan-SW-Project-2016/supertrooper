@@ -12,9 +12,9 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="icon" href="/images/Facility-Maint-01.png">
-
 </head>
-<body bgcolor=white>
+
+<body bgcolor="#efefef">
 
 	<div class="ui vertical inverted sidebar menu" id="menu">
 		<div class="item">
@@ -22,14 +22,12 @@
 			</a>
 		</div>
 		<div class="active item" id="whoami"></div>
-		<a class="item" href="http://localhost/reportcreate.html">Meldung anlegen</a>
-		<a class="item" href="http://localhost/reportshow.html">Meldungen anzeigen</a>
-		<a class="item" id="adminMenuItem" href="http://localhost/admin.html">Administration</a>
-		<a class="item" href="/login.html" onClick="deleteAllCookies()"> Abmelden</a>
-
-
+		<a class="item" href="http://localhost/reportcreate.html">Meldung anlegen</a> <a class="item" href="http://localhost/reportshow.html">Meldungen
+			anzeigen</a> <a class="item" id="adminMenuItem" href="http://localhost/admin.html">Administration</a> <a class="item" href="/login.html"
+			onClick="deleteAllCookies()"> Abmelden</a>
 
 	</div>
+
 	<div class="pusher" style="background: #efefef">
 		<div class="full height">
 			<div class="following bar light fixed" style="background: #585858;">
@@ -52,42 +50,56 @@
 				</div>
 			</div>
 
-			<div class="ui container">
+			<div class="ui container" id="reportForm">
 				<p></p>
 
 				<div class="ui center aligned container">
-					<div class="ui centered link cards">
-						<div class="card">
-							<a class="image" href="reportcreate.html"> <img src="/images/MeldungAnlegen.png">
-							</a>
-							<div class="content">
-								<a class="header" href="reportcreate.html">Meldung erstellen</a>
-							</div>
-						</div>
-						<div class="card">
-							<a class="image" href="reportshow.html"> <i class="massive circular black write icon"></i>
-							</a>
-							<div class="content">
-								<a class="header" href="reportshow.html">Meldung anzeigen</a>
-							</div>
-						</div>
-						<div class="card">
-							<a class="image" href="admin.html"> <img src="/images/Admin.png">
-							</a>
-							<div class="content">
-								<a class="header" href="admin.html">Administration</a>
+					<div class="introduction">
+						<h1 class="ui header">
+							<span class="library"> Facility Management </span>
+						</h1>
+						<h5>
+							<span class="tagline"> Hier können Sie Meldungen an das Facility Management anlegen und einsehen. </span>
+						</h5>
+					</div>
+					<div class="ui hidden divider"></div>
+					<div class="vertical segment">
+						<p></p>
+						<p></p>
+						<p></p>
+						<div class="ui three column center aligned divided relaxed stackable grid container">
+							<div class="row">
+								<div class="column">
+									<h2 class="ui icon header">
+										<i class="massive black write icon"></i> Meldung anlegen
+									</h2>
+									<p>Auf dieser Seite können Sie eine Meldung anlegen und an das Facility Management abschicken.</p>
+									<a class="ui large button" href="reportcreate.html">Meldung anlegen</a>
+								</div>
+								<div class="column">
+									<h2 class="ui icon header">
+										<i class="massive black browser icon"></i> Meldungen anzeigen
+									</h2>
+									<p>Hier können Sie Ihre eigenen Meldungen und deren aktuellen Status einsehen.</p>
+									<a class="ui large button" href="reportshow.html">Meldung anzeigen</a>
+								</div>
+								<div class="column">
+									<h2 class="ui icon header">
+										<i class="massive black settings icon"></i> Administration
+									</h2>
+									<p>Pflegen Sie sämtliche Datenbankeinträge hier.</p>
+									<a class="ui large button" href="admin.html">Administration</a>
+								</div>
 							</div>
 						</div>
 					</div>
-
-
-
-
+					<p></p>
+					<p></p>
 
 					<script src="js/jquery-3.1.1.min.js"></script>
 					<script src="semantic_ui/semantic.min.js"></script>
 					<script src="js/generic_controller.js"></script>
-					<script src="js/reportcreate_controller.js"></script>
+
 
 
 				</div>
