@@ -111,9 +111,6 @@ url: "http://localhost:8000/category/",
         field: 'ID',
         title: 'ID'
       },{
-          field: 'type',
-          title: 'Typ'
-      },{
           field: 'text',
           title: 'Text'
       }]

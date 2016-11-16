@@ -56,7 +56,6 @@ INSERT INTO `building` (`ID`, `name`, `address`) VALUES
 
 CREATE TABLE `category` (
   `ID` int(11) NOT NULL,
-  `type` char(15) NOT NULL,
   `text` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -64,12 +63,12 @@ CREATE TABLE `category` (
 -- Dumping data for table `category`
 --
 
-INSERT INTO `category` (`ID`, `type`, `text`) VALUES
-(1, 'waste', 'Schmutz'),
-(2, 'technical', 'Technisch'),
-(3, 'defective', 'Defekt'),
-(4, 'vandalism', 'Vandalismus'),
-(5, 'other', 'Sonstiges');
+INSERT INTO `category` (`ID`, `text`) VALUES
+(1, 'Schmutz'),
+(2, 'Technisch'),
+(3, 'Defekt'),
+(4, 'Vandalismus'),
+(5, 'Sonstiges');
 
 -- --------------------------------------------------------
 

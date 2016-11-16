@@ -6,17 +6,9 @@
 <table class="ui definition table">
   <tbody>
       <tr>
-          <td>Typ</td>
-          <td>
-                        <div class="required field">
-             <input id="type" name="type">
-           </div>
-          </td>
-      </tr>
-      <tr>
           <td>Text</td>
           <td>
-                        <div class="required field">
+              <div class="required field">
            <input id="text" name="text">
            </div>
           </td>
@@ -32,13 +24,6 @@
 
 var rulesAndSettings = {
 	fields : {
-		type : {
-			identifier : 'type',
-			rules : [ {
-				type : 'empty',
-				prompt : 'Bitte geben Sie einen Kategorie Typ ein.'
-			} ]
-		},
 		text : {
 			identifier : 'text',
 			rules : [ {
