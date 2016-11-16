@@ -341,6 +341,25 @@ $.ajax({
  $('#dropdownFacMan').dropdown('set selected', row.userfacman);
 
 
+ //if status = done, disable all controls
+if (row.status === 3)
+{
+	$('.required.field').addClass('disabled');
+}else {
+	 $('.required.field.disabled').removeClass('disabled');
+}
+
+		var userRole = getCookie("role");
+
+		if (userRole ==="student")
+		{
+		//for student
+		//disable editor dropdown
+		//disable status dropdown
+		$("#fieldStatus").attr('class', 'required disabled field');
+		$("#fieldAdvisor").attr('class', 'required disabled field');
+	}
+
 });
 
 $('#popupForm').form(rulesAndSettings);
@@ -393,12 +412,6 @@ switch (userRole)
 	case "student":
 		//toggle button für filter vestecken
 		$('#showAll').hide();
-
-		//disable editor dropdown
-		//disable status dropdown
-		$("#fieldStatus").attr('class', 'required disabled field');
-		$("#fieldAdvisor").attr('class', 'required disabled field');
-
 		break;
 	case "advisor":
 	case "admin":
