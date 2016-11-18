@@ -13,6 +13,11 @@ describe('User loggs in', function() {
   });
 
   describe('log in as Student', function() {
+	  
+	  it('should show a login form', function() {
+		  	browser.assert.success();
+		    browser.assert.text('h1', 'FacMan');
+		  });
 
     before(function() {
       browser
