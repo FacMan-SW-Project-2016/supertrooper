@@ -1,0 +1,14 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "mocha --timeout 10000"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "zombie": "^4.0.0"
+  }
+}
