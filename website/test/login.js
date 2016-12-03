@@ -11,20 +11,31 @@ describe('User loggs in', function() {
   before(function() {
     return browser.visit('/login.html');
   });
-
-  describe('log in as Student', function() {
-	  
+  
+  describe('is the login form available', function() {
 	  it('should show a login form', function() {
 		  	browser.assert.success();
 		    browser.assert.text('h1', 'FacMan');
 		  });
+  });
+
+  describe('log in as Student', function() {
 
     before(function() {
       browser
         .fill('username',    'Student')
         .fill('password', '987654321');
-      var login = browser.query('LoginButton');
-      return browser.fire(login, "click");
+//      return browser.pressButton('#LoginButton');
+//      var login = browser.query('LoginButton');
+//      browser.fire(login, "click");
+      console.log('TEST');
+      var form = browser.document.getElementById("loginForm");
+      form.submit();
+      browser.wait().then(function(error) {
+          console.log('Form submitted?');
+          console.log(error);
+          console.log(browser.location.pathname);
+      });
     });
 
     it('should be successful', function() {
