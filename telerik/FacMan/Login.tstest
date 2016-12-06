@@ -550,14 +550,14 @@
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
             "Runtime ID": "10810ff5-2ca4-4236-b4cf-eba206d3c3f5",
-            "Description": "Wait '5000' msec for url:'http://localhost/index.html'",
+            "Description": "Wait '500' msec for url:'http://localhost/index.html'",
             "CustomDescription": null,
             "Step": {
               "__type": "ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.WaitForUrlActionDescriptor",
               "__value": {
                 "WaitForUrl": "http://localhost/index.html",
                 "IsPartial": true,
-                "WaitTimeout": 5000,
+                "WaitTimeout": 500,
                 "WaitOnElements": true,
                 "WaitOnElementsTimeout": 30000,
                 "UseStepWaitOnElementsTimout": false,
