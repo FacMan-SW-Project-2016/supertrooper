@@ -71,5 +71,12 @@ namespace FacMan
             //Pages.FacManMeldungserfassung.CategoryDropdownDiv.MouseClick(ArtOfTest.WebAii.Core.MouseClickType.LeftClick, 0, 0, ArtOfTest.Common.OffsetReference.AbsoluteCenter);
             Find.ById<HtmlDiv>("categoryDropdown").MouseClick(MouseClickType.LeftClick);
         }
+    
+        [CodedStep(@"Click 'SubmitButtonDiv'")]
+        public void Create_Issue_CodedStep3()
+        {
+            // Click 'SubmitButtonDiv'
+            Find.ById<HtmlDiv>("submitButton").MouseClick(MouseClickType.LeftClick);
+        }
     }
 }
