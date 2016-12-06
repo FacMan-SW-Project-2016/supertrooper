@@ -111,6 +111,8 @@ function submitForm() {
      },
 		async : false
 	});
+	
+	return false;
 
 };
 
@@ -128,7 +130,7 @@ function uploadImage (response, formData)
 				 data: formData,
 				 async: false,
 				 success: function (data) {
-						 alert('functioniert');
+						 console.log("Foto wurde hochgeladen.");
 				 },
 				 cache: false,
 				 contentType: false,
@@ -141,12 +143,17 @@ function uploadImage (response, formData)
 };
 // If something went wrong, dummy behaviour
 function failure() {
-	alert("failure");
+	console.log("Es kam zu einem Fehler.");
 };
 
 // Handle the response of the http request
 function onFormSubmitted(response) {
-	alert("yaay it twerked");
+//	$('#message_container').html('<div class="header">Meldung erfolgreich versandt!</div>Vielen Dank für ihre Meldungserstellung.');
+	$('#successPopup').modal({
+	    onHide    : function(){
+	    	$('#reportForm').form('clear');
+	    }
+	  }).modal('show');
 };
 
 function autoComplete() {
@@ -154,7 +161,7 @@ function autoComplete() {
 			.form(
 					'set values',
 					{
-						title : 'Test Titel',
+						title : 'Testtitel',
 						building : 1,
 						room : 1,
 						category : 1,

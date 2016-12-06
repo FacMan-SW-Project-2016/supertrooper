@@ -22,10 +22,9 @@
 			</a>
 		</div>
 		<div class="active item" id="whoami"></div>
-		<a class="item" href="http://localhost/reportcreate.html">Meldung anlegen</a>
-		<a class="item" href="http://localhost/reportshow.html">Meldungen anzeigen</a>
-		<a class="item" id="adminMenuItem" href="http://localhost/admin.html">Administration</a>
-		<a class="item" href="/login.html" onClick="deleteAllCookies()"> Abmelden</a>
+		<a class="item" href="http://localhost/reportcreate.html">Meldung anlegen</a> <a class="item" href="http://localhost/reportshow.html">Meldungen
+			anzeigen</a> <a class="item" id="adminMenuItem" href="http://localhost/admin.html">Administration</a> <a class="item" href="/login.html"
+			onClick="deleteAllCookies()"> Abmelden</a>
 
 
 
@@ -99,8 +98,30 @@
 					<div class="ui blue submit button" id="submitButton">Absenden</div>
 					<div class="ui reset button">Zurücksetzen</div>
 					<div class="ui button" onClick="autoComplete()">Autom. Ausfüllen</div>
-					<div class="ui error message"></div>
+					<div class="ui error message" id="message_container"></div>
 				</form>
+
+				<div class="ui basic modal" id="successPopup">
+					<i class="close icon"></i>
+					<div class="header">Die Meldung wurde erfolgreich versendet!</div>
+					<div class="image content">
+						<div class="image">
+							<i class="child icon"></i>
+						</div>
+						<div class="description">
+							<p>Vielen Dank, dass Sie sich die Zeit genommen haben, eine Meldung zu erstellen.</p>
+							<p>Sie können nun Ihre Meldung unter "Meldungen anzeigen" einsehen.</p>
+							<p>Auf Wunsch können Sie nach Schließen dieses Fensters auch eine weitere Meldung anlegen.</p>
+						</div>
+					</div>
+					<div class="actions">
+						<div class="two fluid ui inverted buttons">
+							<div class="ui ok green basic inverted button">
+								<i class="checkmark icon"></i> Alles klar!
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<script src="js/jquery-3.1.1.min.js"></script>
 				<script src="semantic_ui/semantic.min.js"></script>
