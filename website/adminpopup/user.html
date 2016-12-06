@@ -154,7 +154,11 @@ return false;
 					
 					switch (data.status) {
 		case 0:
+			$('#message_container').html('<div class="header">Alles klar!</div>Der Nutzer wurde erfolgreich angelegt.');
 			$('.ui.modal').modal('hide');
+			
+    	    $('#message_container').show();
+    	    $('#message_container').attr('style', 'display: block;');
 			$('#table_user').bootstrapTable('refresh');
 			return_value = true;
 			break;
@@ -173,8 +177,8 @@ return false;
 				});
 				
 				if (html !== undefined) {
-					$('#message_container').html(html);
-					$('#message_container').show();
+					$('#message_container_popup').html(html);
+					$('#message_container_popup').show();
 				}
 
 				return return_value;
