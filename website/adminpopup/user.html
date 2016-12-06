@@ -29,12 +29,11 @@
             <input id="pwd_best" type="password" >
           </div>
           </td>
-						<div class="ui error message hidden" id="message_container"></div>
       </tr>
 			<tr>
 				<td>Rolle</td>
 			<td>
-				<div class"required field">
+				<div class="required field">
   <div class="required field">
 					<div class="ui selection dropdown">
 					  <input type="hidden" name="role">
@@ -49,6 +48,8 @@
 				</div>
 
           </div>
+          
+						<div class="ui error message hidden" id="message_container_popup"></div>
 				</td>
 			</tr>
   </tbody>
@@ -124,13 +125,11 @@ function insertData()
 	 confirm_password = document.getElementById("pwd_best");
 
 if(password.value != confirm_password.value) {
-alert("passwords don't match");
-
 
 var html = '<div class="header">Passwörter stimmen nicht überein!';
 
-$('#message_container').html(html);
-$('#message_container').show();
+$('#message_container_popup').html(html);
+$('#message_container_popup').show();
 
 return false;
 }else {

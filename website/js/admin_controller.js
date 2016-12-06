@@ -187,7 +187,23 @@ function deleteItem( data )
       processData : false,
       type : 'DELETE',
       success : function (data) {
-          alert("delete successful");
+    	  var html;
+    	  switch (data.status) {
+		case 1:
+			html = '<div class="header">Es kam zu einem Fehler.</div>Leider konnte der Löschvorgang nicht abgeschlossen werden. Vermutlich bestehen noch Abhängigkeiten zu diesem Eintrag.';
+			break;
+		
+		case 0:
+			hmtl = '<div class="header">Alles klar!</div>Der Löschvorgang ist abgeschlossen.';
+			break;
+
+		default:
+			html = '<div class="header">Ups!</div>Es kam zu einem unerwarteten Fehler. <p>Fehlermeldung: ' + data.message + '</p><p>Status: ' + data.status + '</p>';
+			break;
+		}
+    	  $('#message_container').html(html);
+    	  $('#message_container').show();
+    	  $('#message_container').style.display = "block";
           $('#table_' + location).bootstrapTable('refresh');
 
        },
