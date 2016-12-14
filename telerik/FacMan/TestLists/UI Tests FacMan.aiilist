@@ -74,6 +74,14 @@
       {
         "__type": "ArtOfTest.WebAii.Design.Execution.TestInfo",
         "__value": {
+          "Id": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+          "Path": "Set status.tstest",
+          "PathType": 0
+        }
+      },
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestInfo",
+        "__value": {
           "Id": "50fdf8c3-7903-4060-9bbd-f7a4ae0a5237",
           "Path": "Logout.tstest",
           "PathType": 0
