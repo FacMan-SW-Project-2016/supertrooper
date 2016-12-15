@@ -129,9 +129,7 @@ function uploadImage (response, formData)
 				 type: 'POST',
 				 data: formData,
 				 async: false,
-				 success: function (data) {
-						 console.log("Foto wurde hochgeladen.");
-				 },
+				 success: onFormSubmitted,
 				 cache: false,
 				 contentType: false,
 				 processData: false
