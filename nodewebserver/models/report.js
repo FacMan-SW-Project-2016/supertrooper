@@ -25,12 +25,15 @@ function Report() {
 
 
          var id = req.params.id;
-         var sql = 'select * from report';
+         var sql = 'select * from report ';
 
          if (id != undefined)
          {
            sql += ' where id = ' + id;
+         }else {
+           sql += ' order by moment desc';
          }
+
        con.query(sql, function(err, result) {
          con.release();
          res.send(result);

@@ -62,7 +62,7 @@
 						 <a class="active item" data-tab="building">Gebäude</a><a class="item" data-tab="room">Räume</a> <a class="item" data-tab="status">Status</a> <a
 							class="item" data-tab="category">Kategorien</a> <a class="item" data-tab="user">Nutzer</a>
 					</div>
-					<div class="ui bottom attached tab segment" data-tab="building">
+					<div class="ui bottom attached active tab segment" data-tab="building">
 						<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
 						<button onclick="refreshTable(event)" class="ui button">Refresh</button>
 						<button onclick="deleteItem(event)" class="ui button">Delete</button>
@@ -70,7 +70,7 @@
 							<!--    <button class="ui button">test</button>-->
 						</table>
 					</div>
-					<div class="ui bottom attached active tab segment" data-tab="room">
+					<div class="ui bottom attached tab segment" data-tab="room">
 						<div class="ui button" onclick="addItem(event)">Eintrag hinzufügen</div>
 						<button onclick="refreshTable(event)" class="ui button">Refresh</button>
 						<button onclick="deleteItem(event)" class="ui button">Delete</button>
@@ -103,7 +103,7 @@
 							<!--    <button class="ui button">test</button>-->
 						</table>
 					</div>
-					
+
 					<div class="ui message" id="message_container" style="display: none;"></div>
 
 				</div>
