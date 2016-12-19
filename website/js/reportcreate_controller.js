@@ -65,8 +65,8 @@ var $form = $('#reportForm');
 // -------------------------------METHODS-------------------------------------
 
 // default methods for semantic-ui animations
-//$('select.dropdown').dropdown();
 
+// The greeting message can be disabled once and will only appear again after a new login.
 $('.message .close')
 .on('click', function() {
 	setCookie("welcome", "false", 1);
@@ -78,7 +78,7 @@ $('.message .close')
 ;
 
 
-
+// The user may not see and access the admin page if it's role is not 'admin'
 var userRole = getCookie("role");
 
 if (userRole !== "admin")
@@ -116,7 +116,7 @@ function submitForm() {
 
 };
 
-
+// This function is used to upload the image via http to the webservice
 function uploadImage (response, formData)
 {
 	if ($('#fileinputfield').val() != '')
@@ -139,7 +139,7 @@ function uploadImage (response, formData)
 	 		onFormSubmitted(response);
 	 }
 };
-// If something went wrong, dummy behaviour
+// If something went wrong, we only print out, that an error happened.
 function failure() {
 	console.log("Es kam zu einem Fehler.");
 };
@@ -154,6 +154,7 @@ function onFormSubmitted(response) {
 	  }).modal('show');
 };
 
+// Auto-Complete button for testing purposes
 function autoComplete() {
 	$form
 			.form(
@@ -168,6 +169,7 @@ function autoComplete() {
 					})
 };
 
+// The following methods initialize our semantic tools with their settings.
 $('#categoryDropdown').dropdown({
 	  apiSettings: {
 	    url: '//localhost:8000/category',
@@ -216,9 +218,3 @@ if (getCookie("welcome") == "true") {
 } else {
 	$('#info_container').hide();
 };
-
-
-// Dummy method that wants to be tested
-function theAnswer() {
-	  return 42;
-	}

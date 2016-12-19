@@ -1,3 +1,4 @@
+// These are the settings and the rules for our login <form>.
 $(document).ready(function() {
 	$('#loginForm').form({
 		fields : {
@@ -29,6 +30,8 @@ $(document).ready(function() {
 	});
 });
 
+// This function performs the authentication with the webservice. 
+//It hashes the password and sends the data using jQuery.ajax to the node.js webservice.
 function authenticate() {
 	var password = $('#loginForm').form('get value', 'password');
 	var passhash = hex_md5(password);
@@ -83,6 +86,7 @@ function authenticate() {
 	
 }
 
+// Because the login site doesn't use the generic_controller it needs its own setCookie method.
 function setCookie(cname, cvalue, exdays) {
 	var d = new Date();
 	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -90,6 +94,7 @@ function setCookie(cname, cvalue, exdays) {
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+// This method has been used fot testing purposes. It auto-fills the form with the given parameters.
 function autoComplete(user, password) {
 	$('#loginForm').form(
 			'set values',
