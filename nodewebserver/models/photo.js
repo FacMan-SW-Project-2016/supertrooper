@@ -9,7 +9,7 @@ this.upload = function(req, res) {
 
    var id = req.params.id;
 
-   console.log(id);
+  // console.log(id);
 
   var storage =   multer.diskStorage({
     destination: function (req, file, callback) {
@@ -25,10 +25,10 @@ this.upload = function(req, res) {
       //console.log(req.body);
       //console.log(req.files);
       if(err) {
-          console.log(err.message);
+         // console.log(err.message);
           return res.end("Error uploading file.");
       }
-      console.log("Success");
+      //console.log("Success");
       res.end("File is uploaded");
 
 var updateData = {};

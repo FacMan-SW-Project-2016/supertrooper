@@ -18,7 +18,7 @@ describe('Status', function() {
     });
 
 
-    describe('/GET user', function() {
+    describe('/GET status', function() {
 
         it('it should GET all the status(empty)', function (done) {
             chai.request(server)
@@ -26,13 +26,13 @@ describe('Status', function() {
                 .end(function (err, res) {
                     res.should.have.status(200);
                     res.body.should.be.a('array');
-                    res.body.length.should.be.eql(3);
+                    res.body.length.should.be.eql(0);
                     done();
                 });
         });
     });
 
-    describe('/POST user', function() {
+    describe('/POST status', function() {
 
 
 
@@ -91,7 +91,7 @@ describe('Status', function() {
                         .delete('/status/' + '44')
                         .end(function (err, res) {
                             res.should.have.status(200);
-                            res.body.should.have.property('message').eql('Status created successfully');
+                            res.body.should.have.property('message').eql('Deleted successfully');
                             done();
                         });
                 }else

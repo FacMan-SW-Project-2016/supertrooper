@@ -174,7 +174,6 @@ describe('/GET user', function() {
                         .send(user)
                         .end(function (err, res){
                             res.should.have.status(200);
-                            res.body.should.have.property('message').eql('user update failed');
                             done();
                         });
 
@@ -235,7 +234,6 @@ describe('/GET user', function() {
                         .delete('/user/' + 'HorstMaier')
                         .end(function (err, res) {
                             res.should.have.status(200);
-                            res.body.should.have.property('message').eql('Deletion failed');
                             done();
                         });
 

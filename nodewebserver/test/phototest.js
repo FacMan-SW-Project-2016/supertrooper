@@ -36,7 +36,7 @@ describe('Photo', function() {
                 .end(function(err, res){
                   if (err)
                   {
-                      console.log(err.message);
+                     chai.assert(failse, err.message);
                   }else {
 
                       res.should.have.status(200)
@@ -48,7 +48,7 @@ describe('Photo', function() {
                       {
                           chai.assert(false,"File not uploaded");
                       }
-                      done()
+                      done();
                   }
                 })
 
