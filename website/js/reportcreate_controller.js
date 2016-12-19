@@ -154,21 +154,6 @@ function onFormSubmitted(response) {
 	  }).modal('show');
 };
 
-// Auto-Complete button for testing purposes
-function autoComplete() {
-	$form
-			.form(
-					'set values',
-					{
-						title : 'Testtitel',
-						building : 1,
-						room : 1,
-						category : 1,
-						description : 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.',
-						terms : true
-					})
-};
-
 // The following methods initialize our semantic tools with their settings.
 $('#categoryDropdown').dropdown({
 	  apiSettings: {

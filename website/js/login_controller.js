@@ -93,13 +93,3 @@ function setCookie(cname, cvalue, exdays) {
 	var expires = "expires=" + d.toUTCString();
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
-
-// This method has been used fot testing purposes. It auto-fills the form with the given parameters.
-function autoComplete(user, password) {
-	$('#loginForm').form(
-			'set values',
-			{
-				username : user,
-				password : password
-			})
-}
