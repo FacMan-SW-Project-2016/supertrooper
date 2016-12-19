@@ -18,6 +18,24 @@ function User() {
    };
 
 
+
+
+
+this.get_advisors = function(res) {
+   connection.acquire(function(err, con) {
+     con.query('select * from user where role = "advisor"', function(err, result) {
+       con.release();
+
+         var result_values = {};
+
+         result_values["success"] = true;
+         result_values["results"] = result;
+
+         res.send( result_values);
+     });
+   });
+ };
+
    // this.getSpecific = function (name)
    // {
    //     connection.acquire(function(err, con) {
@@ -40,7 +58,7 @@ function User() {
             		   res.send({status: 2, message: 'user with this username already exists'});
 				} else {
 	                   res.send({status: 1, message: 'user creation failed', error: err});
-				}            	   
+				}
                } else {
                    res.send({status: 0, message: 'user created successfully'});
                }

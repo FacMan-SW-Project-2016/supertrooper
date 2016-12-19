@@ -321,7 +321,7 @@ $.ajax({
 
 
     $.ajax({
-  		url : 'http://localhost:8000/user/',
+  		url : 'http://localhost:8000/user_advisor/',
   		cache : false,
   		type : 'GET',
   		success : function (data) {

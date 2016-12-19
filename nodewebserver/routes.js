@@ -56,6 +56,10 @@ module.exports = {
       user.get(res);
     });
 
+    app.get('/user_advisor/', function (req, res){
+      user.get_advisors(res);
+    });
+
     //User authentication
     app.post('/user/authenticate', function (req, res){
     	user.authenticate(req.body, res);
