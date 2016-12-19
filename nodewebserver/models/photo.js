@@ -25,7 +25,7 @@ this.upload = function(req, res) {
       //console.log(req.body);
       //console.log(req.files);
       if(err) {
-          console.log("Error");
+          console.log(err.message);
           return res.end("Error uploading file.");
       }
       console.log("Success");
