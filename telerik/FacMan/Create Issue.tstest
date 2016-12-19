@@ -578,12 +578,12 @@
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
             "Runtime ID": "c7c1f551-8b2c-4beb-a367-30b870c79d4f",
-            "Description": "Wait for '100' msec.",
+            "Description": "Wait for '500' msec.",
             "CustomDescription": null,
             "Step": {
               "__type": "ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.SleepActionDescriptor",
               "__value": {
-                "WaitTime": 100,
+                "WaitTime": 500,
                 "WaitOnElements": true,
                 "WaitOnElementsTimeout": 30000,
                 "UseStepWaitOnElementsTimout": false,
@@ -728,12 +728,12 @@
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
             "Runtime ID": "12a8e896-4592-4947-bf47-72b28a86f413",
-            "Description": "Wait for '100' msec.",
+            "Description": "Wait for '500' msec.",
             "CustomDescription": null,
             "Step": {
               "__type": "ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.SleepActionDescriptor",
               "__value": {
-                "WaitTime": 100,
+                "WaitTime": 500,
                 "WaitOnElements": true,
                 "WaitOnElementsTimeout": 30000,
                 "UseStepWaitOnElementsTimout": false,
@@ -807,12 +807,12 @@
           "__type": "ArtOfTest.WebAii.Design.ProjectModel.AutomationStep",
           "__value": {
             "Runtime ID": "ac5d1755-edab-4bf7-bd1a-3a63b9d00324",
-            "Description": "Wait for '100' msec.",
+            "Description": "Wait for '300' msec.",
             "CustomDescription": null,
             "Step": {
               "__type": "ArtOfTest.WebAii.Design.IntrinsicTranslators.Descriptors.SleepActionDescriptor",
               "__value": {
-                "WaitTime": 100,
+                "WaitTime": 300,
                 "WaitOnElements": true,
                 "WaitOnElementsTimeout": 30000,
                 "UseStepWaitOnElementsTimout": false,
