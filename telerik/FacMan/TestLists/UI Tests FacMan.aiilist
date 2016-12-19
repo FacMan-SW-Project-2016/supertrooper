@@ -82,6 +82,14 @@
       {
         "__type": "ArtOfTest.WebAii.Design.Execution.TestInfo",
         "__value": {
+          "Id": "79b00284-ad5e-429a-a403-f5c1401ba709",
+          "Path": "Create Room.tstest",
+          "PathType": 0
+        }
+      },
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestInfo",
+        "__value": {
           "Id": "50fdf8c3-7903-4060-9bbd-f7a4ae0a5237",
           "Path": "Logout.tstest",
           "PathType": 0

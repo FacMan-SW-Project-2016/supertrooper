@@ -25,7 +25,7 @@
       <td>Gebäude</td>
       <td>
 				  <div class="required field">
-        <div class="ui floating search selection dropdown" id="dropdownbuilding" name=building>
+        <div class="ui floating search selection dropdown" id="dropdownBuilding">
             <input type="hidden" name="building">
                       <i class="dropdown icon"></i>
             <div class="default text" ></div>
@@ -85,7 +85,7 @@ function validateForm()
 }
 
 
-$('#dropdownbuilding').dropdown({
+$('#dropdownBuilding').dropdown({
 	apiSettings: {
 	    url: '//localhost:8000/building',
 	    cache: false

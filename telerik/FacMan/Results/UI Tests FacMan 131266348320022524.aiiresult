@@ -1,0 +1,984 @@
+{
+  "__type": "ArtOfTest.WebAii.Design.Execution.RunResult",
+  "__value": {
+    "IsComplete": true,
+    "Name": "UI Tests FacMan",
+    "StartTime": "2016-12-19T15:26:39",
+    "EndTime": "2016-12-19T15:27:11.9982507Z",
+    "Id": "3ccfdfee-b10d-4322-bbf1-c0803bafcec6",
+    "DataCollectors": {},
+    "TestResults": [
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+        "__value": {
+          "Browser": 1,
+          "ExeType": 5,
+          "SeparatorLineCharCount": 60,
+          "Message": "Overall Result: Pass\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:40' - Executing test: 'Login', path: 'Login.tstest.'\r\n'19.12.2016 16:26:40' - Using .Net Runtime version: '4.0.30319.42000' for test execution. Build version is '2016.3.928.0'.\r\n'19.12.2016 16:26:40' - Starting execution....\r\n------------------------------------------------------------\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:41' - Using 'InternetExplorer' version '11.0' as default browser. \r\n'19.12.2016 16:26:42' - 'Pass' : 1. Navigate to : 'http://localhost/login.html'\r\n'19.12.2016 16:26:42' - 'Pass' : 2. Enter text 'Admin' in 'UsernameText'\r\n'19.12.2016 16:26:42' - 'Pass' : 3. Keyboard (KeyPress) - Tab (1 times) on 'UsernameText'\r\n'19.12.2016 16:26:42' - 'Pass' : 4. Enter text '123456789' in 'PasswordPassword'\r\n'19.12.2016 16:26:43' - 'Pass' : 5. Click 'LoginButtonDiv'\r\n'19.12.2016 16:26:43' - 'Pass' : 6. Wait '500' msec for url:'http://localhost/index.html'\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:43' - Overall Result: Pass\r\n'19.12.2016 16:26:43' - Duration: [0 min: 1 sec: 420 msec]\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:43' - Test completed!\r\n",
+          "FailureException": null,
+          "Result": 0,
+          "TestId": "6f1a5036-c5db-4e62-84ee-98965a86d2e6",
+          "TestName": "Login",
+          "TestPath": "Login.tstest",
+          "TestOwner": "",
+          "TestDescription": "",
+          "ProjectPath": "",
+          "StepResults": [
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Login",
+                "TestPath": "Login.tstest",
+                "TestId": "6f1a5036-c5db-4e62-84ee-98965a86d2e6",
+                "TestStepIndex": 0,
+                "StepDescription": "Navigate to : 'http://localhost/login.html'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 1,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1347723234,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Login",
+                "TestPath": "Login.tstest",
+                "TestId": "6f1a5036-c5db-4e62-84ee-98965a86d2e6",
+                "TestStepIndex": 1,
+                "StepDescription": "Enter text 'Admin' in 'UsernameText'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 2,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1106498604,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Login",
+                "TestPath": "Login.tstest",
+                "TestId": "6f1a5036-c5db-4e62-84ee-98965a86d2e6",
+                "TestStepIndex": 2,
+                "StepDescription": "Keyboard (KeyPress) - Tab (1 times) on 'UsernameText'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 3,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1170792671,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Login",
+                "TestPath": "Login.tstest",
+                "TestId": "6f1a5036-c5db-4e62-84ee-98965a86d2e6",
+                "TestStepIndex": 3,
+                "StepDescription": "Enter text '123456789' in 'PasswordPassword'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 4,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1106498606,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Login",
+                "TestPath": "Login.tstest",
+                "TestId": "6f1a5036-c5db-4e62-84ee-98965a86d2e6",
+                "TestStepIndex": 4,
+                "StepDescription": "Click 'LoginButtonDiv'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 5,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960564,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Login",
+                "TestPath": "Login.tstest",
+                "TestId": "6f1a5036-c5db-4e62-84ee-98965a86d2e6",
+                "TestStepIndex": 5,
+                "StepDescription": "Wait '500' msec for url:'http://localhost/index.html'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 6,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -758791295,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            }
+          ],
+          "NotRunStepDescriptions": [],
+          "TotalPassedSteps": 6,
+          "ExecutingTestStepCount": 6,
+          "TotalNumberOfNotRunSteps": 0,
+          "IsDataDrivenResult": false,
+          "DataIterationResults": [],
+          "EndTime": "2016-12-19T15:26:43.3767876Z",
+          "StartTime": "2016-12-19T15:26:41.9567833Z",
+          "ProfilerResultsPath": null,
+          "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+          "CommitedBy": null
+        }
+      },
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+        "__value": {
+          "Browser": 1,
+          "ExeType": 5,
+          "SeparatorLineCharCount": 60,
+          "Message": "Overall Result: Pass\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:44' - Executing test: 'Create Issue', path: 'Create Issue.tstest.'\r\n'19.12.2016 16:26:44' - Using .Net Runtime version: '4.0.30319.42000' for test execution. Build version is '2016.3.928.0'.\r\n'19.12.2016 16:26:44' - Starting execution....\r\n'19.12.2016 16:26:45' - Detected custom code in test. Locating test assembly: FacMan.dll.\r\n'19.12.2016 16:26:45' - Assembly Found: C:\\Users\\D062706\\git\\supertrooper\\telerik\\FacMan\\bin\\FacMan.dll\r\n'19.12.2016 16:26:45' - Loading code class: 'FacMan.Create_Issue'.\r\n------------------------------------------------------------\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:45' - Using 'InternetExplorer' version '11.0' as default browser. \r\n'19.12.2016 16:26:46' - 'Pass' : 1. Navigate to : 'http://localhost/index.html'\r\n'19.12.2016 16:26:46' - 'Pass' : 2. Click 'MeldungAnlegenLink'\r\n'19.12.2016 16:26:46' - 'Pass' : 3. Enter text 'Fenster kaputt' in 'TitleText'\r\n'19.12.2016 16:26:47' - 'Pass' : 4. Desktop command: LeftClick on BuildingDropdownDiv and Select Value 1\r\n'19.12.2016 16:26:47' - 'Pass' : 5. Wait for '100' msec.\r\n'19.12.2016 16:26:47' - 'Pass' : 6. Click 'HauptgebaeudeADiv'\r\n'19.12.2016 16:26:48' - 'Pass' : 7. Wait for '500' msec.\r\n'19.12.2016 16:26:48' - 'Pass' : 8. Desktop command: LeftClick on RoomDropdownDiv\r\n'19.12.2016 16:26:48' - 'Pass' : 9. Wait for '500' msec.\r\n'19.12.2016 16:26:48' - 'Pass' : 10. Click 'BibliothekDiv'\r\n'19.12.2016 16:26:49' - 'Pass' : 11. Wait for '500' msec.\r\n'19.12.2016 16:26:49' - 'Pass' : 12. Desktop command: LeftClick on CategoryDropdownDiv\r\n'19.12.2016 16:26:49' - 'Pass' : 13. Wait for '300' msec.\r\n'19.12.2016 16:26:49' - 'Pass' : 14. Click 'DefektDiv'\r\n'19.12.2016 16:26:49' - 'Pass' : 15. Enter text 'Das Fenster in der Bibliothek in Gebäude A ist kaputt und sollte repariert werden.' in 'DescriptionTextArea'\r\n'19.12.2016 16:26:49' - 'Pass' : 16. Check 'TermsCheckBox' to be 'True'\r\n'19.12.2016 16:26:49' - 'Pass' : 17. Wait for '100' msec.\r\n'19.12.2016 16:26:50' - 'Pass' : 18. Click 'SubmitButtonDiv'\r\n'19.12.2016 16:26:50' - 'Pass' : 19. Verify element 'DieMeldungDiv' 'is' visible.\r\n'19.12.2016 16:26:50' - 'Pass' : 20. Click 'AllesKlarDiv'\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:50' - Overall Result: Pass\r\n'19.12.2016 16:26:50' - Duration: [0 min: 4 sec: 316 msec]\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:50' - Test completed!\r\n",
+          "FailureException": null,
+          "Result": 0,
+          "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+          "TestName": "Create Issue",
+          "TestPath": "Create Issue.tstest",
+          "TestOwner": "",
+          "TestDescription": "",
+          "ProjectPath": "",
+          "StepResults": [
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 0,
+                "StepDescription": "Navigate to : 'http://localhost/index.html'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 1,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1347723234,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 1,
+                "StepDescription": "Click 'MeldungAnlegenLink'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 2,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960561,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 2,
+                "StepDescription": "Enter text 'Fenster kaputt' in 'TitleText'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 3,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1106498605,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 3,
+                "StepDescription": "Desktop command: LeftClick on BuildingDropdownDiv and Select Value 1",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 4,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2113398269,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 4,
+                "StepDescription": "Wait for '100' msec.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 5,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1280481826,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 5,
+                "StepDescription": "Click 'HauptgebaeudeADiv'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 6,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960565,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 6,
+                "StepDescription": "Wait for '500' msec.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 7,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1280481824,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 7,
+                "StepDescription": "Desktop command: LeftClick on RoomDropdownDiv",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 8,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2113398273,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 8,
+                "StepDescription": "Wait for '500' msec.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 9,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1280481822,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 9,
+                "StepDescription": "Click 'BibliothekDiv'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 10,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960569,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 10,
+                "StepDescription": "Wait for '500' msec.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 11,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1280481820,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 11,
+                "StepDescription": "Desktop command: LeftClick on CategoryDropdownDiv",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 12,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2113398277,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 12,
+                "StepDescription": "Wait for '300' msec.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 13,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1280481818,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 13,
+                "StepDescription": "Click 'DefektDiv'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 14,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960573,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 14,
+                "StepDescription": "Enter text 'Das Fenster in der Bibliothek in Gebäude A ist kaputt und sollte repariert werden.' in 'DescriptionTextArea'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 15,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1106498617,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 15,
+                "StepDescription": "Check 'TermsCheckBox' to be 'True'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 16,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1094448590,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 16,
+                "StepDescription": "Wait for '100' msec.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 17,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1280481814,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 17,
+                "StepDescription": "Click 'SubmitButtonDiv'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 18,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2113398283,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 18,
+                "StepDescription": "Verify element 'DieMeldungDiv' 'is' visible.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 19,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1164883295,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Create Issue",
+                "TestPath": "Create Issue.tstest",
+                "TestId": "374faa31-94b6-4cbe-ac25-3aa0ebed4352",
+                "TestStepIndex": 19,
+                "StepDescription": "Click 'AllesKlarDiv'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 20,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960579,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            }
+          ],
+          "NotRunStepDescriptions": [],
+          "TotalPassedSteps": 20,
+          "ExecutingTestStepCount": 20,
+          "TotalNumberOfNotRunSteps": 0,
+          "IsDataDrivenResult": false,
+          "DataIterationResults": [],
+          "EndTime": "2016-12-19T15:26:50.2318045Z",
+          "StartTime": "2016-12-19T15:26:45.9155291Z",
+          "ProfilerResultsPath": null,
+          "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+          "CommitedBy": null
+        }
+      },
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+        "__value": {
+          "Browser": 1,
+          "ExeType": 5,
+          "SeparatorLineCharCount": 60,
+          "Message": "Overall Result: Pass\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:51' - Executing test: 'Set status', path: 'Set status.tstest.'\r\n'19.12.2016 16:26:51' - Using .Net Runtime version: '4.0.30319.42000' for test execution. Build version is '2016.3.928.0'.\r\n'19.12.2016 16:26:51' - Starting execution....\r\n'19.12.2016 16:26:52' - Detected custom code in test. Locating test assembly: FacMan.dll.\r\n'19.12.2016 16:26:52' - Assembly Found: C:\\Users\\D062706\\git\\supertrooper\\telerik\\FacMan\\bin\\FacMan.dll\r\n'19.12.2016 16:26:52' - Loading code class: 'FacMan.Set_status'.\r\n------------------------------------------------------------\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:52' - Using 'InternetExplorer' version '11.0' as default browser. \r\n'19.12.2016 16:26:52' - 'Pass' : 1. Navigate to : 'http://localhost/index.html'\r\n'19.12.2016 16:26:54' - 'Pass' : 2. Click 'MeldungLink'\r\n'19.12.2016 16:26:55' - 'Pass' : 3. Wait for '1000' msec.\r\n'19.12.2016 16:26:55' - 'Pass' : 4. Click 'x14112016TableCell'\r\n'19.12.2016 16:26:55' - 'Pass' : 5. Wait for '200' msec.\r\n'19.12.2016 16:26:56' - 'Pass' : 6. Click 'Status Dropdown'\r\n'19.12.2016 16:26:56' - 'Pass' : 7. Wait for '100' msec.\r\n'19.12.2016 16:26:56' - 'Pass' : 8. Click 'ActiveDiv'\r\n'19.12.2016 16:26:57' - 'Pass' : 9. Click 'SpeichernDiv'\r\n'19.12.2016 16:26:57' - 'Pass' : 10. Verify element 'Popup Modal' 'is not' visible.\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:57' - Overall Result: Pass\r\n'19.12.2016 16:26:57' - Duration: [0 min: 5 sec: 179 msec]\r\n------------------------------------------------------------\r\n'19.12.2016 16:26:58' - Test completed!\r\n",
+          "FailureException": null,
+          "Result": 0,
+          "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+          "TestName": "Set status",
+          "TestPath": "Set status.tstest",
+          "TestOwner": "",
+          "TestDescription": "",
+          "ProjectPath": "",
+          "StepResults": [
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Set status",
+                "TestPath": "Set status.tstest",
+                "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+                "TestStepIndex": 0,
+                "StepDescription": "Navigate to : 'http://localhost/index.html'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 1,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1347723234,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Set status",
+                "TestPath": "Set status.tstest",
+                "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+                "TestStepIndex": 1,
+                "StepDescription": "Click 'MeldungLink'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 2,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960561,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Set status",
+                "TestPath": "Set status.tstest",
+                "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+                "TestStepIndex": 2,
+                "StepDescription": "Wait for '1000' msec.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 3,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1280481828,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Set status",
+                "TestPath": "Set status.tstest",
+                "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+                "TestStepIndex": 3,
+                "StepDescription": "Click 'x14112016TableCell'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 4,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960563,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Set status",
+                "TestPath": "Set status.tstest",
+                "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+                "TestStepIndex": 4,
+                "StepDescription": "Wait for '200' msec.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 5,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1280481826,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Set status",
+                "TestPath": "Set status.tstest",
+                "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+                "TestStepIndex": 5,
+                "StepDescription": "Click 'Status Dropdown'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 6,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2113398271,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Set status",
+                "TestPath": "Set status.tstest",
+                "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+                "TestStepIndex": 6,
+                "StepDescription": "Wait for '100' msec.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 7,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -1280481824,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Set status",
+                "TestPath": "Set status.tstest",
+                "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+                "TestStepIndex": 7,
+                "StepDescription": "Click 'ActiveDiv'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 8,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960567,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Set status",
+                "TestPath": "Set status.tstest",
+                "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+                "TestStepIndex": 8,
+                "StepDescription": "Click 'SpeichernDiv'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 9,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960568,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Set status",
+                "TestPath": "Set status.tstest",
+                "TestId": "365740a6-3b59-4a3f-a776-7a275a42f00a",
+                "TestStepIndex": 9,
+                "StepDescription": "Verify element 'Popup Modal' 'is not' visible.",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 10,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1164883286,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            }
+          ],
+          "NotRunStepDescriptions": [],
+          "TotalPassedSteps": 10,
+          "ExecutingTestStepCount": 10,
+          "TotalNumberOfNotRunSteps": 0,
+          "IsDataDrivenResult": false,
+          "DataIterationResults": [],
+          "EndTime": "2016-12-19T15:26:57.7363768Z",
+          "StartTime": "2016-12-19T15:26:52.556379Z",
+          "ProfilerResultsPath": null,
+          "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+          "CommitedBy": null
+        }
+      },
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+        "__value": {
+          "Browser": 1,
+          "ExeType": 0,
+          "SeparatorLineCharCount": 60,
+          "Message": "------------------------------------------------------------\r\n'19.12.2016 16:26:58' - Executing test: 'Create Room', path: 'Create Room.tstest.'\r\n'19.12.2016 16:26:58' - Using .Net Runtime version: '4.0.30319.42000' for test execution. Build version is '2016.3.928.0'.\r\n'19.12.2016 16:26:58' - Starting execution....\r\n'19.12.2016 16:27:04' - Failure detected during execution. Details:\r\n------------------------------------------------------------\r\n'19.12.2016 16:27:04' - System.ApplicationException: Exception thrown attempting to launch Internet Explorer. Please make sure Internet Explorer is properly installed and you are able to launch it. ---> System.TimeoutException: Wait for condition has timed out\r\n   at ArtOfTest.Common.WaitSync.CheckResult(WaitSync wait, String extraExceptionInfo, Object target)\r\n   at ArtOfTest.Common.WaitSync.For[T](Predicate`1 predicate, T target, Boolean invertCondition, Int32 timeout, WaitResultType errorResultType)\r\n   at ArtOfTest.Common.WaitSync.For[T](Predicate`1 predicate, T target, Boolean invertCondition, Int32 timeout)\r\n   at ArtOfTest.Common.WaitSync.For[T](Predicate`1 predicate, T target, Int32 timeout)\r\n   at ArtOfTest.Common.Win32.Connector.Attach(IntPtr& handle, Boolean findTabWindow, Int32 waitTimeout)\r\n   at ArtOfTest.WebAii.BrowserSpecialized.InternetExplorer.InternetExplorerActions.LaunchNewBrowserInstance(Int32 timeout, ProcessWindowStyle windowStyle, String pipename, String url)\r\n   --- End of inner exception stack trace ---\r\n   at ArtOfTest.WebAii.BrowserSpecialized.InternetExplorer.InternetExplorerActions.LaunchNewBrowserInstance(Int32 timeout, ProcessWindowStyle windowStyle, String pipename, String url)\r\n   at ArtOfTest.WebAii.Core.Manager.LaunchNewBrowser(BrowserType browserToLaunch, Boolean waitForBrowserToConnect, ProcessWindowStyle windowStyle, String arguments)\r\n   at ArtOfTest.WebAii.Design.Execution.ExecutionEngine.InitializeWeb(ExecutionEngineCreateParams initParams)\r\n   at ArtOfTest.WebAii.Design.Execution.TestExecuteProxy.CreateAndInitializeEngine(Test test, ExecutionEngineCreateParams cp)\r\n   at ArtOfTest.WebAii.Design.Execution.TestExecuteProxy.ExecuteTest(ExecuteTestCommand command)\r\n------------------------------------------------------------\r\n'19.12.2016 16:27:04' - Test completed!\r\n",
+          "FailureException": {
+  "__type": "ArtOfTest.Common.Design.Exceptions.ExecutionException",
+  "__value": {
+    "message": "General execution error.",
+    "DataProvider": {
+      "__type": "ArtOfTest.Common.Design.Exceptions.ErrorDataProvider",
+      "__value": {
+        "_info": {
+          "HostState": null
+        }
+      }
+    }
+  }
+},
+          "Result": 1,
+          "TestId": "79b00284-ad5e-429a-a403-f5c1401ba709",
+          "TestName": "Create Room",
+          "TestPath": "Create Room.tstest",
+          "TestOwner": "",
+          "TestDescription": "",
+          "ProjectPath": "",
+          "StepResults": [],
+          "NotRunStepDescriptions": [
+            "Navigate to : 'http://localhost/index.html'",
+            "Click 'AdministrationLink'",
+            "Click 'RäumeLink'",
+            "Click 'EintragDiv'",
+            "Enter text 'Testraum' in 'NameText'",
+            "Enter text '1.' in 'FloorText'",
+            "Desktop command: LeftClick on BuildingDropdownDiv and Select Value 1",
+            "Wait for '100' msec.",
+            "Click 'MaxstrasseDiv'",
+            "Click 'EintragDiv'",
+            "Click 'GebäudeLink'",
+            "Click 'RäumeLink'",
+            "Verify element 'RäumeLink' 'is' visible."
+          ],
+          "TotalPassedSteps": 0,
+          "ExecutingTestStepCount": 0,
+          "TotalNumberOfNotRunSteps": 0,
+          "IsDataDrivenResult": false,
+          "DataIterationResults": [],
+          "EndTime": "2016-12-19T16:27:04.3442166+01:00",
+          "StartTime": "2016-12-19T15:26:58.741504Z",
+          "ProfilerResultsPath": null,
+          "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+          "CommitedBy": null
+        }
+      },
+      {
+        "__type": "ArtOfTest.WebAii.Design.Execution.TestResult",
+        "__value": {
+          "Browser": 1,
+          "ExeType": 5,
+          "SeparatorLineCharCount": 60,
+          "Message": "Overall Result: Pass\r\n------------------------------------------------------------\r\n'19.12.2016 16:27:04' - Executing test: 'Logout', path: 'Logout.tstest.'\r\n'19.12.2016 16:27:04' - Using .Net Runtime version: '4.0.30319.42000' for test execution. Build version is '2016.3.928.0'.\r\n'19.12.2016 16:27:04' - Starting execution....\r\n------------------------------------------------------------\r\n------------------------------------------------------------\r\n'19.12.2016 16:27:10' - Using 'InternetExplorer' version '11.0' as default browser. \r\n'19.12.2016 16:27:10' - 'Pass' : 1. Navigate to : 'http://localhost/index.html'\r\n'19.12.2016 16:27:10' - 'Pass' : 2. Click 'ITag'\r\n'19.12.2016 16:27:11' - 'Pass' : 3. Click 'AbmeldenLink'\r\n'19.12.2016 16:27:11' - 'Pass' : 4. Wait '500' msec for url:'http://localhost/login.html'\r\n------------------------------------------------------------\r\n'19.12.2016 16:27:11' - Overall Result: Pass\r\n'19.12.2016 16:27:11' - Duration: [0 min: 0 sec: 743 msec]\r\n------------------------------------------------------------\r\n'19.12.2016 16:27:11' - Test completed!\r\n",
+          "FailureException": null,
+          "Result": 0,
+          "TestId": "50fdf8c3-7903-4060-9bbd-f7a4ae0a5237",
+          "TestName": "Logout",
+          "TestPath": "Logout.tstest",
+          "TestOwner": "",
+          "TestDescription": "",
+          "ProjectPath": "",
+          "StepResults": [
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Logout",
+                "TestPath": "Logout.tstest",
+                "TestId": "50fdf8c3-7903-4060-9bbd-f7a4ae0a5237",
+                "TestStepIndex": 0,
+                "StepDescription": "Navigate to : 'http://localhost/index.html'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 1,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 1347723234,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Logout",
+                "TestPath": "Logout.tstest",
+                "TestId": "50fdf8c3-7903-4060-9bbd-f7a4ae0a5237",
+                "TestStepIndex": 1,
+                "StepDescription": "Click 'ITag'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 2,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960561,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Logout",
+                "TestPath": "Logout.tstest",
+                "TestId": "50fdf8c3-7903-4060-9bbd-f7a4ae0a5237",
+                "TestStepIndex": 2,
+                "StepDescription": "Click 'AbmeldenLink'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 3,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": 2087960562,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            },
+            {
+              "__type": "ArtOfTest.WebAii.Design.AutomationStepResult",
+              "__value": {
+                "TestName": "Logout",
+                "TestPath": "Logout.tstest",
+                "TestId": "50fdf8c3-7903-4060-9bbd-f7a4ae0a5237",
+                "TestStepIndex": 3,
+                "StepDescription": "Wait '500' msec for url:'http://localhost/login.html'",
+                "Exception": null,
+                "ResultType": 0,
+                "State": null,
+                "Order": 4,
+                "LogMessageOnError": "",
+                "UserComment": null,
+                "HashCode": -758791297,
+                "IsManual": false,
+                "WasStepEnabled": false
+              }
+            }
+          ],
+          "NotRunStepDescriptions": [],
+          "TotalPassedSteps": 4,
+          "ExecutingTestStepCount": 4,
+          "TotalNumberOfNotRunSteps": 0,
+          "IsDataDrivenResult": false,
+          "DataIterationResults": [],
+          "EndTime": "2016-12-19T15:27:11.1317792Z",
+          "StartTime": "2016-12-19T15:27:10.3879904Z",
+          "ProfilerResultsPath": null,
+          "VersionGroupKey": "00000000-0000-0000-0000-000000000000",
+          "CommitedBy": null
+        }
+      }
+    ],
+    "FileName": "UI Tests FacMan 131266348320022524",
+    "Machine": {
+      "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.Machine",
+      "__value": {
+        "Id": "00000000-0000-0000-0000-000000000000",
+        "NetworkName": "WDFN00352330A",
+        "OperatingSystem": "Windows 8",
+        "InstalledBrowsers": [
+          {
+            "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.BrowserInformation",
+            "__value": {
+              "Type": 1,
+              "Version": "9.11.10586.0"
+            }
+          },
+          {
+            "__type": "ArtOfTest.WebAii.Design.Execution.Scheduling.BrowserInformation",
+            "__value": {
+              "Type": 7,
+              "Version": ""
+            }
+          }
+        ],
+        "Status": 0,
+        "ServiceUri": null,
+        "DBState": 0,
+        "UserName": "D062706"
+      }
+    },
+    "Messages": null,
+    "RunId": "3ccfdfee-b10d-4322-bbf1-c0803bafcec6",
+    "Comment": null,
+    "TestListId": "e246edc2-9d2a-45a4-9090-58da3184866a",
+    "IsManual": false,
+    "DispatchGroupId": "00000000-0000-0000-0000-000000000000"
+  }
+}

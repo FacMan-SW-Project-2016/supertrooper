@@ -1,3 +1,4 @@
+// This function returns the value of the cookie named after the parameter
 function getCookie(cname) {
 	var name = cname + "=";
 	var ca = document.cookie.split(';');
@@ -10,9 +11,13 @@ function getCookie(cname) {
 			return c.substring(name.length, c.length);
 		}
 	}
+	// If the cookie does not exist, it returns an empty string
 	return "";
 }
 
+//This function check's whether or not the user is allowed to enter this website.
+//If not, the user gets alterted and forwarded to the login site.
+//If the user it authenticated, he will be welcomed with a short greeting that he/she can disable.
 function checkCookie() {
 	var user = getCookie("username");
 	if (user != "") {
@@ -28,6 +33,7 @@ function checkCookie() {
 	}
 }
 
+// checks the authorization for the admin content
 function checkPathAuthorization(){
 	var pathname = window.location.pathname; // Returns path only
 	var role = this.getCookie("role");
@@ -49,7 +55,7 @@ function checkPathAuthorization(){
 	}
 }
 
-
+// This function can be used to set a cookie given its name, value und the expiration value in amount of days
 function setCookie(cname, cvalue, exdays) {
 	var d = new Date();
 	d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -57,6 +63,7 @@ function setCookie(cname, cvalue, exdays) {
 	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
+// this function is used to perform the logout. It clears/deletes all the cookies.
 function deleteAllCookies() {
 	document.cookie.split(";").forEach(
 			function(c) {
