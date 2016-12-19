@@ -1,3 +1,6 @@
+// This file was used to test the Zombie.js testframework within our application.
+// It is no longer needed, since we now use Telerik Test Studio for clientside testing.
+
 const Browser = require('zombie');
 
 // We're going to make requests to http://facman.com/login
