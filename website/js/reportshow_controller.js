@@ -432,18 +432,19 @@ switch (userRole)
 		break;
 	case "advisor":
 			//toggle button anzeigen lassen
-			$('#showOwnedReports').show();
 			$('#showOwnedReports').checkbox('set checked');
 			$('#showAll').checkbox('set checked');
-			$('#showAll').show();
+			$('#showAllDiv').show();
+			$('#showOwnedReports').attr('style', 'display: inline;')
 
 			delete gFilters.usercreate;
 			gFilters.userfacman = userName;
 			break;
 	case "admin":
 			//toggle button anzeigen lassen
-			$('#showAll').show();
+			$('#showAllDiv').show();
 			$('#showOwnedReports').checkbox('set unchecked');
+			$('#showOwnedReports').attr('style', 'display: none;')
 
 			gFilters.usercreate = userName;
 			delete gFilters.userfacman;
