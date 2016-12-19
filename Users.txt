@@ -1,4 +1,4 @@
-Mit MD5 algorythmus verschlüsselt 
+Mit MD5 Algorithmus verschlÃ¼sselt:
 
 Admin, 123456789 (hash:25f9e794323b453885f5181f1b624d0b)
 Student, 987654321 (hash: 6ebe76c9fb411be97b3b0d48b791a7c9)
