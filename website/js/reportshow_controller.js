@@ -391,6 +391,7 @@ $('#popupForm').form(rulesAndSettings);
 
 					delete gFilters.usercreate;
 					$('#table').bootstrapTable('filterBy', gFilters);
+					$( window ).resize();
 		    },
 				onUnchecked: function() {
 
@@ -411,6 +412,7 @@ $('#popupForm').form(rulesAndSettings);
 
 						delete gFilters.userfacman;
 						$('#table').bootstrapTable('filterBy', gFilters);
+						$( window ).resize();
 					}
 				});
 
