@@ -52,14 +52,28 @@
 					<p></p>
 				<div class="ui container piled segment" id="reportForm">
 					<h4>Meine Meldungen:</h4>
-					<p>W&auml;hlen sie eine Meldung aus um zur Detail Ansicht zu wechseln</p>
-					<div class="ui slider checkbox" id="showAll">
-						<input type="checkbox"> <label>Meldungen aller Ersteller anzeigen</label>
-					</div>
+					<p>W&auml;hlen Sie eine Meldung aus, um zur Detailansicht zu wechseln</p>
 						<button id="delBtn" onclick="deleteItem(event)" class="ui button">Delete</button>
 
+						<div class="ui accordion" id="accordion">
+					       <div class="title">
+					         <i class="icon dropdown"></i>
+					        Filter
+					       </div>
+					       <div class="content">
+
+									 <div class="ui slider checkbox" id="showAll">
+				 						<input type="checkbox"> <label>Meldungen aller Ersteller anzeigen</label>
+				 					</div>
+									<div class="ui slider checkbox" id="showOwnedReports">
+							 		<input type="checkbox"  checked="checked"> <label>nur mir zugeordnete Meldungen anzeigen</label>
+							 	</div>
+					       </div>
+					     </div>
+
+
 					<div class='ui center aligned container'>
-						<table id="table" class="ui selectable celled table" data-click-to-select="true" data-single-select="true">
+						<table id="table" class="ui selectable celled table"   data-click-to-select="true" data-single-select="true">
 							<!--    <button class="ui button">test</button>-->
 						</table>
 					</div>
@@ -71,7 +85,7 @@
 			<script src="semantic_ui/semantic.min.js"></script>
 			<!-- Latest compiled and minified JavaScript -->
 			<script src="./bootstrap/bootstrap-table.js"></script>
-			<script src="./bootstrap/bootstrap-table.min.js"></script>
+			<!-- <script src="./bootstrap/bootstrap-table.min.js"></script> -->
 			<script src="js/generic_controller.js"></script>
 			<script src="js/reportshow_controller.js"></script>
 

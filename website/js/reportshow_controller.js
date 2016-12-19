@@ -38,6 +38,10 @@ var rulesAndSettings = {
 	onSuccess : updateData
 };
 
+$('#accordion').accordion();
+
+	var gFilters = {};
+
 
 var userRole = getCookie("role");
 var columnStruct =  [{
@@ -378,22 +382,37 @@ $('#popupForm').form(rulesAndSettings);
 
     });
 
+	var userName = getCookie("username");
 
 
-		$('.ui.slider.checkbox')
+		$('#showAll')
 		  .checkbox({
 		    onChecked: function() {
 
-					$('#table').bootstrapTable('filterBy', null);
+					delete gFilters.usercreate;
+					$('#table').bootstrapTable('filterBy', gFilters);
 		    },
 				onUnchecked: function() {
 
-					var userName = getCookie("username");
-					var object = {usercreate: userName};
-
-					$('#table').bootstrapTable('filterBy', object);
+					gFilters.usercreate =  userName;
+					$('#table').bootstrapTable('filterBy', gFilters);
 		    }
 		  });
+
+
+
+			$('#showOwnedReports')
+				.checkbox({
+					onChecked: function() {
+						gFilters.userfacman =  userName;
+						$('#table').bootstrapTable('filterBy', gFilters);
+					},
+					onUnchecked: function() {
+
+						delete gFilters.userfacman;
+						$('#table').bootstrapTable('filterBy', gFilters);
+					}
+				});
 
 
 	$(document).ready(function() {
@@ -402,25 +421,39 @@ $('#popupForm').form(rulesAndSettings);
 var userName = getCookie("username");
 var userRole = getCookie("role");
 
-var object = {usercreate: userName};
-
-$('#table').bootstrapTable('filterBy', object);
-
 
 switch (userRole)
 {
 	case "student":
 		//toggle button für filter vestecken
-		$('#showAll').hide();
+		$('#accordion').hide();
+		gFilters.usercreate = userName;
+
 		break;
 	case "advisor":
+			//toggle button anzeigen lassen
+			$('#showOwnedReports').show();
+			$('#showOwnedReports').checkbox('set checked');
+			$('#showAll').checkbox('set checked');
+			$('#showAll').show();
+
+			delete gFilters.usercreate;
+			gFilters.userfacman = userName;
+			break;
 	case "admin":
 			//toggle button anzeigen lassen
 			$('#showAll').show();
+			$('#showOwnedReports').checkbox('set unchecked');
+
+			gFilters.usercreate = userName;
+			delete gFilters.userfacman;
 			break;
 }
 
+	$('#table').bootstrapTable('filterBy', gFilters);
+
 });
+
 
 
 
