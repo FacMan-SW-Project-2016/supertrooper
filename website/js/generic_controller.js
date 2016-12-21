@@ -24,8 +24,7 @@ function checkCookie() {
 		$('#info_container').html(
 				'<i class="close icon"></i>Willkommen zurück, ' + user + '.');
 		// Fill the #whoami div with content
-		$('#whoami').html(
-				'Sie sind angemeldet als ' + user);
+		$('#whoami').html('Sie sind angemeldet als ' + user);
 	} else {
 		window
 				.alert('Bitte loggen Sie sich ein, bevor Sie diese Seite aufrufen.');
@@ -34,14 +33,13 @@ function checkCookie() {
 }
 
 // checks the authorization for the admin content
-function checkPathAuthorization(){
+function checkPathAuthorization() {
 	var pathname = window.location.pathname; // Returns path only
 	var role = this.getCookie("role");
 
 	//if current position is admin.html
-	if (pathname === "/admin.html")
-	{
-		if (role !== "admin"){
+	if (pathname === "/admin.html") {
+		if (role !== "admin") {
 
 			//send back to index.html; not authorized
 			window.location.href = '/index.html';
@@ -49,8 +47,8 @@ function checkPathAuthorization(){
 
 		}
 	} else if (pathname === "/index.html" || pathname === "/") {
-		if (role === "admin"){
-			$('#adminColumn').css('display','block');
+		if (role === "admin") {
+			$('#adminColumn').css('display', 'block');
 		}
 	}
 }
@@ -71,7 +69,6 @@ function deleteAllCookies() {
 						"=;expires=" + new Date().toUTCString() + ";path=/");
 			});
 }
-
 
 //checks whether user is allowed to view page or not
 checkPathAuthorization();

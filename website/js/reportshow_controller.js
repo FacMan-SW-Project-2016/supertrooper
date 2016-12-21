@@ -42,8 +42,9 @@ $('#accordion').accordion();
 
 	var gFilters = {};
 
-
+//get User Role from cookie
 var userRole = getCookie("role");
+
 var columnStruct =  [{
 		field: 'state',
 		checkbox: true},{
@@ -67,6 +68,7 @@ var columnStruct =  [{
 	formatter : statusFormat
 }] ;
 
+//define menu structure, depending on role
 if (userRole !== "admin")
 {
 	$('#adminMenuItem').remove();
@@ -102,6 +104,7 @@ $('#table').bootstrapTable({
 	columns :  columnStruct
 });
 
+//status formatter for reports
 function statusFormat(value, row, index){
 	var formatted_status;
 	switch (value) {
@@ -124,6 +127,7 @@ function statusFormat(value, row, index){
 	return formatted_status;
 };
 
+//timestamp formatter; trims timestamp
 function timestampFormat (value, row, index)
 {
 	var timeStamp;
@@ -135,6 +139,8 @@ function timestampFormat (value, row, index)
     return timeStamp;
 };
 
+
+//category formatter; links IDs to category names
 function categoryFormat (value, row, index)
 {
 
@@ -161,7 +167,7 @@ function categoryFormat (value, row, index)
 	return displayname;
 };
 
-
+//links room IDs to room names
 function roomFormat (value, row, index)
 {
 
@@ -199,7 +205,9 @@ function clearRoomDropDown()
   $('#dropdownRoom' + ' .menu').html(" ");
 };
 
-
+//method to dynamically fill dropdown values;
+// self-created work-around
+//due to problems with semantics api call
 function setDynamicOptions(selector, keyword, textfield, options) {
     var att = "data-dinamic-opt";
     $(selector).find('[' + att + ']').remove();
@@ -218,7 +226,6 @@ function setDynamicOptions(selector, keyword, textfield, options) {
 
 
     $(selector + ' .menu').html(html);
-  // $(selector).dropdown({showOnFocus: false});
 };
 
 $('#table').on('click-row.bs.table', function (e, row, $element) {
@@ -247,14 +254,14 @@ $('#dropdownBuild').dropdown({
             url: 'http://localhost:8000/room_building/' + roomofbuilding,
             cache: false,
             type: 'GET',
-						async: false,
+			async: false,
             success: function (data){
 
               clearRoomDropDown();
-                setDynamicOptions('#dropdownRoom', 'ID', 'name', data.results);
+              setDynamicOptions('#dropdownRoom', 'ID', 'name', data.results);
 
 
-								$(document).ready(function() {
+			$(document).ready(function() {
 
 						 $('#dropdownRoom').dropdown('set selected', row.room);
 					 });
@@ -423,17 +430,17 @@ $('#popupForm').form(rulesAndSettings);
 var userName = getCookie("username");
 var userRole = getCookie("role");
 
-
+//initialize filter due to role
 switch (userRole)
 {
 	case "student":
-		//toggle button für filter vestecken
+		//hide toggle buttons
 		$('#accordion').hide();
 		gFilters.usercreate = userName;
 
 		break;
 	case "advisor":
-			//toggle button anzeigen lassen
+			//show toggle buttons
 			$('#showOwnedReports').checkbox('set checked');
 			$('#showAll').checkbox('set checked');
 			$('#showAllDiv').show();
@@ -443,7 +450,7 @@ switch (userRole)
 			gFilters.userfacman = userName;
 			break;
 	case "admin":
-			//toggle button anzeigen lassen
+			//show toggle buttons
 			$('#showAllDiv').show();
 			$('#showOwnedReports').checkbox('set unchecked');
 			$('#showOwnedReports').attr('style', 'display: none;')

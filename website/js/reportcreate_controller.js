@@ -38,9 +38,7 @@ var rulesAndSettings = {
 					},
 					{
 						type : 'minLength[20]',
-						prompt : 'Bitte formulieren Sie die Beschreibung noch etwas aus.',
-					// prompt : 'Your password must be at least
-					// {ruleValue} characters'
+						prompt : 'Bitte formulieren Sie die Beschreibung noch etwas aus.',					
 					} ]
 		},
 		terms : {
@@ -146,7 +144,6 @@ function failure() {
 
 // Handle the response of the http request
 function onFormSubmitted(response) {
-//	$('#message_container').html('<div class="header">Meldung erfolgreich versandt!</div>Vielen Dank für ihre Meldungserstellung.');
 	$('#successPopup').modal({
 	    onHide    : function(){
 	    	$('#reportForm').form('clear');
@@ -162,7 +159,6 @@ $('#categoryDropdown').dropdown({
 	  },
 	  saveRemoteData: false,
 	  fields: {
-//	    remoteValues: 'results',
 		  value: 'ID',
 		  name: 'text'
 	  }
@@ -180,7 +176,6 @@ $('#buildingDropdown').dropdown({
 			  },
 			  saveRemoteData: false,
 			  fields: {
-//			    remoteValues: 'results',
 				  value: 'ID',
 				  name: 'name'
 			  }
@@ -192,7 +187,6 @@ $('#buildingDropdown').dropdown({
 	  },
 	  saveRemoteData: false,
 	  fields: {
-//	    remoteValues: 'results',
 		  value: 'ID',
 		  name: 'name'
 	  }
