@@ -1,6 +1,6 @@
 
 
-# supertrooper
+# SW-Projekt FacMan
 
 ## Technologien
 JS, CSS, HTML5, NodeJS, SQL (MySQL)
