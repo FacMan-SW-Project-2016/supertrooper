@@ -15,41 +15,38 @@ var uploadPath = './uploads/userPhoto-4711.jpg';
 
 chai.use(chaiHttp);
 
-//Our parent block
-describe('Photo', function() {
+//photo test block
+describe('Photo', function () {
 
-    beforeEach(function (done) { //Before each test we empty the database
+    beforeEach(function (done) { //Before each test we remove the existing test photo
 
-        if ( fs.existsSync(uploadPath)) {
+        if (fs.existsSync(uploadPath)) {
             fs.unlinkSync(uploadPath);
         }
         done();
     });
 
-    describe('/upload photo', function() {
+    describe('/upload photo', function () {
 
         it('it should upload a photo', function (done) {
 
             chai.request(server)
                 .post('/photo/4711')
                 .attach('userPhoto', fs.readFileSync('./test/' + filename), filename)
-                .end(function(err, res){
-                  if (err)
-                  {
-                     chai.assert(failse, err.message);
-                  }else {
+                .end(function (err, res) {
+                    if (err) {
+                        chai.assert(failse, err.message);
+                    } else {
 
-                      res.should.have.status(200)
+                        res.should.have.status(200)
 
-                      if (fs.existsSync(uploadPath))
-                        {
-                          chai.assert(true, "File uploaded");
-                      }else
-                      {
-                          chai.assert(false,"File not uploaded");
-                      }
-                      done();
-                  }
+                        if (fs.existsSync(uploadPath)) {
+                            chai.assert(true, "File uploaded");
+                        } else {
+                            chai.assert(false, "File not uploaded");
+                        }
+                        done();
+                    }
                 })
 
 

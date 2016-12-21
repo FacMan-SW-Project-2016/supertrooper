@@ -20,7 +20,7 @@ function User() {
 
 
 
-
+// just returns advisors (Sachbearbeiter)
 this.get_advisors = function(res) {
    connection.acquire(function(err, con) {
      con.query('select * from user where role = "advisor"', function(err, result) {
@@ -36,18 +36,6 @@ this.get_advisors = function(res) {
    });
  };
 
-   // this.getSpecific = function (name)
-   // {
-   //     connection.acquire(function(err, con) {
-   //         con.query('select * from user where name= ?',name, function(err, result) {
-   //             con.release();
-   //
-   //             if ( !error )
-   //              return result;
-   //              return result;
-   //         });
-   //     });
-   // };
 
    this.create = function(user, res) {
        connection.acquire(function(err, con) {

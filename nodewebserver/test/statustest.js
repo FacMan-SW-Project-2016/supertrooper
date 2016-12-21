@@ -10,15 +10,15 @@ var server = require('../app.js');
 var should = chai.should();
 
 chai.use(chaiHttp);
-//Our parent block
-describe('Status', function() {
+//status test block
+describe('Status', function () {
     beforeEach(function (done) { //Before each test we empty the database
         Status.deleteAll();
         done();
     });
 
 
-    describe('/GET status', function() {
+    describe('/GET status', function () {
 
         it('it should GET all the status(empty)', function (done) {
             chai.request(server)
@@ -32,8 +32,7 @@ describe('Status', function() {
         });
     });
 
-    describe('/POST status', function() {
-
+    describe('/POST status', function () {
 
 
         it('it should create a status', function (done) {
@@ -41,7 +40,6 @@ describe('Status', function() {
             var status = {
                 type: "test"
             }
-
 
             chai.request(server)
                 .post('/status')
@@ -53,12 +51,9 @@ describe('Status', function() {
                 });
         });
 
-
-
         it('it cannot create status', function (done) {
 
-            var status = {
-            }
+            var status = {}
             chai.request(server)
                 .post('/status')
                 .send(status)
@@ -72,9 +67,7 @@ describe('Status', function() {
     });
 
 
-
-    describe('/Delete status', function() {
-
+    describe('/Delete status', function () {
 
         it('it should delete a status', function (done) {
 
@@ -83,10 +76,8 @@ describe('Status', function() {
                 type: "test"
             }
 
-            Status.createStatus(status, function (error)
-            {
-                if (!error)
-                {
+            Status.createStatus(status, function (error) {
+                if (!error) {
                     chai.request(server)
                         .delete('/status/' + '44')
                         .end(function (err, res) {
@@ -94,12 +85,9 @@ describe('Status', function() {
                             res.body.should.have.property('message').eql('Deleted successfully');
                             done();
                         });
-                }else
+                } else
                     done(error);
             })
-
-
-
         });
     });
 
