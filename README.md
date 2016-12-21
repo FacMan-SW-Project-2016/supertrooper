@@ -9,5 +9,5 @@ JS, CSS, HTML5, NodeJS, SQL (MySQL)
 siehe Architecture.png
 
 ## Tests
-Backend-Tests via Mocha und Chai für NodeJS
-UI-Tests via Telerik
+- Backend-Tests via Mocha und Chai für NodeJS
+- UI-Tests via Telerik
