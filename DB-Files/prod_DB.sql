@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2016 at 07:49 PM
+-- Generation Time: Dec 21, 2016 at 10:18 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -17,13 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `factest`
+-- Database: `facilitymgmt`
 --
-
-DROP DATABASE IF EXISTS `factest`;
-
-CREATE DATABASE IF NOT EXISTS `factest` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `factest`;
+CREATE DATABASE IF NOT EXISTS `facilitymgmt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `facilitymgmt`;
 
 -- --------------------------------------------------------
 
@@ -34,7 +31,7 @@ USE `factest`;
 CREATE TABLE `building` (
   `ID` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `address` varchar(30) NOT NULL
+  `address` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -86,7 +83,7 @@ CREATE TABLE `report` (
   `usercreate` char(20) DEFAULT NULL,
   `userfacman` char(20) DEFAULT NULL,
   `data` varchar(30) DEFAULT NULL,
-  `moment` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `moment` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -95,12 +92,14 @@ CREATE TABLE `report` (
 
 INSERT INTO `report` (`ID`, `title`, `room`, `category`, `status`, `description`, `usercreate`, `userfacman`, `data`, `moment`) VALUES
 (1, 'Beamer kaputt in Hörsaal 6', 1, 2, 1, 'Mit Beamer im hörsaal 6 kann keine verbindung aufgenommen werden', 'Felix Gillissen', NULL, NULL, '2016-10-19 18:38:58'),
-(2, 'Mülleimer übefüllt', 2, 1, 2, 'Mülleimer im Hörsaal 4 läuft über, der raum ist verdreckt', 'Felix Gillissen', 'Thomas Hammer', NULL, '2016-10-19 18:38:58'),
-(3, 'Penis bild auf Tafel', 1, 4, 2, 'Bild eines Penis wurde auf die Tafel des Hörsaal 6 gemalt.', 'Felix Gillissen', '', NULL, '2016-10-19 18:38:58'),
-(43, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, 'userPhoto-43.jpg', '2016-10-24 17:28:12'),
-(44, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, NULL, '2016-10-24 17:29:06'),
-(45, 'Müll in Hörsaal 4', 1, 3, NULL, 'Toilette ist verstopft, bla bla blablablabla', NULL, NULL, NULL, '2016-10-29 07:02:07'),
-(46, 'Felix Test', 1, 2, 2, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, '', NULL, '2016-11-03 11:39:48');
+(2, 'Mülleimer übefüllt', 2, 1, 2, 'Mülleimer im Hörsaal 4 läuft über, der raum ist verdreckt', 'Felix Gillissen', 'Admin', NULL, '2016-11-09 16:48:52'),
+(82, 'Fenster kaputt', 5, 3, 1, 'Fenster in Raum 0002 wurde beschädigt. Es waren vermutlich studenten', 'Admin', '', NULL, '2016-12-19 20:01:33'),
+(83, 'Beamer funktioniert nicht mehr', 11, 3, 1, 'Beamer im Raum 306 ist nicht mehr funktionsfähig', 'Admin', 'Sachbearbeiter', NULL, '2016-12-19 20:02:16'),
+(84, 'Fenster kaputt', 3, 3, 1, 'Das Fenster in der Bibliothek in Gebäude A ist kaputt und sollte repariert werden.', 'Admin', '', NULL, '2016-12-20 10:25:45'),
+(85, 'Titel', 12, 1, NULL, ' moin moin moinm monm mon', 'Student', NULL, NULL, '2016-12-20 10:41:46'),
+(86, 'LAUCH GESICHTET', 5, 4, 3, 'keine ahnung was der da zu suchen hat, macht ihn weg!!!!', 'Student', 'Manfred', 'userPhoto-86.jpg', '2016-12-20 10:42:55'),
+(87, 'Da liegt ein Lauch rum', 5, 4, 2, 'Ich glaube in die Uni hat sich ein Lauch verirrt', 'Student', 'Laura', 'userPhoto-87.jpg', '2016-12-20 11:54:55'),
+(88, 'Fenster kaputt', 3, 3, NULL, 'Das Fenster in der Bibliothek in Gebäude A ist kaputt und sollte repariert werden.', 'Admin', NULL, NULL, '2016-12-20 11:59:25');
 
 -- --------------------------------------------------------
 
@@ -123,9 +122,18 @@ INSERT INTO `room` (`ID`, `name`, `floor`, `building`) VALUES
 (1, 'Hörsaal 6', 1, 5),
 (2, 'Hörsaal 4', 1, 5),
 (3, 'Bibliothek', 0, 1),
-(4, 'Hörsaal 1', 2, 2),
-(5, 'Hörsaal 2', 3, 3),
-(6, 'Hörsaal 3', 1, 4);
+(4, 'Raum001', 0, 2),
+(5, 'Raum002', 0, 2),
+(6, 'R108', 1, 2),
+(7, 'Max001', 0, 3),
+(8, 'Max102', 1, 3),
+(9, 'Max201', 2, 3),
+(10, 'Trans160', 1, 4),
+(11, 'Trans306', 3, 4),
+(12, 'Mensa', 0, 1),
+(13, 'Testraum', 1, 3),
+(14, 'Testraum', 1, 3),
+(15, 'Testraum', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -165,6 +173,9 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`name`, `password`, `role`) VALUES
 ('Admin', '25f9e794323b453885f5181f1b624d0b', 'admin'),
+('Laura', '47a81c33610cf7b9850404d63aec1721', 'advisor'),
+('Manfred', '4cdec908de5ca1dcf6c910b685bc6469', 'advisor'),
+('Sachbearbeiter', '05a671c66aefea124cc08b76ea6d30bb', 'advisor'),
 ('Student', '6ebe76c9fb411be97b3b0d48b791a7c9', 'student');
 
 --
@@ -219,7 +230,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `building`
 --
 ALTER TABLE `building`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `category`
 --
@@ -229,12 +240,12 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 --
 -- AUTO_INCREMENT for table `room`
 --
 ALTER TABLE `room`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `status`
 --

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 09, 2016 at 07:49 PM
+-- Generation Time: Dec 21, 2016 at 10:19 AM
 -- Server version: 10.1.16-MariaDB
 -- PHP Version: 5.6.24
 
@@ -17,13 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `facilitymgmt`
+-- Database: `factest`
 --
-
-DROP DATABASE IF EXISTS `facilitymgmt`;
-
-CREATE DATABASE IF NOT EXISTS `facilitymgmt` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `facilitymgmt`;
+CREATE DATABASE IF NOT EXISTS `factest` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `factest`;
 
 -- --------------------------------------------------------
 
@@ -34,7 +31,7 @@ USE `facilitymgmt`;
 CREATE TABLE `building` (
   `ID` int(11) NOT NULL,
   `name` varchar(30) NOT NULL,
-  `address` varchar(30) NOT NULL
+  `address` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -86,21 +83,8 @@ CREATE TABLE `report` (
   `usercreate` char(20) DEFAULT NULL,
   `userfacman` char(20) DEFAULT NULL,
   `data` varchar(30) DEFAULT NULL,
-  `moment` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `moment` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `report`
---
-
-INSERT INTO `report` (`ID`, `title`, `room`, `category`, `status`, `description`, `usercreate`, `userfacman`, `data`, `moment`) VALUES
-(1, 'Beamer kaputt in Hörsaal 6', 1, 2, 1, 'Mit Beamer im hörsaal 6 kann keine verbindung aufgenommen werden', 'Felix Gillissen', NULL, NULL, '2016-10-19 18:38:58'),
-(2, 'Mülleimer übefüllt', 2, 1, 2, 'Mülleimer im Hörsaal 4 läuft über, der raum ist verdreckt', 'Felix Gillissen', 'Thomas Hammer', NULL, '2016-10-19 18:38:58'),
-(3, 'Penis bild auf Tafel', 1, 4, 2, 'Bild eines Penis wurde auf die Tafel des Hörsaal 6 gemalt.', 'Felix Gillissen', '', NULL, '2016-10-19 18:38:58'),
-(43, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, 'userPhoto-43.jpg', '2016-10-24 17:28:12'),
-(44, 'Test Titel', 2, 2, NULL, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, NULL, NULL, '2016-10-24 17:29:06'),
-(45, 'Müll in Hörsaal 4', 1, 3, NULL, 'Toilette ist verstopft, bla bla blablablabla', NULL, NULL, NULL, '2016-10-29 07:02:07'),
-(46, 'Felix Test', 1, 2, 2, 'Dies ist eine Dummy Beschreibung. Sie dient lediglich Testzwecken.', NULL, '', NULL, '2016-11-03 11:39:48');
 
 -- --------------------------------------------------------
 
@@ -138,15 +122,6 @@ CREATE TABLE `status` (
   `type` char(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `status`
---
-
-INSERT INTO `status` (`ID`, `type`) VALUES
-(1, 'active'),
-(2, 'processing'),
-(3, 'done');
-
 -- --------------------------------------------------------
 
 --
@@ -164,8 +139,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`name`, `password`, `role`) VALUES
-('Admin', '25f9e794323b453885f5181f1b624d0b', 'admin'),
-('Student', '6ebe76c9fb411be97b3b0d48b791a7c9', 'student');
+('TestHorst', 'Test123Test', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -239,7 +213,7 @@ ALTER TABLE `room`
 -- AUTO_INCREMENT for table `status`
 --
 ALTER TABLE `status`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 --
 -- Constraints for dumped tables
 --
