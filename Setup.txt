@@ -1,11 +1,11 @@
-Installationsanleitung für das SW-Projekt FacMan
+Installationsanleitung fuer das SW-Projekt FacMan
 ------------------------------------------------
 
 
 1) Installation von XAMPP (oder eines vergleichbaren Webservice mit DB)
 2) Import der DB-Files im Ordner "../DB-Files" in die DB
 3) Installation von NodeJS (Version 6)
-4) Aufruf des Befehls "npm install" über die Node.js command prompt im Ordner "../nodewebserver"
+4) Aufruf des Befehls "npm install" ueber die Node.js command prompt im Ordner "../nodewebserver"
 5) Aufruf des Befehls "npm start" in selbigem Ordner
 
 Nun sollte die index.html im Ordner website im Browser aufrufbar sein.
@@ -16,8 +16,8 @@ Start der Tests:
 
 1) UI-Tests:
 - Installation des Telerik Test Studios
-- Öffnen des Telerik Projekts im Ordner "../telerik"
+- Oeffnen des Telerik Projekts im Ordner "../telerik"
 - Start der "Testlist" oder eines einzelnen Tests
 
 2) Backend-Tests:
-- Aufruf des Befehls "npm test" über die Node.js command prompt im Ordner "../nodewebserver"
+- Aufruf des Befehls "npm test" ueber die Node.js command prompt im Ordner "../nodewebserver"
